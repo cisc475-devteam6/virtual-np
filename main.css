@@ -5,7 +5,11 @@ body {
 
 header {
     background: cornflowerblue;
-    padding: 10px 15px 0 15px;
+    padding: 15px 15px 0 15px;
+}
+
+header nav {
+    position: sticky;
 }
 
 header nav h1 {
@@ -33,8 +37,24 @@ nav ul li {
     margin-right: 10px;
 }
 
+nav ul #login {
+    margin-left: 85%;
+    margin-right: 5%;
+}
+
 nav ul li a {
     color: white;
+}
+
+
+
+
+.background-img {
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width: 100%;
 }
 
 body div.centered-div {
@@ -50,11 +70,10 @@ body div.centered-div {
 #first-picture {
     max-width: 100%;
     height: auto;
-    
-    
 }
 
 #first-div {
     background: yellow;
+    max-width: max-content;
     
 }
