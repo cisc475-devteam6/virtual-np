@@ -1,6 +1,5 @@
 body {
     margin: 0;
-    
 }
 
 header {
@@ -8,9 +7,7 @@ header {
     padding: 15px 15px 0 15px;
 }
 
-header nav {
-    position: sticky;
-}
+
 
 header nav h1 {
     margin: 0;
@@ -38,8 +35,8 @@ nav ul li {
 }
 
 nav ul #login {
-    margin-left: 85%;
-    margin-right: 5%;
+    margin-left: 80%;
+    margin-right: 20%;
 }
 
 nav ul li a {
@@ -49,7 +46,7 @@ nav ul li a {
 
 
 
-.background-img {
+.background-img-1    {
     margin: 0;
     margin-left: auto;
     margin-right: auto;
@@ -64,6 +61,8 @@ body div.centered-div {
     margin-right: auto;
     height: auto;
     width: 50%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:
     
 }
 
