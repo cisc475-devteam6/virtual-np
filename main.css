@@ -1,25 +1,27 @@
 :root {
-  --header-bg-color: #63C5EA;
-  --header-fg-color: white;
-  --header-button-bg-color: #fff5af;
-  --header-button-fg-color: #afb91e;
+  --header-fg-color: #457feb;
+  --header-link-fg-color: #00465f;
+  --header-bg-color: white;
+  --header-button-bg-color: var(--header-fg-color);
+  --header-button-fg-color: var(--header-bg-color);
 }
 
 body {
-    font-family: 'Merriweather', serif;
-
+    font-family: 'Lato', serif;
     margin: 0;
 }
 
 header {
+    position:fixed;
     display: block;
     height:auto;
-    bottom:0;
     top:0;
     left:0;
     right:0;
     background: var(--header-bg-color);
     color: var(--header-fg-color);
+    z-index:9999;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.05);
 }
 
 header nav {
@@ -35,8 +37,9 @@ header nav h1 {
 }
 
 header nav h1 a {
-    color: var(--header-fg-color);
+    color: var(--header-link-fg-color);
     text-decoration: none;
+    text-weight:400;
     padding: 1rem;
 }
 
@@ -49,7 +52,6 @@ nav ul {
 }
 
 nav ul li {
-    color: white;
     display: inline-block;
     list-style-type: none;
     padding: .5rem 1rem;
@@ -58,7 +60,7 @@ nav ul li {
 
 #login {
     background: var(--header-button-bg-color);
-    border-radius: 20rem;
+    /* border-radius: 20rem; */
     margin-right: 1rem;
 }
 
@@ -67,7 +69,8 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    text-weight:400;
+    color: var(--header-link-fg-color);
     text-decoration:none;
 }
 
@@ -86,7 +89,7 @@ body div.centered-div {
     margin-right: auto;
     height: auto;
     width: 50%;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
     font-size:
     
 }
