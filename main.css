@@ -37,7 +37,7 @@ header nav h1 {
 }
 
 header nav h1 a {
-    color: var(--header-fg-color);
+    color: var(--header-link-fg-color);
     text-decoration: none;
     text-weight:400;
     padding: 1rem;
