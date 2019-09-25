@@ -104,3 +104,20 @@ body div.centered-div {
     max-width: max-content;
     
 }
+
+form{
+    top: 50%;
+    margin: auto;
+    display: table;
+    -ms-transform: translateY(50%);
+    transform: translateY(50%);
+}
+
+.signup-form {
+    font-family: "Helvetica", sans-serif;
+}
+
+input[type=submit] {
+    display: block;
+    margin: 0 auto;
+}
