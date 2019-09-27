@@ -7,7 +7,7 @@
 }
 
 body {
-    font-family: 'Lato', serif;
+    font-family: 'Lato', sans-serif;
     margin: 0;
 }
 
@@ -26,9 +26,9 @@ header {
 
 header nav {
     display:grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto auto;
     align-items:center;
-    height: 3.2rem;
+    height: auto;
 }
 
 header nav h1 {
