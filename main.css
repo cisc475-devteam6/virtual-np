@@ -87,17 +87,55 @@ body div.centered-div {
     height: auto;
     width: 50%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size:
-    
+    font-size: larger;
+    text-align: center;
 }
 
-#first-picture {
+#first-img {
     max-width: 100%;
     height: auto;
 }
 
 #first-div {
-    background: yellow;
+    background: lightblue;
     max-width: max-content;
+}
+
+body .footer-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    
+    background: cornflowerblue;
+    margin: 0;
+}
+
+footer .column-left {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    /*margin-left: 1%; */
+    padding: 10px 0 10px 1%;
+    
+    background-color: greenyellow;
+}
+
+footer .column-middle {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    
+    padding: 10px 0 10px 0;
+    background-color: darkorchid;
+    
+}
+
+footer .column-right {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
     
 }
