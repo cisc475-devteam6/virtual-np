@@ -1,55 +1,57 @@
 :root {
-  --header-bg-color: #63C5EA;
-  --header-fg-color: white;
-  --header-button-bg-color: #fff5af;
-  --header-button-fg-color: #afb91e;
+  --header-fg-color: #457feb;
+  --header-link-fg-color: #00465f;
+  --header-bg-color: white;
+  --header-button-bg-color: var(--header-fg-color);
+  --header-button-fg-color: var(--header-bg-color);
 }
 
 body {
-    font-family: 'Merriweather', serif;
-
+    font-family: 'Lato', sans-serif;
     margin: 0;
 }
 
 header {
+    position:fixed;
     display: block;
     height:auto;
-    bottom:0;
     top:0;
     left:0;
     right:0;
     background: var(--header-bg-color);
     color: var(--header-fg-color);
+    z-index:9999;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.05);
 }
 
 header nav {
     display:grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: auto auto;
     align-items:center;
-    height: 3.2rem;
+    height: auto;
 }
 
 header nav h1 {
     margin: 0;
-    display: inline;
+    grid-column: 1 ;
 }
 
 header nav h1 a {
-    color: var(--header-fg-color);
+    color: var(--header-link-fg-color);
     text-decoration: none;
+    text-weight:400;
     padding: 1rem;
 }
 
 nav ul {
     justify-self: end;
-    grid-column: 3 / 3 ;
+    grid-column: 2 ;
     margin: 0;
     padding: 0 0 0 1rem;
     display: inline;
 }
 
 nav ul li {
-    color: white;
     display: inline-block;
     list-style-type: none;
     padding: .5rem 1rem;
@@ -58,7 +60,7 @@ nav ul li {
 
 #login {
     background: var(--header-button-bg-color);
-    border-radius: 20rem;
+    /* border-radius: 20rem; */
     margin-right: 1rem;
 }
 
@@ -67,7 +69,8 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    text-weight:400;
+    color: var(--header-link-fg-color);
     text-decoration:none;
 }
 
@@ -138,4 +141,21 @@ footer .column-right {
     grid-row-start: 1;
     grid-row-end: 2;
     
+}
+
+form{
+    top: 50%;
+    margin: auto;
+    display: table;
+    -ms-transform: translateY(50%);
+    transform: translateY(50%);
+}
+
+.signup-form {
+    font-family: "Helvetica", sans-serif;
+}
+
+input[type=submit] {
+    display: block;
+    margin: 0 auto;
 }
