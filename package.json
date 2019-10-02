@@ -19,7 +19,9 @@
   "homepage": "https://github.com/cisc475-devteam6/virtual-np#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "pug": "^2.0.4"
+    "pug": "^2.0.4",
+    "body-parser": "^1.19.0",
+    "mongoose": "^5.7.1"
   },
   "devDependencies": {
     "nodemon": "^1.19.3"
