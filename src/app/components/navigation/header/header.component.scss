@@ -1,0 +1,25 @@
+@import 'src/virtual-np-theme.scss';
+#brand {
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+#spacer {
+  flex: 1 1 auto;
+}
+
+#mobile-navigation {
+    display:none;
+}
+
+ @media only screen and (max-width: 600px) {
+     #mobile-navigation {
+         display:block;
+     }
+    #page-links {
+        display:none;
+    }
+}
+
+
