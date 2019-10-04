@@ -1,8 +1,18 @@
 @import 'src/virtual-np-theme.scss';
+:host {
+  grid-row: 1;
+  grid-column: 1 / -1;
+  height:fit-content;
+}
 #brand {
     font-style: italic;
     font-weight: 500;
     font-size: 1.2rem;
+}
+#header-container {
+  z-index:1;
+  // position:fixed;
+  width:100%
 }
 
 #spacer {

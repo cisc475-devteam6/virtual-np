@@ -1,17 +1,18 @@
-<mat-toolbar>
-  <button mat-button color=primary routerLink="/" routerLinkActive="active">
-    <div id="brand">Virtual NP</div>
-  </button>
-  <span id="spacer"></span>
-  <div id="page-links">
-    <button mat-button color=primary routerLink="/sign-up" routerLinkActive="active">
-      Sign Up
+<div id="header-container">
+  <mat-toolbar>
+    <button mat-button color=primary routerLink="/" routerLinkActive="active">
+      <div id="brand">{{ title }}</div>
     </button>
-    <button mat-flat-button color=primary routerLink="/" routerLinkActive="active">
-      Sign In
+    <span id="spacer"></span>
+    <div id="page-links">
+      <ng-template ngFor let-page [ngForOf]="pages">
+        <button mat-button color=primary routerLink="{{ page.route }}" routerLinkActive="active">
+          {{ page.name }}
+      </button>
+</ng-template>
+    </div>
+    <button id="mobile-navigation" color=primary mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
     </button>
-  </div>
-  <button id="mobile-navigation" color=primary mat-icon-button (click)="onToggleSidenav()">
-    <mat-icon>menu</mat-icon>
-  </button>
-</mat-toolbar>
+  </mat-toolbar>
+</div>

@@ -1,11 +1,16 @@
 @import 'src/virtual-np-theme.scss';
+:host {
+  grid-row: 2;
+  grid-column: 1 / -1;
+}
 .banner {
+  // grid-row:2;
+  // grid-column: 1 / -1;
   display:flex;
   justify-content:flex-end;
   flex-direction: column;
   height:15rem;
   padding: 2rem;
-  // color: white;
   background-color: mat-color($virtual-np-primary);
   color: map-get(map-get($virtual-np-theme, background), background);
 }
