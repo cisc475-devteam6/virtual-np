@@ -6,7 +6,6 @@ const auth = require('http-auth');
 
 const router = express.Router();
 
-const { body, validationResult } = require('express-validator');
 const Registration = mongoose.model('Registration');
 
 const basic = auth.basic({
