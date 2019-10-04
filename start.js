@@ -1,7 +1,7 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.DATABASE, { useMongoClient: true });
+mongoose.connect(process.env.DATABASE, {useMongoClient: true, useNewUrlParser:true, useUnifiedTopology: true});
 mongoose.Promise = global.Promise;
 mongoose.connection
   .on('connected', () => {
