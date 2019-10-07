@@ -6,11 +6,30 @@
 .banner {
   // grid-row:2;
   // grid-column: 1 / -1;
-  display:flex;
-  justify-content:flex-end;
-  flex-direction: column;
-  height:15rem;
+  // display:flex;
+  // justify-content:flex-end;
+  // flex-direction: column;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  // height:15rem;
+  height:75%;
   padding: 2rem;
   background-color: mat-color($virtual-np-primary);
   color: map-get(map-get($virtual-np-theme, background), background);
+  overflow:visible;
+  place-items:center;
+}
+.banner-header {
+  grid-column: 1;
+}
+.banner-image {
+  height: 100%;
+}
+@media only screen and (max-width: 600px) {
+  .banner-header {
+    grid-column: 1 / -1;
+  }
+  .banner-image {
+    display:none;
+  }
 }

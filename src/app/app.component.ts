@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   pages: Page[];
 
   ngOnInit() {
-    this.title = 'virtual-np';
+    this.title = 'Melanie Hurst';
     this.pages = [
       {
         name: 'Sign Up',

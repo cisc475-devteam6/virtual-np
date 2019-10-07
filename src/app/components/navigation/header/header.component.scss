@@ -4,10 +4,18 @@
   grid-column: 1 / -1;
   height:fit-content;
 }
+#logo {
+  height: 2.5rem;
+  display:inline;
+  margin-top:0.2em;
+  margin-bottom:0.2em;
+  margin-right:0.7rem;
+}
 #brand {
-    font-style: italic;
-    font-weight: 500;
-    font-size: 1.2rem;
+    display:inline;
+    // font-style: italic;
+    font-weight: 700;
+    font-size: 1.0rem;
 }
 #header-container {
   z-index:1;
