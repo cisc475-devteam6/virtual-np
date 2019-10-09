@@ -16,7 +16,7 @@
   padding: 2rem;
   background-color: mat-color($virtual-np-primary);
   color: map-get(map-get($virtual-np-theme, background), background);
-  overflow:visible;
+  overflow:hidden;
   place-items:center;
 }
 .banner-header {
