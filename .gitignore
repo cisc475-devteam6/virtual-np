@@ -45,6 +45,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# ctags
-tags
+
+# Package Lock
 package-lock.json
