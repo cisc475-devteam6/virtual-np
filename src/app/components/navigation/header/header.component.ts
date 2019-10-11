@@ -8,12 +8,11 @@ import { Page } from 'src/app/models/Page';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() title: String;
+  @Input() title: string;
   @Input() pages: Page[];
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

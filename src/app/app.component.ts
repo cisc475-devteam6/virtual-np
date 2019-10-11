@@ -7,20 +7,25 @@ import { Page } from 'src/app/models/Page';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title:String;
+  title: string;
   pages: Page[];
 
-  ngOnInit() {
-    this.title = 'Melanie Hurst';
+  private readonly newProperty = this.title = 'Melanie Hurst';
+
+  constructor() {
+    this.newProperty;
     this.pages = [
       {
-        name: 'Sign Up',
-        route: '/sign-up'
+	name: 'Sign Up',
+	route: '/sign-up'
       },
       {
-        name: 'Sign in',
-        route: '/sign-in'
+	name: 'Sign in',
+	route: '/sign-in'
       }
-    ]
+    ];
+  }
+  ngOnInit() {
+    
   }
 }
