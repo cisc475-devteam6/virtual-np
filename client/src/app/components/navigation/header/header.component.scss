@@ -1,0 +1,43 @@
+@import 'src/virtual-np-theme.scss';
+:host {
+  grid-row: 1;
+  grid-column: 1 / -1;
+  height:fit-content;
+}
+#logo {
+  height: 2.5rem;
+  display:inline;
+  margin-top:0.2em;
+  margin-bottom:0.2em;
+  margin-right:0.7rem;
+}
+#brand {
+    display:inline;
+    // font-style: italic;
+    font-weight: 700;
+    font-size: 1.0rem;
+}
+#header-container {
+  z-index:1;
+  // position:fixed;
+  width:100%
+}
+
+#spacer {
+  flex: 1 1 auto;
+}
+
+#mobile-navigation {
+    display:none;
+}
+
+ @media only screen and (max-width: 600px) {
+     #mobile-navigation {
+         display:block;
+     }
+    #page-links {
+        display:none;
+    }
+}
+
+
