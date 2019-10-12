@@ -1,0 +1,13 @@
+.blue-container {
+  min-height:100%;
+  background-color: mat-color($virtual-np-primary);
+  display: flex;
+  justify-content: center; /* center items vertically, in this case */
+  align-items: center;     /* center items horizontally, in this case */
+}
+ @media only screen and (max-width: 600px) {
+  .blue-container {
+    justify-content:normal;
+    flex-flow: column nowrap;
+  }
+ }
