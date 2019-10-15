@@ -22,6 +22,10 @@ export class AppComponent implements OnInit {
       {
 	name: 'Sign in',
 	route: '/sign-in'
+      },
+      {
+  name: 'Landing Page',
+  route: '/landing-page'
       }
     ];
   }
