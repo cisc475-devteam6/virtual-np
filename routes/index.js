@@ -1,17 +1,17 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const { body, validationResult } = require('express-validator');
-const path = require('path');
-const auth = require('http-auth');
+// const path = require('path');
+// const auth = require('http-auth');
 const AuthenticationController = require('../controllers/authentication'),
       passportService = require('../security/passport');
 const router = express.Router();
 
-const Registration = mongoose.model('Registration');
+// const Registration = mongoose.model('Registration');
 
-const basic = auth.basic({
-  file: path.join(__dirname, '../users.htpasswd'),
-});
+// const basic = auth.basic({
+//   file: path.join(__dirname, '../users.htpasswd'),
+// });
 
 router.get('/', (req, res) => {
   res.render('form', { title: 'Registration form' });

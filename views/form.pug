@@ -8,16 +8,23 @@ block content
       for error in errors
         li= error.msg
 
-  form(action="." method="POST" class="form-registration")
-    label(for="name") Name:
+  form(action="../api/auth/register" method="POST" class="form-registration")
+    label(for="firstName") First Name:
     input(
       type="text"
-      id="name"
-      name="name"
+      id="firstName"
+      name="firstName"
       class="form-control"
-      value=data.name
+      value=data.firstName
     )
-
+    label(for="lastName") Last Name:
+    input(
+      type="text"
+      id="lastName"
+      name="lastName"
+      class="form-control"
+      value=data.lastName
+    )
     label(for="email") Email:
     input(
       type="email"

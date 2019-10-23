@@ -8,7 +8,7 @@ block content
       for error in errors
         li= error.msg
 
-  form(action="." method="POST")
+  form(action="../api/auth/login" method="POST")
     label(for="email") Email:
     input(
       type="email"

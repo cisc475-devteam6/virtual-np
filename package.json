@@ -24,16 +24,12 @@
     "express": "^4.17.1",
     "express-validator": "^6.2.0",
     "http-auth": "^3.2.4",
-<<<<<<< HEAD
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.7.3",
+    "mongoose": "^5.7.6",
     "morgan": "^1.9.1",
+    "ng": "0.0.0",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
-=======
-    "mongoose": "^5.7.6",
-    "ng": "0.0.0",
->>>>>>> 1ead633f05c4b8d18406dc979eed21475ecc3aa5
     "pug": "^2.0.4"
   },
   "devDependencies": {
