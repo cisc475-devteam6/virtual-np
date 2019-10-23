@@ -9,6 +9,11 @@ const registrationSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
+  password: {
+    type: String,
+    trim:false,
+    required: true
+  }
 });
 
 module.exports = mongoose.model('Registration', registrationSchema);

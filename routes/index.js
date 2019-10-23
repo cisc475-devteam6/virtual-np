@@ -1,9 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const { body, validationResult } = require('express-validator/check');
+const { body, validationResult } = require('express-validator');
 const path = require('path');
 const auth = require('http-auth');
-
+const AuthenticationController = require('../controllers/authentication'),
+      passportService = require('../security/passport');
 const router = express.Router();
 
 const Registration = mongoose.model('Registration');
@@ -43,7 +44,7 @@ router.post('/',
   }
 );
 
-router.get('/registrations', auth.connect(basic), (req, res) => {
+router.get('/registrations', passportService.requireAuth, (req, res) => {
   Registration.find()
     .then((registrations) => {
       res.render('index', { title: 'Listing registrations', registrations });
