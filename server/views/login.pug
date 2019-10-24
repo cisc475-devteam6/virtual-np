@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  -data = data || {}
+
+  if errors
+    ul
+      for error in errors
+        li= error.msg
+
+  form(action="../api/auth/login" method="POST")
+    label(for="email") Email:
+    input(
+      type="email"
+      id="email"
+      name="email"
+      value=data.email
+    )
+    label(for="password") Password:
+    input(
+      type="password"
+      id="password"
+      name="password"
+      value=data.password
+    )
+
+    input(type="submit" value="Submit")

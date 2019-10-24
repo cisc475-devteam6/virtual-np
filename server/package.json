@@ -1,0 +1,38 @@
+{
+  "name": "virtual-np",
+  "version": "1.0.0",
+  "description": "Virtual visit with a nurse practitioner or other medical professional through a web interface.",
+  "main": "index.js",
+  "scripts": {
+    "watch": "nodemon ./start.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cisc475-devteam6/virtual-np.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cisc475-devteam6/virtual-np/issues"
+  },
+  "homepage": "https://github.com/cisc475-devteam6/virtual-np#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.2.0",
+    "http-auth": "^3.2.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.6",
+    "morgan": "^1.9.1",
+    "ng": "0.0.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "pug": "^2.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
