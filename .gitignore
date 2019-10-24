@@ -3,6 +3,7 @@
 # compiled output
 /dist
 frontend/dist
+
 /tmp
 /out-tsc
 # Only exists if Bazel was run
@@ -11,6 +12,7 @@ frontend/dist
 # dependencies
 /node_modules
 frontend/node_modules
+*/node_modules
 
 # profiling files
 chrome-profiler-events*.json
@@ -48,3 +50,5 @@ testem.log
 Thumbs.db
 node_modules
 
+# Package Lock
+package-lock.json

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="148.32mm"
+   height="143.01mm"
+   version="1.1"
+   viewBox="0 0 148.31943 143.01123"
+   id="svg34"
+   sodipodi:docname="banner-graphic.svg"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06">
+  <defs
+     id="defs38" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1204"
+     inkscape:window-height="675"
+     id="namedview36"
+     showgrid="false"
+     inkscape:zoom="0.87324899"
+     inkscape:cx="276.36025"
+     inkscape:cy="285.29902"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g32"
+     inkscape:object-paths="true" />
+  <metadata
+     id="metadata2">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-45.967 -105.52)"
+     id="g32">
+    <path
+       style="fill:#e5e5e5;fill-opacity:1;stroke:#e5e5e5;stroke-width:0.26458564px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 55.891156,156.74441 c -13.286933,-25.36107 16.347981,-54.69264 42.241429,-47.63585 34.921855,13.02843 29.394785,12.87493 74.339415,9.89238 21.65981,-1.43381 21.2048,35.7137 16.05755,52.74664 -3.40216,18.1345 5.83276,37.5101 -0.85227,54.9248 -11.96545,17.45987 -26.25846,15.57886 -42.7551,9.76653 -42.49357,-13.29619 -73.705494,3.00138 -83.94711,-3.30933 -25.136976,-18.11643 13.895205,-43.91326 -5.083914,-76.38517 z"
+       id="path851"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccccc" />
+    <g
+       stroke-linecap="round"
+       id="g22">
+      <rect
+         transform="rotate(90)"
+         x="135.06"
+         y="-178.54"
+         width="83.147"
+         height="109.62"
+         style="paint-order:markers fill stroke"
+         id="rect6"
+         stroke-linejoin="round"
+         stroke-width="6.6876"
+         stroke="#002984"
+         fill="#002984" />
+      <rect
+         transform="rotate(90)"
+         x="142.06"
+         y="-178.79"
+         width="71.588"
+         height="110.12"
+         style="paint-order:markers fill stroke"
+         id="rect8"
+         stroke-width="6.2199"
+         stroke="#757de8"
+         fill="#757de8" />
+      <g
+         stroke-linejoin="round"
+         id="g20">
+        <rect
+           transform="rotate(90)"
+           x="147.11"
+           y="-178.78"
+           width="71.333"
+           height="110.1"
+           style="paint-order:markers fill stroke"
+           id="rect10"
+           stroke-width="6.2078"
+           stroke="#757de8"
+           fill="#757de8" />
+        <g
+           stroke-width="3"
+           id="g18">
+          <path
+             d="m125.07 155.8 29.934 29.934c8.2661-8.2661 8.2661-21.668 0-29.934-8.2661-8.2661-21.668-8.2661-29.934 0z"
+             style="paint-order:markers fill stroke"
+             id="path12"
+             stroke="#002984"
+             fill="#002984" />
+          <path
+             d="m155.38 185.36-29.934-29.934-29.909 29.934 29.922 29.922z"
+             style="paint-order:markers fill stroke"
+             id="path14"
+             stroke="#3f51b5"
+             fill="#3f51b5" />
+          <path
+             d="m95.906 185.73 29.934-29.934c-8.2661-8.2661-21.668-8.2661-29.934 0-8.2661 8.2661-8.2661 21.668 0 29.934z"
+             style="paint-order:markers fill stroke"
+             id="path16"
+             stroke="#3f51b5"
+             fill="#3f51b5" />
+        </g>
+      </g>
+    </g>
+    <g
+       fill="#00acc1"
+       id="g30">
+      <circle
+         cx="70.091"
+         cy="135.64"
+         r="1.6704"
+         style="paint-order:markers fill stroke"
+         id="circle24" />
+      <circle
+         cx="74.854"
+         cy="135.64"
+         r="1.6704"
+         style="paint-order:markers fill stroke"
+         id="circle26" />
+      <circle
+         cx="80.146"
+         cy="135.64"
+         r="1.6704"
+         style="paint-order:markers fill stroke"
+         id="circle28" />
+    </g>
+  </g>
+</svg>

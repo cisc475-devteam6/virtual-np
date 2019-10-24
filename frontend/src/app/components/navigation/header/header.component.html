@@ -1,0 +1,27 @@
+<div id="header-container">
+  <mat-toolbar>
+    <button mat-button color=primary routerLink="/" routerLinkActive="active">
+      <img id="logo" src="/assets/logo.svg" alt="logo">
+      <div id="brand">{{ title }}</div>
+    </button>
+    <span id="spacer"></span>
+    <div id="page-links">
+      <ng-template ngFor let-page [ngForOf]="pages">
+        <div *ngIf="page.name==='Sign in'; then thenBlock else elseBlock"></div>
+        <ng-template #thenBlock>
+          <button mat-flat-button color=primary routerLink="{{ page.route }}" routerLinkActive="active">
+            {{ page.name }}
+          </button>
+        </ng-template>
+        <ng-template #elseBlock>
+          <button mat-button color=primary routerLink="{{ page.route }}" routerLinkActive="active">
+            {{ page.name }}
+          </button>
+        </ng-template>
+</ng-template>
+    </div>
+    <button id="mobile-navigation" color=primary mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+</div>
