@@ -8,7 +8,7 @@ import { Page } from 'src/app/models/Page';
 })
 export class AppComponent implements OnInit {
   title: string;
-  pages: Page[];
+  public pages: Page[];
 
   private readonly newProperty = this.title = 'Melanie Hurst';
 
@@ -30,6 +30,19 @@ export class AppComponent implements OnInit {
     ];
   }
   ngOnInit() {
-    
+    this.pages = [
+      {
+	name: 'Sign Up',
+	route: '/sign-up'
+      },
+      {
+	name: 'Sign in',
+	route: '/sign-in'
+      },
+      {
+  name: 'Landing Page',
+  route: '/landing-page'
+      }
+    ];
   }
 }
