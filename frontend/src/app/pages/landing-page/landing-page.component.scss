@@ -33,3 +33,48 @@
     display:none;
   }
 }
+
+.first-button {
+  display: block;
+  width: 100%;
+  height: 25%;
+  border: none;
+  background-color: mat-color($virtual-np-primary);
+  font-size: 48px;
+  cursor: pointer;
+  text-align:center;
+  color: #ffffff;
+  box-shadow: 5px 5px #888888;
+}
+
+.even-button {
+  display: block;
+  width: 100%;
+  height: 25%;
+  border: none;
+  background-color: #d9d9d9;
+  font-size: 48px;
+  cursor: pointer;
+  text-align: center;
+  color: #ffffff;
+  box-shadow: 5px 5px #888888;
+  margin-top: 10px;
+}
+
+.odd-button {
+  display: block;
+  width: 100%;
+  height: 25%;
+  border: none;
+  background-color: mat-color($virtual-np-primary);
+  font-size: 48px;
+  cursor: pointer;
+  text-align:center;
+  color: #ffffff;
+  box-shadow: 5px 5px #888888;
+  margin-top: 10px;
+}
+
+#button-layout {
+  height: 95%;
+}
