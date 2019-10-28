@@ -10,6 +10,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component';
 import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { VisitPageComponent } from './pages/visit-page/visit-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
     HomePageComponent,
     SignUpPageComponent,
     SignInPageComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    VisitPageComponent
   ],
   imports: [
     BrowserModule,
