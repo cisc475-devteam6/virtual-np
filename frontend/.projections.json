@@ -1,0 +1,14 @@
+{
+  "src/app/*.ts": {
+    "alternate": ["src/app/{}.html", "src/app/{}.scss"],
+    "type" : "source"
+  },
+  "src/app/*.html": {
+    "alternate": ["src/app/{}.scss", "src/app/{}.ts"],
+    "type" : "template"
+  },
+  "src/app/*.scss": {
+    "alternate": ["src/app/{}.ts", "src/app/{}.html"],
+    "type" : "style"
+  }
+}
