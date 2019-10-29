@@ -54,6 +54,48 @@ describe('AuthService', () => {
           })));
   })
 
+  describe('register()', () => {
+    it('should register a user successfully correctly',
+      fakeAsync( 
+        inject(
+          [AuthService, HttpTestingController] ,
+          (service: AuthService, backend: HttpTestingController) => {
+            const url = 'http://localhost:3000/api/auth/register';
+            const responseObject = {
+              name: 'John Doe',
+            };
+            const userName ='test@example.com';
+            const firstName ='John';
+            const lastName ='Doe';
+            const password ='testpassword';
+            const client ='testclient';
+            let response = null;
+
+            service.register(
+              userName,
+              password,
+              firstName,
+              lastName,
+              client
+            ).subscribe(
+              (receivedResponse: any) => {
+                response = receivedResponse;
+              },
+              (error: any) => {}
+            );
+            const requestWrapper = backend.expectOne({
+              url: 'http://localhost:3000/api/auth/register'
+            });
+            requestWrapper.flush(responseObject);
+
+            tick();
+            expect(requestWrapper.request.method).toEqual('POST');
+            expect(localStorage.getItem('user')).toEqual('{"name":"John Doe"}');
+            // expect(response.body).toEqual(responseObject);
+            // expect(response.status).toBe(200);
+          })));
+  })
+
   describe('logout()', () => {
     it('Should remove the user from local storage', 
       fakeAsync(

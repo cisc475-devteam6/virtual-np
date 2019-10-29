@@ -14,10 +14,10 @@ export class AuthService {
 
   constructor(private _http: HttpClient, private _userSvc: UserService) { }
 
-  public login(userName: string, password: string, client: string) {
+  public login(email: string, password: string, client: string) {
     return this._http.post(
       'http://localhost:3000/api/auth/login',
-      { email: userName, password: password, clientid: client },
+      { email: email, password: password, clientid: client },
       { headers: this.headers}
     ).pipe(map((user: any) => {
       this._userSvc.setUser(user);
@@ -25,8 +25,32 @@ export class AuthService {
     }));
   }
 
+
   public logout() {
     this._userSvc.removeUser();
+  }
+
+  public register(
+    email: string,
+    password: string,
+    firstName: string,
+    lastName: string,
+    client: string
+  ) {
+    return this._http.post(
+      'http://localhost:3000/api/auth/register',
+      {
+        email: email,
+        firstName: firstName,
+        lastName: lastName,
+        password: password,
+        clientid: client
+      },
+      { headers: this.headers}
+    ).pipe(map((user: any) => {
+      this._userSvc.setUser(user);
+      return user;
+    }));
   }
 
 }

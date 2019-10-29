@@ -6,19 +6,6 @@
   grid-column: 1 / -1;
 }
 
-.example-container {
-  flex-direction: column;
-}
-
-.example-container > * {
-  width: 100%;
-}
-#example-card {
-  max-width: 600px;
-  border-radius:0px;
-  box-shadow:none;
-  margin:1.5rem;
-}
-.blue-container {
+.page-container {
   background-color: mat-color($virtual-np-accent);
 }
