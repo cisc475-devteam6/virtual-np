@@ -25,8 +25,8 @@ export class VisitPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
+}
 
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
 }
