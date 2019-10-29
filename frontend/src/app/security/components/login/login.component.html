@@ -1,1 +1,11 @@
-<p>login works!</p>
+<div class="login-content">
+  <mat-form-field>
+    <input matInput [(ngModel)]="email" placeholder="Username" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="password" placeholder="Password" required>
+  </mat-form-field>
+  <button mat-button color=primary (click)="loginClick()" type="submit">
+    Sign In
+  </button>
+</div>

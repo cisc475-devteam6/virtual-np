@@ -15,7 +15,15 @@ export class LoginComponent implements OnInit {
     this.email = this.password = '';
   }
 
+  loginClick = () => {
+    this._authSvc.login(this.email, this.password, 'virtual-np').subscribe(
+      data => console.log('Data:' + data),
+      err => console.log(err)
+    );
+  }
+
   ngOnInit() {
+
   }
 
 }

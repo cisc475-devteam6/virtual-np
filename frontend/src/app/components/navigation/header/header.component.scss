@@ -12,10 +12,10 @@
   margin-right:0.7rem;
 }
 #brand {
-    display:inline;
-    // font-style: italic;
-    font-weight: 700;
-    font-size: 1.0rem;
+  display:inline;
+  // font-style: italic;
+  font-weight: 700;
+  font-size: 1.0rem;
 }
 #header-container {
   z-index:1;
@@ -28,16 +28,16 @@
 }
 
 #mobile-navigation {
-    display:none;
+  display:none;
 }
 
- @media only screen and (max-width: 600px) {
-     #mobile-navigation {
-         display:block;
-     }
-    #page-links {
-        display:none;
-    }
+@media only screen and (max-width: 600px) {
+  #mobile-navigation {
+    display:block;
+  }
+  #page-links {
+    display:none;
+  }
 }
 
 
