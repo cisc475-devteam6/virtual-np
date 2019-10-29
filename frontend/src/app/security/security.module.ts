@@ -6,6 +6,7 @@ import { UserService } from './services/user.service'
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { MaterialModule } from '../material.module';
+import { RegisterComponent } from './components/register/register.component';
 
 
 
@@ -20,7 +21,7 @@ import { MaterialModule } from '../material.module';
     AuthService,
     UserService
   ],
-  declarations: [ LoginComponent ],
-  exports: [ LoginComponent ]
+  declarations: [ LoginComponent, RegisterComponent ],
+  exports: [ LoginComponent, RegisterComponent ]
 })
 export class SecurityModule {}
