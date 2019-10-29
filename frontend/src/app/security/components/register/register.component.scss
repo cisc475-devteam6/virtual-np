@@ -1,0 +1,14 @@
+.form-container {
+  flex-direction: column;
+}
+
+.form-container > * {
+  width: 100%;
+}
+#sign-up-card {
+  max-width: 600px;
+  border-radius:0px;
+  box-shadow:none;
+  margin:1.5rem;
+}
+
