@@ -1,0 +1,15 @@
+@import 'src/virtual-np-theme.scss';
+
+.form-container {
+  flex-direction: column;
+}
+
+.form-container > * {
+  width: 100%;
+}
+#sign-in-card {
+  max-width: 600px;
+  border-radius:0px;
+  box-shadow:none;
+  margin:1.5rem;
+}
