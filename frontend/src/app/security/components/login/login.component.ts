@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   constructor(private _authSvc: AuthService) { }
 
   loginClick() {
-    this._authSvc.login(this.email, this.password, 'virtual-np').subscribe(
+    this._authSvc.login(this.email, this.password).subscribe(
       data => console.log('Data:' + data),
       err => console.log(err)
     );
