@@ -11,6 +11,7 @@ import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component
 import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { VisitPageComponent } from './pages/visit-page/visit-page.component';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { VisitPageComponent } from './pages/visit-page/visit-page.component';
     SignUpPageComponent,
     SignInPageComponent,
     LandingPageComponent,
-    VisitPageComponent
+    VisitPageComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,
