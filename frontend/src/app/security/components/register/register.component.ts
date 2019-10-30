@@ -20,8 +20,7 @@ export class RegisterComponent implements OnInit {
       this.email,
       this.password,
       this.firstName,
-      this.lastName,
-      'virtual-np'
+      this.lastName
     ).subscribe(
       data => console.log('Data:' + data),
       err => console.log(err)
