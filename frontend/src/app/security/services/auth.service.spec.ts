@@ -32,10 +32,9 @@ describe('AuthService', () => {
             };
             const userName ='test@example.com';
             const password ='testpassword';
-            const client ='testclient';
             let response = null;
 
-            service.login(userName, password, client).subscribe(
+            service.login(userName, password).subscribe(
               (receivedResponse: any) => {
                 response = receivedResponse;
               },
@@ -68,7 +67,6 @@ describe('AuthService', () => {
             const firstName ='John';
             const lastName ='Doe';
             const password ='testpassword';
-            const client ='testclient';
             let response = null;
 
             service.register(
@@ -76,7 +74,6 @@ describe('AuthService', () => {
               password,
               firstName,
               lastName,
-              client
             ).subscribe(
               (receivedResponse: any) => {
                 response = receivedResponse;
