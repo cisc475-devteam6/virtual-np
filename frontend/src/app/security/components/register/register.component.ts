@@ -13,11 +13,9 @@ export class RegisterComponent implements OnInit {
   private firstName: string;
   private lastName: string;
 
-  constructor(private _authSvc: AuthService) {
-    this.email = this.password = this.firstName = this.lastName = '';
-  }
+  constructor(private _authSvc: AuthService) { }
 
-  registerClick = () => {
+  registerClick() {
     this._authSvc.register(
       this.email,
       this.password,
@@ -31,6 +29,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.email = this.password = this.firstName = this.lastName = '';
   }
 
 }
