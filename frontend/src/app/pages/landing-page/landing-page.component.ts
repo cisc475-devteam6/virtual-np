@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
-import { Page } from 'src/app/models/page';
+import { Page } from 'src/app/models/Page';
 import { Profile } from 'selenium-webdriver/firefox';
 
 @Component({
