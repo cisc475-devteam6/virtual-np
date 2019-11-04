@@ -1,7 +1,11 @@
 @import 'src/virtual-np-theme.scss';
 @import '../pages.scss';
 
-.blue-container > * {
-    width: 100%;
-    background-color: mat-color($virtual-np-accent);
-  }
+:host {
+  grid-row: 2;
+  grid-column: 1 / -1;
+}
+
+.blue-container {
+  background-color: mat-color($virtual-np-primary);
+}
