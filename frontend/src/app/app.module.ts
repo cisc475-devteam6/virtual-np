@@ -11,6 +11,8 @@ import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component
 import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component';
 import { SecurityModule } from './security/security.module';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { VisitPageComponent } from './pages/visit-page/visit-page.component';
+import { DropdownSelectComponent } from './components/dropdown-select/dropdown-select.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
     HomePageComponent,
     SignUpPageComponent,
     SignInPageComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    VisitPageComponent,
+    DropdownSelectComponent
   ],
   imports: [
     BrowserModule,

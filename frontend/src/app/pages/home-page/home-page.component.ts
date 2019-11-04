@@ -22,6 +22,10 @@ export class HomePageComponent implements OnInit {
       {
   name: 'Landing Page',
   route: '/landing-page'
+      },
+      {
+        name: 'Visit Page',
+        route: '/visit-page'
       }
     ];
    }

@@ -42,6 +42,10 @@ export class AppComponent implements OnInit {
       {
   name: 'Landing Page',
   route: '/landing-page'
+      },
+      {
+        name: 'Visit Page',
+        route: '/visit-page'
       }
     ];
   }

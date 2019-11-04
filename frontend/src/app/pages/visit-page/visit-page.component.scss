@@ -1,0 +1,7 @@
+@import 'src/virtual-np-theme.scss';
+@import '../pages.scss';
+
+.blue-container > * {
+    width: 100%;
+    background-color: mat-color($virtual-np-accent);
+  }
