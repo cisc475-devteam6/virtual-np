@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './visit-page.component.html',
   styleUrls: ['./visit-page.component.scss']
 })
+
 export class VisitPageComponent implements OnInit {
 
   constructor() {
