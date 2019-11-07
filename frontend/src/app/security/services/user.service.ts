@@ -6,17 +6,18 @@ import { ReplaySubject } from 'rxjs';
 })
 export class UserService {
 
+  // TODO Figure out rxjs stuff
   status: ReplaySubject<boolean> = new ReplaySubject<boolean>();
 
   constructor() {
-    this.status.next(this.getUser() != null); 
+    this.status.next(this.getUser() != null);
   }
 
   // Add or remove user to/from local memory
-  setUser = (user: any) => {
+  setUser(user: any) {
     if (user) {
       localStorage.setItem('user', JSON.stringify(user));
-      this.status.next(false);
+      this.status.next(true);
     } else {
       localStorage.removeItem('user');
       this.status.next(false);

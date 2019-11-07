@@ -1,5 +1,4 @@
 import { Component, OnInit  } from '@angular/core';
-import { Page } from 'src/app/models/page';
 
 @Component({
   selector: 'app-root',
@@ -8,41 +7,11 @@ import { Page } from 'src/app/models/page';
 })
 export class AppComponent implements OnInit {
   title: string;
-  public pages: Page[];
 
-  private readonly newProperty = this.title = 'Melanie Hurst';
 
-  constructor() {
-    this.newProperty;
-    this.pages = [
-      {
-	name: 'Sign Up',
-	route: '/sign-up'
-      },
-      {
-	name: 'Sign in',
-	route: '/sign-in'
-      },
-      {
-  name: 'Landing Page',
-  route: '/landing-page'
-      }
-    ];
-  }
+  constructor() { }
+
   ngOnInit() {
-    this.pages = [
-      {
-	name: 'Sign Up',
-	route: '/sign-up'
-      },
-      {
-	name: 'Sign in',
-	route: '/sign-in'
-      },
-      {
-  name: 'Landing Page',
-  route: '/landing-page'
-      }
-    ];
+    this.title = 'Melanie Hurst';
   }
 }
