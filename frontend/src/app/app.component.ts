@@ -1,5 +1,4 @@
 import { Component, OnInit  } from '@angular/core';
-import { Page } from './navigation/models/page';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +7,6 @@ import { Page } from './navigation/models/page';
 })
 export class AppComponent implements OnInit {
   title: string;
-  public pages: Page[];
 
 
   constructor() { }

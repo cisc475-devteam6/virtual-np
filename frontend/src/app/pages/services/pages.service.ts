@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UserService } from '../../security/services/user.service';
-import { Page } from '../../navigation/models/page'
+import { Page } from '../models/page'
 
 @Injectable({
   providedIn: 'root'

@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { PagesService } from '../../../pages/services/pages.service'
 import { UserService } from '../../../security/services/user.service'
 import { AuthService } from '../../../security/services/auth.service'
-import { Page } from '../../models/page'
+import { Page } from '../../../pages/models/page'
 
 @Component({
   selector: "app-header",
