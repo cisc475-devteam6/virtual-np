@@ -1,0 +1,49 @@
+extends layout
+
+block content
+  -data = data || {}
+
+  if errors
+    ul.my-errors
+      for error in errors
+        li= error.msg
+
+  form(action="../api/auth/register" method="POST" class="form-registration")
+    label(for="firstName") First Name:
+    input(
+      type="text"
+      id="firstName"
+      name="firstName"
+      class="form-control"
+      value=data.firstName
+    )
+    label(for="lastName") Last Name:
+    input(
+      type="text"
+      id="lastName"
+      name="lastName"
+      class="form-control"
+      value=data.lastName
+    )
+    label(for="email") Email:
+    input(
+      type="email"
+      id="email"
+      name="email"
+      class="form-control"
+      value=data.email
+    )
+
+    label(for="password") Password:
+    input(
+      type="password"
+      id="password"
+      name="password"
+      class="form-control"
+      value=data.password
+    )
+    input(
+      type="submit"
+      value="Submit"
+      class="btn btn-lg btn-primary btn-block"
+    )
