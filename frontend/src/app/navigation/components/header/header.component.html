@@ -18,7 +18,13 @@
             {{ page.name }}
           </button>
         </ng-template>
-</ng-template>
+      </ng-template>
+      <div *ngIf="isLoggedIn; then thenBlock else elseBlock"></div>
+      <ng-template #thenBlock>
+        <button mat-flat-button color=primary (click)="logout()">
+          Sign out
+        </button>
+      </ng-template>
     </div>
     <button id="mobile-navigation" color=primary mat-icon-button (click)="onToggleSidenav()">
       <mat-icon>menu</mat-icon>
