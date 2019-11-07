@@ -11,6 +11,8 @@ import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component
 import { SecurityModule } from './security/security.module';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { HeaderComponent } from './navigation/components/header/header.component'
+import { VisitPageComponent } from './pages/visit-page/visit-page.component';
+import { DropdownSelectComponent } from './components/dropdown-select/dropdown-select.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { HeaderComponent } from './navigation/components/header/header.component
     SignInPageComponent,
     LandingPageComponent,
     HeaderComponent,
+    VisitPageComponent,
+    DropdownSelectComponent,
   ],
   imports: [
     AppRoutingModule,
