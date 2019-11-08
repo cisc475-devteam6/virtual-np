@@ -2,15 +2,10 @@
     <mat-card class="card">
         <mat-card-title id="form-title">Symptom Selection Form</mat-card-title>
         <mat-card-content>
-            <app-dropdown-select></app-dropdown-select>
-        </mat-card-content>
-    </mat-card>
-    <mat-card class="card">
-        <mat-card-content>
-            <app-dropdown-select></app-dropdown-select>
+            {{dropdown}}
         </mat-card-content>
         <mat-card-content>
-            <button mat-raised-button id="submit">Next</button>
+            <button mat-raised-button id="submit" (click)="refreshOptions()">Next</button>
         </mat-card-content>
     </mat-card>
 </div>

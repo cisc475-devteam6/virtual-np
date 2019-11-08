@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-//import { DropdownComponent } from '../../components/dropdown';
+import { DropdownSelectComponent } from 'src/app/components/dropdown-select/dropdown-select.component';
+import { SymptomsAPIService } from '../../services/symptomsAPI/symptoms-api.service';
 
 @Component({
   selector: 'app-visit-page',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VisitPageComponent implements OnInit {
 
-  constructor() {
+  constructor(public dropdown: DropdownSelectComponent, public myAPISvc: SymptomsAPIService) {
     window.onclick = function(event: any) {
       if (!event.target.matches('.dropbtn')) {
         let dropdowns = document.getElementsByClassName("dropdown-content");
@@ -24,6 +25,11 @@ export class VisitPageComponent implements OnInit {
    }
 
   ngOnInit() {
+  }
+
+  refreshOptions() {
+    this.dropdown.bodyParts = this.myAPISvc.getSymptoms();
+    return true;
   }
 
 }
