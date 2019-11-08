@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DropdownSelectComponent implements OnInit {
 
+  public bodyParts: string[] = ["Head", "Arms", "Leg", "Torso", "Skin"];
+
   constructor() { }
 
   ngOnInit() {

@@ -2,10 +2,6 @@
     <mat-label>Select Body Part</mat-label>
     <select matNativeControl required>
         <option value="Default">Select Affected Body Part</option>
-        <option value="Head">Head</option>
-        <option value="Torso">Torso</option>
-        <option value="Arms">Arms</option>
-        <option value="Legs">Legs</option>
-        <option value="Skin">Skin</option>
+        <option *ngFor="let part of bodyParts">{{part}}</option>
     </select>
 </mat-form-field>
