@@ -6,24 +6,13 @@ import { Page } from '../models/page'
   providedIn: 'root'
 })
 export class PagesService {
-
-  avalaliblePages: Array<Page>;
-  isLoggedIn: boolean = false;
-
-  constructor(private userService: UserService) {
-    this.userService.status.subscribe((status) => this.isLoggedIn = status);
-  }
-
-  public getPages() {
-    if (this.isLoggedIn) {
-      return [
-        {
-          name: 'Landing Page',
-          route: '/landing-page'
-        }
-      ];
+  private authPages: Array<Page> = [
+    {
+      name: 'Landing Page',
+      route: '/landing-page'
     }
-    return [
+  ];
+  private noAuthPages: Array<Page> = [
       {
         name: 'Sign Up',
         route: '/sign-up'
@@ -32,6 +21,14 @@ export class PagesService {
         name: 'Sign in',
         route: '/sign-in'
       },
-    ]
+    ];
+  private isLoggedIn: boolean = false;
+
+  constructor(private userService: UserService) {
+    this.userService.status.subscribe((status) => this.isLoggedIn = status);
+  }
+
+  public getPages() {
+    return this.isLoggedIn ? this.authPages : this.noAuthPages
   }
 }

@@ -6,7 +6,6 @@ import { ReplaySubject } from 'rxjs';
 })
 export class UserService {
 
-  // TODO Figure out rxjs stuff
   status: ReplaySubject<boolean> = new ReplaySubject<boolean>();
 
   constructor() {

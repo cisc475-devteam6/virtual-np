@@ -60,6 +60,7 @@ export class AuthService {
       .pipe(
         map((user: any) => {
           this._userSvc.setUser(user);
+          this.router.navigate(['landing-page']);
           return user;
         })
       );

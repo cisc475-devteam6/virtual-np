@@ -6,6 +6,8 @@ import { AuthService } from '../../services/auth.service'
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
+// TODO: warnings if username/password doesn't exist
 export class LoginComponent implements OnInit {
 
   private email: string;

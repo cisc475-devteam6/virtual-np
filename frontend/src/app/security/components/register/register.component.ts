@@ -6,6 +6,8 @@ import { AuthService } from '../../services/auth.service'
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
+
+// TODO: warnings if information is invalid
 export class RegisterComponent implements OnInit {
 
   private email: string;
