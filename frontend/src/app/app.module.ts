@@ -11,6 +11,9 @@ import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component
 import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component';
 import { SecurityModule } from './security/security.module';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { UserChatPageComponent } from './pages/user-chat-page/user-chat-page.component';
+import { AdminChatPageComponent } from './pages/admin-chat-page/admin-chat-page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
     HomePageComponent,
     SignUpPageComponent,
     SignInPageComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    UserChatPageComponent,
+    AdminChatPageComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +32,7 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
     BrowserAnimationsModule,
     MaterialModule,
     SecurityModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -26,6 +26,14 @@ export class AppComponent implements OnInit {
       {
   name: 'Landing Page',
   route: '/landing-page'
+      },
+      {
+  name: 'User Chat Page',
+  route: '/user-chat'
+      },
+      {
+  name: 'Admin Chat Page',
+  route: '/admin-chat'
       }
     ];
   }
@@ -42,6 +50,14 @@ export class AppComponent implements OnInit {
       {
   name: 'Landing Page',
   route: '/landing-page'
+      },
+      {
+  name: 'User Chat Page',
+  route: '/user-chat'
+      },
+      {
+  name: 'Admin Chat Page',
+  route: '/admin-chat'
       }
     ];
   }
