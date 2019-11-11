@@ -9,6 +9,10 @@ import { SymptomsAPIService } from '../../services/symptomsAPI/symptoms-api.serv
 export class DropdownSelectComponent implements OnInit {
 
   public bodyParts: string[] = ["Head", "Arms", "Leg", "Torso", "Skin"];
+  public symptoms: string[] = [];
+  public addedSymptoms: string[] = [];
+  public hiddenHeader: boolean = true;
+  public tempSymptom: string;
 
   constructor(public myAPISvc: SymptomsAPIService) { }
 
@@ -16,13 +20,16 @@ export class DropdownSelectComponent implements OnInit {
   }
 
   refreshOptions() {
-    document.getElementById("label").innerHTML = "Select Symptom";
-    this.bodyParts = [];
-    this.myAPISvc.getSymptoms().forEach(x => {
-      this.bodyParts.push(x);
-    });
-    document.getElementById("submit").innerHTML = "Submit";
-    document.getElementById("default").innerHTML = "Select Symptom";
+    this.symptoms = this.myAPISvc.getSymptoms();
+  }
+
+  prepSymptom(sel: any) {
+    this.tempSymptom = sel;
+  }
+
+  addSymptom() {
+    this.addedSymptoms.push(this.tempSymptom);
+    this.hiddenHeader = false;
   }
 
 }
