@@ -1,7 +1,8 @@
 <mat-form-field class="symptom-select">
-    <mat-label>Select Body Part</mat-label>
+    <mat-label id="label">Select Body Part</mat-label>
     <select matNativeControl required>
-        <option value="Default">Select Affected Body Part</option>
+        <option value="Default" id="default">Select Affected Body Part</option>
         <option *ngFor="let part of bodyParts">{{part}}</option>
     </select>
 </mat-form-field>
+<br/><button mat-raised-button id="submit" (click)="refreshOptions()">Next</button>

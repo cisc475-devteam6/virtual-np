@@ -9,7 +9,7 @@ import { SymptomsAPIService } from '../../services/symptomsAPI/symptoms-api.serv
 })
 export class VisitPageComponent implements OnInit {
 
-  constructor(public dropdown: DropdownSelectComponent, public myAPISvc: SymptomsAPIService) {
+  constructor() {
     window.onclick = function(event: any) {
       if (!event.target.matches('.dropbtn')) {
         let dropdowns = document.getElementsByClassName("dropdown-content");
@@ -25,11 +25,6 @@ export class VisitPageComponent implements OnInit {
    }
 
   ngOnInit() {
-  }
-
-  refreshOptions() {
-    this.dropdown.bodyParts = this.myAPISvc.getSymptoms();
-    return true;
   }
 
 }
