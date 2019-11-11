@@ -32,7 +32,9 @@ import { DropdownSelectComponent } from './components/dropdown-select/dropdown-s
     MaterialModule,
     SecurityModule,
   ],
-  providers: [],
+  providers: [
+    {provide: DropdownSelectComponent, useClass: DropdownSelectComponent}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
