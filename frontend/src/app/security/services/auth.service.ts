@@ -19,20 +19,32 @@ export class AuthService {
     private _userSvc: UserService
   ) {}
 
+  public test() {
+    return this._http
+    .get<any>(
+      "http://localhost:3000/api/stuff/info",
+      { headers: this.headers }
+    )
+    .pipe(
+      map((user: any) => {
+        return user;
+      }))
+
+  }
   public login(email: string, password: string) {
-     return this._http
-       .post(
-         "http://localhost:3000/api/auth/login",
-         { email: email, password: password },
-         { headers: this.headers }
-       )
-       .pipe(
-         map((user: any) => {
-           this._userSvc.setUser(user);
-           this.router.navigate(['landing-page']);
-           return user;
-         })
-       );
+    return this._http
+    .post(
+      "http://localhost:3000/api/auth/login",
+      { email: email, password: password },
+      { headers: this.headers }
+    )
+    .pipe(
+      map((user: any) => {
+        this._userSvc.setUser(user);
+        this.router.navigate(['landing-page']);
+        return user;
+      })
+    );
   }
 
   public logout() {
@@ -47,23 +59,23 @@ export class AuthService {
     lastName: string
   ) {
     return this._http
-      .post(
-        "http://localhost:3000/api/auth/register",
-        {
-          email: email,
-          firstName: firstName,
-          lastName: lastName,
-          password: password
-        },
-        { headers: this.headers }
-      )
-      .pipe(
-        map((user: any) => {
-          this._userSvc.setUser(user);
-          this.router.navigate(['landing-page']);
-          return user;
-        })
-      );
+    .post(
+      "http://localhost:3000/api/auth/register",
+      {
+        email: email,
+        firstName: firstName,
+        lastName: lastName,
+        password: password
+      },
+      { headers: this.headers }
+    )
+    .pipe(
+      map((user: any) => {
+        this._userSvc.setUser(user);
+        this.router.navigate(['landing-page']);
+        return user;
+      })
+    );
   }
 
   public isLoggedIn() {

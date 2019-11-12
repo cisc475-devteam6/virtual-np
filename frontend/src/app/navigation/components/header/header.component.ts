@@ -3,6 +3,7 @@ import { PagesService } from '../../../pages/services/pages.service'
 import { UserService } from '../../../security/services/user.service'
 import { AuthService } from '../../../security/services/auth.service'
 import { Page } from '../../../pages/models/page'
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: "app-header",
@@ -32,6 +33,9 @@ export class HeaderComponent implements OnInit {
   onToggleSidenav() {}
 
   logout() {
-    this.authService.logout();
+    // this.authService.logout();
+    this.authService.test()
+    .pipe(first())
+    .subscribe(users => console.log(users));
   }
 }
