@@ -7,6 +7,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { MaterialModule } from '../material.module';
 import { RegisterComponent } from './components/register/register.component';
+import { AlertComponent } from './components/alert/alert.component';
 // TODO: JWT Module
 
 @NgModule({
@@ -20,7 +21,7 @@ import { RegisterComponent } from './components/register/register.component';
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
-  declarations: [LoginComponent, RegisterComponent],
-  exports: [LoginComponent, RegisterComponent]
+  declarations: [LoginComponent, RegisterComponent, AlertComponent],
+  exports: [LoginComponent, RegisterComponent, AlertComponent]
 })
 export class SecurityModule {}
