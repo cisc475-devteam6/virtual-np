@@ -2,13 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ErrorInterceptor } from './interceptors/error.interceptor'
-import { HttpClientModule } from '@angular/common/http';
+import { JwtInterceptor } from './interceptors/jwt.interceptor'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { MaterialModule } from '../material.module';
 import { RegisterComponent } from './components/register/register.component';
-// import { AuthRoutingModule } from './auth-routing.module';
-
-
+// TODO: JWT Module
 
 @NgModule({
   imports: [
@@ -16,10 +15,10 @@ import { RegisterComponent } from './components/register/register.component';
     FormsModule,
     HttpClientModule,
     MaterialModule,
-    // AuthRoutingModule,
   ],
   providers: [
-    ErrorInterceptor,
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   declarations: [LoginComponent, RegisterComponent],
   exports: [LoginComponent, RegisterComponent]
