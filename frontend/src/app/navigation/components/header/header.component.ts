@@ -3,6 +3,7 @@ import { PagesService } from '../../../pages/services/pages.service'
 import { UserService } from '../../../security/services/user.service'
 import { AuthService } from '../../../security/services/auth.service'
 import { Page } from '../../../pages/models/page'
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: "app-header",
