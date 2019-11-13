@@ -1,7 +1,7 @@
 import { MaterialModule } from './material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ErrorInterceptor } from './security/interceptors/error.interceptor'
+// import { ErrorInterceptor } from './security/interceptors/error.interceptor'
 // import { JwtInterceptor } from './security/interceptors/jwt.interceptor'
 // import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 

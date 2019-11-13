@@ -33,9 +33,6 @@ export class HeaderComponent implements OnInit {
   onToggleSidenav() {}
 
   logout() {
-    // this.authService.logout();
-    this.authService.test()
-    .pipe(first())
-    .subscribe(users => console.log(users));
+    this.authService.logout();
   }
 }

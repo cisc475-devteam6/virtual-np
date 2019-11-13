@@ -17,8 +17,8 @@ import { RegisterComponent } from './components/register/register.component';
     MaterialModule,
   ],
   providers: [
-        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   declarations: [LoginComponent, RegisterComponent],
   exports: [LoginComponent, RegisterComponent]
