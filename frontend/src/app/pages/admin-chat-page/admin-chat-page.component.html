@@ -1,51 +1,88 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Admin</title>
-    <link href="//getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../../assets/admin.css" rel="stylesheet">
-  </head>
-  <body>
-    <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand" href="#">Dashboard</a>
-        </nav>
-    </header>
-    <div class="container-fluid">
-        <div class="row" id="mainrow">
-            <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
-                <ul class="nav nav-pills flex-column" id="rooms">
+<div class="App">
+        <aside class="sidebar left-sidebar">
+          <section *ngIf="!currentUser.id" class="join-chat">
+            <h4>Join Chat</h4>
+            <form (ngSubmit)="addUser()">
+              <input placeholder="Enter your username" type="text" name="userid" [(ngModel)]="userId" />
+            </form>
+          </section>
+          <section *ngIf="currentUser.id" class="room-members">
+            <h4>Room Users</h4>
+            <ul class="user-list">
+              <li *ngFor="let user of roomUsers">
+                <span class="presence {{ user.presence.state }}"></span>
+                <span>{{ user.name }}</span>
+              </li>
+            </ul>
+          </section>
+          <form *ngIf="currentRoom.isPrivate" (ngSubmit)="addUserToRoom()">
+            <label for="user-name">Add user to {{ currentRoom.name }}</label>
+            <input type="text" class="newUser-input" [(ngModel)]="newUser" name="user-name" id="user-name" placeholder="Enter username">
+          </form>
+        </aside>
+      
+        <main class="chat-window">
+          <header class="chat-header">
+            <h4 *ngIf="!currentRoom.name; else roomName">Chat</h4>
+            <ng-template #roomName>
+              <h4>{{ currentRoom.name }}</h4>
+            </ng-template>
+            <span class="participants"></span>
+          </header>
+          <section class="chat-session">
+            <ul class="message-list">
+              <li class="user-message" *ngFor="let message of messages">
+                <span class="user-id">{{ message.senderId }}</span>
+                <span>{{ message.text }}</span>
+              </li>
+            </ul>
+          </section>
+          <footer *ngIf="currentUser.id" class="chat-footer">
+            <form class="message-form" (ngSubmit)='sendMessage()'>
+              <input class="message-input" placeholder="Type a message. Hit Enter to send" type="text" name="message" [(ngModel)]="newMessage" />
+            </form>
+          </footer>
+        </main>
+      
+        <aside class="sidebar right-sidebar">
+          <section class="room-section">
+            <section *ngIf="currentUser.id" class="user-rooms">
+                <h4>Rooms</h4>
+                <ul class="room-list">
+                  <li *ngFor="let room of userRooms">
+                    <div [class.active]="room.id==currentRoom.id" (click)="connectToRoom(room.id)" class="room">
+                      <span class="room-status" *ngIf="room.isPrivate; else publicRoom">🔒</span>
+                      <ng-template #publicRoom>
+                        <span>🌐</span>
+                      </ng-template>
+                      <span class="room-name">{{ room.name }}</span>
+                    </div>
+                  </li>
                 </ul>
-            </nav>
-            <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3" id="main">
-                <h1>Chats</h1>
-                <p>👈 Select a chat to load the messages</p>
-                <p>&nbsp;</p>
-                <div class="chat" style="margin-bottom:150px">
-                    <h5 id="room-title"></h5>
-                    <p>&nbsp;</p>
-                    <div class="response">
-                        <form id="replyMessage">
-                            <div class="form-group">
-                                <input type="text" placeholder="Enter Message" class="form-control" name="message" />
-                            </div>
-                        </form>
-                    </div>
-                    <div class="table-responsive">
-                      <table class="table table-striped">
-                        <tbody id="chat-msgs">
-                        </tbody>
-                      </table>
-                    </div>
-                </div>
-            </main>
-        </div>
-    </div>
-    <script src="//code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/axios@0.17.0/dist/axios.min.js"></script>
-    <script src="//unpkg.com/@pusher/chatkit-client"></script>
-    <script src="admin.js"></script>
-  </body>
-</html>
+              </section>
+              <section *ngIf="joinableRooms.length > 0" class="joinable-rooms">
+                  <h4>Joinable rooms</h4>
+                  <ul class="room-list">
+                      <li *ngFor="let room of joinableRooms">
+                        <div class="room" (click)="joinRoom(room.id)">
+                          <span class="room-status" *ngIf="room.isPrivate; else publicRoom">🔒</span>
+                          <ng-template #publicRoom>
+                            <span>🌐</span>
+                          </ng-template>
+                          <span class="room-name">{{ room.name }}</span>
+                        </div>
+                      </li>
+                    </ul>
+              </section>
+          </section>
+          <section *ngIf="currentUser.id" class="create-room">
+            <form (ngSubmit)="createRoom()">
+              <input type="text" [(ngModel)]="newRoom.name" name="room-name" id="room-name" placeholder="Create a room">
+              <label for="is-private">
+                  <input type="checkbox" [(ngModel)]="newRoom.isPrivate" name="is-private" id="is-private">
+                  <span>Is this room private?</span>
+              </label>
+            </form>
+          </section>
+        </aside>
+      </div>

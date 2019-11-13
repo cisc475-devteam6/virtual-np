@@ -14,6 +14,7 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { UserChatPageComponent } from './pages/user-chat-page/user-chat-page.component';
 import { AdminChatPageComponent } from './pages/admin-chat-page/admin-chat-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,

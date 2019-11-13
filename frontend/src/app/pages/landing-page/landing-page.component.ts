@@ -16,6 +16,10 @@ export class LandingPageComponent implements OnInit {
             {
                 name: 'User Profile',
                 route: ''
+            },
+            {
+                name: 'Chat',
+                route: '/user-chat'
             }
         ];
     }

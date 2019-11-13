@@ -1,58 +1,204 @@
-body {
-    padding-top: 3.5rem;
-}
-
-h1 {
-    padding-bottom: 9px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #eee;
-}
-
-.sidebar {
-    position: fixed;
-    top: 51px;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
-    padding: 20px 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    border-right: 1px solid #eee;
-}
-
-.sidebar .nav {
-    margin-bottom: 20px;
-}
-
-.sidebar .nav-item {
+.App {
     width: 100%;
-}
-
-.sidebar .nav-item + .nav-item {
-    margin-left: 0;
-}
-
-.sidebar .nav-link {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    border: 1px solid #ccc;
+    color: #333;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    margin: 0;
+  }
+  
+  h4 {
+    margin-bottom: 10px;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  form {
+    margin-bottom: 0;
+  }
+  
+  input[type="text"] {
+    color: #333;
     border-radius: 0;
-}
-
-.placeholders {
-    padding-bottom: 3rem;
-}
-
-.placeholder img {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-}
-
-tr .sender {
-    font-size: 12px;
-    font-weight: 600;
-}
-tr .sender span {
-    color: #676767;
-}
-
-.response {
-    display: none;
-}
+  }
+  
+  .sidebar {
+    flex-basis: 15%;
+    flex-shrink: 0;
+    flex-grow: 0;
+    background-color: #300d4f;
+    color: #fff;
+    padding: 10px 10px;
+  }
+  
+  .left-sidebar section {
+    margin-bottom: 20px;
+  }
+  
+  .left-sidebar {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .room-members {
+    flex-grow: 1;
+  }
+  
+  .right-sidebar .room {
+    display: flex;
+  }
+  
+  .newUser-input {
+    margin-bottom: 0;
+  }
+  
+  .right-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .room {
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .room:hover {
+    background-color: goldenrod;
+    color: #333;
+  }
+  
+  .room.active {
+    background-color: #11D771;
+    color: #333;
+  }
+  
+  .room-name {
+    display: inline-block;
+    margin-left: 10px;
+  }
+  
+  .user-list li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .presence {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+  
+  .presence.online {
+    background-color: green;
+  }
+  
+  .chat-window {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .chat-header, .chat-footer {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  
+  .chat-header {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 20px;
+    height: 40px;
+  }
+  
+  .chat-header h4 {
+    margin-bottom: 0;
+  }
+  
+  .chat-session {
+    flex-grow: 1;
+    padding: 10px 20px;
+    overflow-y: auto;
+  }
+  
+  .message-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  .user-message {
+    margin-top: 10px;
+  }
+  
+  .user-message span {
+    display: block;
+  }
+  
+  .user-id {
+    font-weight: bold;
+  }
+  
+  .chat-footer {
+    padding: 0;
+    border-top: 1px solid #ccc;
+    height: 50px;
+  }
+  
+  .message-form {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .message-input {
+    width: 100%;
+    border: none;
+    margin-bottom: 0;
+    height: 100%;
+  }
+  
+  .message-input:focus {
+    border: none;
+  }
+  
+  .send-message {
+    background-color: #300d4f;
+    color: #fff;
+    border: 1px solid #300d4f;
+    padding: 10px;
+  }
+  
+  .create-room {
+    padding: 0 10px;
+  }
+  
+  .create-room button {
+    display: block;
+  }
+  
+  input[type="checkbox"] {
+    margin-bottom: 0;
+    display: inline-block;
+    margin-right: 5px;
+  }
+  
+  .is-private {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-rooms h4, .joinable-rooms h4 {
+    padding-left: 10px;
+  }

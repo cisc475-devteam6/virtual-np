@@ -1,84 +1,88 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Virtual-NP</title>
-    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../../assets/chat.css">
-  </head>
-  <body>
-    <div class="site-wrapper">
-      <div class="site-wrapper-inner">
-        <div class="cover-container">
-          <header class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand">Virtual-NP.</h3>
-              <nav class="nav nav-masthead">
-                <a class="nav-link active" href="#">Home</a>
-                <a class="nav-link" href="#">Features</a>
-                <a class="nav-link" href="#">Contact</a>
-              </nav>
-            </div>
-          </header>
-          <main role="main" class="inner cover">
-            <h1 class="cover-heading">Virtual-NP.</h1>
-            <p class="lead">A virtual nurse practitioner.</p>
-            <p class="lead">
-              <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
-            </p>
-          </main>
-          <footer class="mastfoot">
-            <div class="inner">
-              <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>. Photo by <a href="https://unsplash.com/photos/UxtIESWxLh8?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jean Gerber</a></p>
-            </div>
-          </footer>
-        </div>
-      </div>
-    </div>
-
-    <div class="chatbubble">
-        <div class="unexpanded">
-            <div class="title">Chat with Support</div>
-        </div>
-        <div class="expanded chat-window">
-          <div class="login-screen container">
-            <form id="loginScreenForm">
-              <div class="form-group">
-                <input type="text" class="form-control" id="fullname" placeholder="Name*" required>
-              </div>
-              <div class="form-group">
-                <input type="email" class="form-control" id="email" placeholder="Email Address*" required>
-              </div>
-              <button type="submit" class="btn btn-block btn-primary">Start Chat</button>
+<div class="App">
+        <aside class="sidebar left-sidebar">
+          <section *ngIf="!currentUser.id" class="join-chat">
+            <h4>Join Chat</h4>
+            <form (ngSubmit)="addUser()">
+              <input placeholder="Enter your username" type="text" name="userid" [(ngModel)]="userId" />
             </form>
-          </div>
-          <div class="chats">
-            <div class="loader-wrapper">
-              <div class="loader">
-                  <span></span>
-                <!-- <span>{</span></span>}</span> -->
-              </div>
-            </div>
-            <ul class="messages clearfix">
+          </section>
+          <section *ngIf="currentUser.id" class="room-members">
+            <h4>Room Users</h4>
+            <ul class="user-list">
+              <li *ngFor="let user of roomUsers">
+                <span class="presence {{ user.presence.state }}"></span>
+                <span>{{ user.name }}</span>
+              </li>
             </ul>
-            <div class="input">
-              <form class="form-inline" id="messageSupport">
-                <div class="form-group">
-                  <input type="text" autocomplete="off" class="form-control" id="newMessage" placeholder="Enter Message">
-                </div>
-                <button type="submit" class="btn btn-primary">Send</button>
-              </form>
-            </div>
-          </div>
-        </div>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
-    <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios@0.17.0/dist/axios.min.js"></script>
-    <script src=" https://unpkg.com/@pusher/chatkit-client"></script>
-    <script src="../../../assets/chat.js"></script>
-  </body>
-</html>
+          </section>
+          <form *ngIf="currentRoom.isPrivate" (ngSubmit)="addUserToRoom()">
+            <label for="user-name">Add user to {{ currentRoom.name }}</label>
+            <input type="text" class="newUser-input" [(ngModel)]="newUser" name="user-name" id="user-name" placeholder="Enter username">
+          </form>
+        </aside>
+      
+        <main class="chat-window">
+          <header class="chat-header">
+            <h4 *ngIf="!currentRoom.name; else roomName">Chat</h4>
+            <ng-template #roomName>
+              <h4>{{ currentRoom.name }}</h4>
+            </ng-template>
+            <span class="participants"></span>
+          </header>
+          <section class="chat-session">
+            <ul class="message-list">
+              <li class="user-message" *ngFor="let message of messages">
+                <span class="user-id">{{ message.senderId }}</span>
+                <span>{{ message.text }}</span>
+              </li>
+            </ul>
+          </section>
+          <footer *ngIf="currentUser.id" class="chat-footer">
+            <form class="message-form" (ngSubmit)='sendMessage()'>
+              <input class="message-input" placeholder="Type a message. Hit Enter to send" type="text" name="message" [(ngModel)]="newMessage" />
+            </form>
+          </footer>
+        </main>
+      
+        <aside class="sidebar right-sidebar">
+          <section class="room-section">
+            <section *ngIf="currentUser.id" class="user-rooms">
+                <h4>Rooms</h4>
+                <ul class="room-list">
+                  <li *ngFor="let room of userRooms">
+                    <div [class.active]="room.id==currentRoom.id" (click)="connectToRoom(room.id)" class="room">
+                      <span class="room-status" *ngIf="room.isPrivate; else publicRoom">🔒</span>
+                      <ng-template #publicRoom>
+                        <span>🌐</span>
+                      </ng-template>
+                      <span class="room-name">{{ room.name }}</span>
+                    </div>
+                  </li>
+                </ul>
+              </section>
+              <section *ngIf="joinableRooms.length > 0" class="joinable-rooms">
+                  <h4>Joinable rooms</h4>
+                  <ul class="room-list">
+                      <li *ngFor="let room of joinableRooms">
+                        <div class="room" (click)="joinRoom(room.id)">
+                          <span class="room-status" *ngIf="room.isPrivate; else publicRoom">🔒</span>
+                          <ng-template #publicRoom>
+                            <span>🌐</span>
+                          </ng-template>
+                          <span class="room-name">{{ room.name }}</span>
+                        </div>
+                      </li>
+                    </ul>
+              </section>
+          </section>
+          <section *ngIf="currentUser.id" class="create-room">
+            <form (ngSubmit)="createRoom()">
+              <input type="text" [(ngModel)]="newRoom.name" name="room-name" id="room-name" placeholder="Create a room">
+              <label for="is-private">
+                  <input type="checkbox" [(ngModel)]="newRoom.isPrivate" name="is-private" id="is-private">
+                  <span>Is this room private?</span>
+              </label>
+            </form>
+          </section>
+        </aside>
+      </div>
