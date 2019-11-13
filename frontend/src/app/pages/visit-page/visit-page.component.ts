@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-//import { DropdownComponent } from '../../components/dropdown';
+import { DropdownSelectComponent } from 'src/app/components/dropdown-select/dropdown-select.component';
+import { SymptomsAPIService } from '../../services/symptomsAPI/symptoms-api.service';
 
 @Component({
   selector: 'app-visit-page',

@@ -36,6 +36,7 @@ import { DropdownSelectComponent } from './components/dropdown-select/dropdown-s
     SecurityModule,
   ],
   providers: [
+    {provide: DropdownSelectComponent, useClass: DropdownSelectComponent}
         // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
         // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
