@@ -8,7 +8,6 @@ import { AlertService } from '../../services/alert.service'
   styleUrls: ['./login.component.scss']
 })
 
-// TODO: warnings if username/password doesn't exist
 export class LoginComponent implements OnInit {
 
   private email: string;
