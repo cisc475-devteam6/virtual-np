@@ -40,4 +40,25 @@
   }
 }
 
+.dropdown-link {
+  width:100%;
+  text-align:center;
+  padding-top:1rem;
+  padding-bottom:1rem;
+  border-bottom-width: 1.5px;
+  border-bottom-style:solid;
+  border-bottom-color: mat-color($virtual-np-primary,500);
+  cursor:pointer;
+}
 
+.dropdown-link a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: $virtual-np-background;
+}
+
+#dropdown-menu {
+  display:flex;
+  flex-direction:column;
+  background-color: mat-color($virtual-np-primary,700);
+}

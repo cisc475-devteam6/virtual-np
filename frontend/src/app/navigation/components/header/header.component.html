@@ -18,10 +18,36 @@
             {{ page.name }}
           </button>
         </ng-template>
-</ng-template>
+      </ng-template>
+      <div *ngIf="isLoggedIn; then thenBlock else elseBlock"></div>
+      <ng-template #thenBlock>
+        <button mat-flat-button color=primary (click)="logout()">
+          Sign out
+        </button>
+      </ng-template>
     </div>
     <button id="mobile-navigation" color=primary mat-icon-button (click)="onToggleSidenav()">
       <mat-icon>menu</mat-icon>
     </button>
   </mat-toolbar>
+  <div *ngIf="this.dropdownVisible">
+    <div id="dropdown-menu">
+      <ng-template ngFor let-page [ngForOf]="pages">
+        <div class=dropdown-link  routerLink="{{ page.route }}" routerLinkActive="active">
+          <a>
+            {{ page.name }}
+          </a>
+        </div>
+      </ng-template>
+      <div *ngIf="isLoggedIn; then thenBlock else elseBlock"></div>
+      <ng-template #thenBlock>
+        <div class=dropdown-link (click)="logout()">
+          <a>
+            Sign out
+          </a>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  <app-alert></app-alert>
 </div>

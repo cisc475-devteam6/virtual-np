@@ -1,0 +1,18 @@
+<mat-form-field class="part-select">
+    <mat-label id="label">Select Body Part</mat-label>
+    <select matNativeControl required>
+        <option value="Default" id="default">Select Affected Body Part</option>
+        <option *ngFor="let part of bodyParts">{{part}}</option>
+    </select>
+</mat-form-field>
+<br/><button mat-raised-button id="next" (click)="refreshOptions()">Apply Filter</button>
+<br/><br/><mat-form-field class="symptom-select">
+    <mat-label>Select Symptom</mat-label>
+    <select matNativeControl required id="select" (change)="prepSymptom($event.target.value)">
+        <option value="Default">Select Symptom</option>
+        <option *ngFor="let symptom of symptoms">{{symptom}}</option>
+    </select>
+</mat-form-field>
+<br/><button mat-raised-button id="add" (click)="addSymptom()">Add Symptom</button>
+<br/><h4 [hidden]='hiddenHeader'>Your Symptoms:</h4>
+<br/><div *ngFor="let symptom of addedSymptoms">{{symptom}}</div>
