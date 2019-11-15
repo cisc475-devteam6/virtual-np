@@ -13,7 +13,7 @@ import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component
 import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component';
 import { SecurityModule } from './security/security.module';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
-import { HeaderComponent } from './navigation/components/header/header.component'
+import { HeaderComponent } from './navigation/components/header/header.component';
 
 @NgModule({
   declarations: [
