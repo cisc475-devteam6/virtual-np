@@ -1,0 +1,14 @@
+@import 'src/virtual-np-theme.scss';
+
+#alert{
+  background-color: mat-color($virtual-np-warn,100);
+  color: mat-color($virtual-np-warn,600);
+  border-top-width: 1.5px;
+  border-top-style:solid;
+  border-top-color: mat-color($virtual-np-warn,200);
+  height:inherit;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  z-index:10;
+  text-align:center;
+}

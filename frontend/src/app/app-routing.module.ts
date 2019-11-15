@@ -6,15 +6,22 @@ import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { AdminChatPageComponent } from './pages/admin-chat-page/admin-chat-page.component';
 import { UserChatPageComponent } from './pages/user-chat-page/user-chat-page.component';
+import { AuthGuard } from './security/auth.guard';
+import { VisitPageComponent } from './pages/visit-page/visit-page.component';
 
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'sign-up', component: SignUpPageComponent },
   { path: 'sign-in', component: SignInPageComponent },
-  { path: 'landing-page', component: LandingPageComponent },
   { path: 'user-chat', component: UserChatPageComponent},
-  { path: 'admin-chat', component: AdminChatPageComponent}
+  { path: 'admin-chat', component: AdminChatPageComponent},
+  {
+    path: 'landing-page',
+    component: LandingPageComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'visit-page', component: VisitPageComponent} //, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 import { Component, OnInit  } from '@angular/core';
-import { Page } from 'src/app/models/Page';
+import { Page } from './pages/models/page';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +8,9 @@ import { Page } from 'src/app/models/Page';
 })
 export class AppComponent implements OnInit {
   title: string;
-  public pages: Page[];
+    pages: any;
+  newProperty: any;
 
-  private readonly newProperty = this.title = 'Melanie Hurst';
 
   constructor() {
     this.newProperty;
@@ -38,6 +38,7 @@ export class AppComponent implements OnInit {
     ];
   }
   ngOnInit() {
+    this.title = 'Melanie Hurst';
     this.pages = [
       {
 	name: 'Sign Up',
