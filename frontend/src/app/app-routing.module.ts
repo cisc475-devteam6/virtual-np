@@ -5,6 +5,7 @@ import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component
 import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { AuthGuard } from './security/auth.guard';
+import { VisitPageComponent } from './pages/visit-page/visit-page.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
     path: 'landing-page',
     component: LandingPageComponent,
     canActivate: [AuthGuard],
-  }
+  },
+  { path: 'visit-page', component: VisitPageComponent} //, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
