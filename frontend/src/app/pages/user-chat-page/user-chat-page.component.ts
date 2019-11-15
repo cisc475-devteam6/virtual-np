@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import Chatkit from '@pusher/chatkit-client';
 import axios from 'axios';
+import { UserService } from '../../security/services/user.service';
+
 
 @Component({
   selector: 'app-user-chat-page',
@@ -9,9 +11,12 @@ import axios from 'axios';
 })
 export class UserChatPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _userSrc:UserService) { }
 
   ngOnInit() {
+    // this.userId = this._userSrc.getUser.name;
+    this.userId = "Steven";
+    this.addUser();
   }
 
   userId = '';
@@ -27,6 +32,8 @@ export class UserChatPageComponent implements OnInit {
   };
   joinableRooms = [];
   newUser = '';
+
+
 
   addUserToRoom() {
     const { newUser, currentUser, currentRoom } = this;
@@ -152,6 +159,15 @@ export class UserChatPageComponent implements OnInit {
           });
       })
         .catch(error => console.error(error))
+  }
+
+  test(){
+    return this.userId = this._userSrc.getUser.name;
+  }
+
+  
+
+  onClick() {
   }
 
 

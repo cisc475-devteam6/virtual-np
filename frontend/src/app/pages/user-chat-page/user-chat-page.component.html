@@ -2,9 +2,10 @@
         <aside class="sidebar left-sidebar">
           <section *ngIf="!currentUser.id" class="join-chat">
             <h4>Join Chat</h4>
-            <form (ngSubmit)="addUser()">
+            <!-- <form (ngSubmit)="addUser()">
               <input placeholder="Enter your username" type="text" name="userid" [(ngModel)]="userId" />
-            </form>
+            </form> -->
+            <!-- <button class="add-user" onclick="addUser()">Add User</button> -->
           </section>
           <section *ngIf="currentUser.id" class="room-members">
             <h4>Room Users</h4>
