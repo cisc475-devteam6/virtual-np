@@ -20,6 +20,7 @@ export class UserService {
       this.status.next(true);
     } else {
       localStorage.removeItem('user');
+      localStorage.removeItem('token');
       this.status.next(false);
     }
   };
