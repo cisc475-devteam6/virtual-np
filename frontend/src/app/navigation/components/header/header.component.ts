@@ -5,8 +5,6 @@ import { AuthService } from '../../../security/services/auth.service'
 import { Page } from '../../../pages/models/page'
 import {Router} from '@angular/router';
 
-// TODO: Toggle sidnav, emit event when toggled on/off
-
 @Component({
   selector: "app-header",
   templateUrl: "./header.component.html",
