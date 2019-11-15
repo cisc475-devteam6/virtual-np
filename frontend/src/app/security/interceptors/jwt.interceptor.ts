@@ -21,7 +21,7 @@ export class JwtInterceptor implements HttpInterceptor {
     var isLoggedIn = false;
     this.userService.status.subscribe((status) => {isLoggedIn = status});
     if (isLoggedIn ) {
-      let currentToken = this.userService.getUser().token;
+      let currentToken = this.userService.getToken();
       request = request.clone({
         setHeaders:{
           Authorization : `${currentToken}`
