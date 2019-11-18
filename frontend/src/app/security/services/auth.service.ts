@@ -24,12 +24,12 @@ export class AuthService {
     .get<any>(
       "http://localhost:3000/api/stuff/info",
       { headers: this.headers }
-    )
-    .pipe(
-      map((user: any) => {
-        return user;
-      }))
-
+    ).toPromise()
+    .then(response => {
+      let data = response;
+      console.log(data);
+      return data;
+    });
   }
   public login(email: string, password: string) {
     return this._http
@@ -76,10 +76,6 @@ export class AuthService {
         return user;
       })
     );
-  }
-
-  public isLoggedIn() {
-    return localStorage.getItem('user') != null;
   }
 
 }
