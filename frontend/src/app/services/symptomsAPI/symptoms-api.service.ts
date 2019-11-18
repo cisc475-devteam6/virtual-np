@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-//var unirest = require("unirest");
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SymptomsAPIService {
+
+  private headers = new HttpHeaders({
+    "x-rapidapi-host": "priaid-symptom-checker-v1.p.rapidapi.com",
+		"x-rapidapi-key": "SIGN-UP-FOR-KEY"
+  });
 
   constructor(private http: HttpClient) { }
 
@@ -26,12 +31,26 @@ export class SymptomsAPIService {
     return symptoms;
   */
 
+  
+  /*
   public getSymptoms() {
     let symptoms: string[];
 
-    let result = this.http.get<string[]>("priaid-symptom-checker-v1.p.rapidapi.com/symptoms/");
+    let result = this.http.get<string[]>("priaid-symptom-checker-v1.p.rapidapi.com/symptoms/").pipe(map(data => {
+      console.log(data);
+    })).subscribe(result =>{
+      console.log(result);
+    });
     console.log(result);
     return symptoms;
   }
+  */
 
+  public getSymptoms() {
+    return this.http.get<any>("priaid-symptom-checker-v1.p.rapidapi.com/symptoms/", {headers:this.headers}).toPromise().then(response => {
+      let data = response;
+      console.log(data);
+      return data;
+    });
+  }
 }
