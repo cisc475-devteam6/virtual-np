@@ -3,7 +3,8 @@ import { PagesService } from '../../../pages/services/pages.service'
 import { UserService } from '../../../security/services/user.service'
 import { AuthService } from '../../../security/services/auth.service'
 import { Page } from '../../../pages/models/page'
-import { first } from 'rxjs/operators';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: "app-header",
@@ -14,25 +15,30 @@ export class HeaderComponent implements OnInit {
   @Input() title: string;
   pages: Array<Page>;
   isLoggedIn: boolean = false;
+  dropdownVisible: boolean = false;
 
   constructor(
-    private pagesService: PagesService,
-    private userService: UserService,
-    private authService: AuthService
-  ) {
-    this.pages = this.pagesService.getPages();
-    this.userService.status.subscribe((status) => {
-      this.pages = this.pagesService.getPages();
-      this.isLoggedIn = status;
-    });
-  }
+    private _pagesService: PagesService,
+    private _userService: UserService,
+    private _authService: AuthService,
+    private _router: Router,
+  ) { }
 
   ngOnInit() {
-    // this.pages =this.pagesService.getPages()
+    this.pages = this._pagesService.getPages();
+    this._userService.status.subscribe((status) => {
+      this.pages = this._pagesService.getPages();
+      this.isLoggedIn = status;
+    });
+    this._router.events.subscribe(val => {
+      this.dropdownVisible = false;
+    })
   }
-  onToggleSidenav() {}
+  onToggleSidenav() {
+    this.dropdownVisible = !this.dropdownVisible;
+  }
 
   logout() {
-    this.authService.logout();
+    this._authService.logout();
   }
 }

@@ -15,16 +15,21 @@ export class UserService {
   // Add or remove user to/from local memory
   setUser(user: any) {
     if (user) {
-      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('user', JSON.stringify(user.user));
+      localStorage.setItem('token', JSON.stringify(user.token));
       this.status.next(true);
     } else {
       localStorage.removeItem('user');
+      localStorage.removeItem('token');
       this.status.next(false);
     }
   };
 
   // Get user from local memory
   getUser = () => JSON.parse(localStorage.getItem('user'));
+
+  // Get token from local memory
+  getToken = () => JSON.parse(localStorage.getItem('token'));
 
   // Remove user from local memory
   removeUser = () => this.setUser(null);
