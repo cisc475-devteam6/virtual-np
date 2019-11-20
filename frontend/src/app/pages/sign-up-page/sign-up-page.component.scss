@@ -9,3 +9,9 @@
 .page-container {
   background-color: mat-color($virtual-np-accent);
 }
+ @media only screen and (max-width: 600px) {
+  .page-container {
+    justify-content:normal;
+    flex-flow: column nowrap;
+  }
+ }
