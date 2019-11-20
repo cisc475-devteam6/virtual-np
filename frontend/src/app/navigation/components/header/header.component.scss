@@ -45,9 +45,9 @@
   text-align:center;
   padding-top:1rem;
   padding-bottom:1rem;
-  border-bottom-width: 1.5px;
+  border-bottom-width: 1px;
   border-bottom-style:solid;
-  border-bottom-color: mat-color($virtual-np-primary,500);
+  border-bottom-color: mat-color($virtual-np-primary,900);
   cursor:pointer;
 }
 
@@ -55,6 +55,9 @@
   text-decoration: none;
   font-size: 1rem;
   color: $virtual-np-background;
+  background-color: mat-color($virtual-np-primary, 600);
+  padding:.25rem;
+  border-radius:.25rem;
 }
 
 #dropdown-menu {
