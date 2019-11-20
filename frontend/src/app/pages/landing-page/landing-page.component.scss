@@ -7,24 +7,32 @@
 
 .page-container {
   background-color: mat-color($virtual-np-primary);
-  flex-direction:row;
 }
 
-@media only screen and (max-width: 1000px) { .page-container {
-    flex-direction:column;
+#landing-grid {
+  width:75%;
+  height:100%;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 3rem;
+  align-items:center;
+}
+
+@media only screen and (max-width: 1000px) {
+  #landing-grid {
+    grid-template-columns: 1fr 1fr;
   }
-  #landing-card {
-    margin:0rem;
-    margin-top:.5rem;
-    margin-bottom:.5rem;
+}
+
+@media only screen and (max-width: 600px) {
+  #landing-grid {
+    grid-template-columns: 1fr;
   }
 }
 
 #landing-card {
-  max-width: 25rem;
-  width:75%;
+  // width:100%;
   height: 7rem;
   border-radius:0px;
   box-shadow:none;
-  margin:1.5rem;
 }
