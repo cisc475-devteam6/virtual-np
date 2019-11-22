@@ -13,13 +13,13 @@ export class ApiMedicService {
   }
 }
 
-getSymptoms => this.http.get(
-  this.baseUri + '/symptoms' +
+getSymptoms(){
+  this.http.get( this.baseUri + '/symptoms' +
     
     { headers: this.headers }).map(x => {
       console.log(x.json());
       return x.json();
-    })
+    })}
 
 
 var req = unirest("GET", "https://priaid-symptom-checker-v1.p.rapidapi.com");
