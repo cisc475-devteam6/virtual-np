@@ -1,9 +1,13 @@
 <mat-card id="sign-in-card">
-  <mat-card-header>
+  <mat-card-header id="header">
     <mat-card-title>Sign In</mat-card-title>
+    <mat-button-toggle-group id="role-selector" name="Role Selector" >
+      <mat-button-toggle value="patient" checked>Patient</mat-button-toggle>
+      <mat-button-toggle value="np">NP</mat-button-toggle>
+    </mat-button-toggle-group>
   </mat-card-header>
   <mat-card-content>
-    <div class="form-container">
+    <div class="form-container" (keyup.enter)="loginClick()">
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
         <input matInput [(ngModel)]="email" placeholder="Email" type="email" required>
