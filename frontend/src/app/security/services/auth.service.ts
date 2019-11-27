@@ -31,6 +31,11 @@ export class AuthService {
       return data;
     });
   }
+
+  public np_login(email: string, password: string) {
+    alert('Not yet implemented');
+  }
+
   public login(email: string, password: string) {
     return this._http
     .post(

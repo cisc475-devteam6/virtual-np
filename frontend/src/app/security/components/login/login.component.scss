@@ -4,6 +4,17 @@
   flex-direction: column;
 }
 
+#header {
+  display:flex;
+  justify-content: space-between;
+  width:100%;
+}
+
+#role-selector {
+  margin-bottom: 1rem;
+}
+
+
 .form-container > * {
   width: 100%;
 }
