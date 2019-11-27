@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private _alertSvc: AlertService, private _authSvc: AuthService) { }
 
+  // TODO: Login differently if NP and not patient
   loginClick() {
     this._authSvc.login(this.email, this.password).subscribe(
       data => console.log('Data:' + data),

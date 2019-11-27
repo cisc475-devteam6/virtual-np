@@ -31,6 +31,8 @@ export class AuthService {
       return data;
     });
   }
+
+  // TODO: implement np login once available on the server
   public login(email: string, password: string) {
     return this._http
     .post(
