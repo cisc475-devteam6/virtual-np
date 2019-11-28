@@ -18,10 +18,7 @@ export class LoginComponent implements OnInit {
 
   loginClick() {
     if (this.toggleVal == 'np') {
-      this._authSvc.np_login(this.email, this.password).subscribe(
-        data => console.log('Data:' + data),
-          err => this._alertSvc.error(err)
-      );
+      this._authSvc.np_login(this.email, this.password);
     } else {
       this._authSvc.login(this.email, this.password).subscribe(
         data => console.log('Data:' + data),
