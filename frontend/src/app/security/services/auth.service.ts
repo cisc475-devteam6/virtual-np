@@ -24,13 +24,18 @@ export class AuthService {
     .get<any>(
       "http://localhost:3000/api/stuff/info",
       { headers: this.headers }
-    )
-    .pipe(
-      map((user: any) => {
-        return user;
-      }))
-
+    ).toPromise()
+    .then(response => {
+      let data = response;
+      console.log(data);
+      return data;
+    });
   }
+
+  public np_login(email: string, password: string) {
+    alert('Not yet implemented');
+  }
+
   public login(email: string, password: string) {
     return this._http
     .post(
@@ -76,10 +81,6 @@ export class AuthService {
         return user;
       })
     );
-  }
-
-  public isLoggedIn() {
-    return localStorage.getItem('user') != null;
   }
 
 }

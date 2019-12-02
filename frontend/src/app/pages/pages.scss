@@ -5,9 +5,3 @@
   align-items: center;     /* center items horizontally, in this case */
   flex-direction: column;
 }
- @media only screen and (max-width: 600px) {
-  .page-container {
-    justify-content:normal;
-    flex-flow: column nowrap;
-  }
- }

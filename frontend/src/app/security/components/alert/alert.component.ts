@@ -8,9 +8,9 @@ import { AlertService } from '../../services/alert.service'
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.scss']
 })
-export class AlertComponent implements OnInit {
-  private subscription: Subscription
-  message: any
+export class AlertComponent implements OnInit, OnDestroy {
+  private subscription: Subscription;
+  message: any;
 
   constructor(private _alertSvc: AlertService) { }
 
@@ -22,7 +22,7 @@ export class AlertComponent implements OnInit {
             message.cssClass = 'alert alert-success';
           break;
           case 'error':
-            message.cssClass = 'alert alert-danger';
+            message.cssClass = 'alert alert-warn';
           break;
         }
         this.message = message;

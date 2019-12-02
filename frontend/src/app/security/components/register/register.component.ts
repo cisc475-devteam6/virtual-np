@@ -9,10 +9,10 @@ import { AuthService } from '../../services/auth.service'
 
 export class RegisterComponent implements OnInit {
 
-  private email: string;
-  private password: string;
-  private firstName: string;
-  private lastName: string;
+  email: string;
+  password: string;
+  firstName: string;
+  lastName: string;
 
   constructor(private _authSvc: AuthService) { }
 
