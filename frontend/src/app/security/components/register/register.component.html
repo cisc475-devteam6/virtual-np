@@ -3,7 +3,7 @@
     <mat-card-title>Sign Up</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <div class="form-container">
+    <div class="form-container" (keyup.enter)="registerClick()">
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
         <input matInput [(ngModel)]="email" placeholder="Email" type="email" required>

@@ -7,7 +7,7 @@ import {
   UrlTree
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,18 +15,21 @@ import { AuthService } from './services/auth.service';
 export class AuthGuard implements CanActivate {
   constructor(
     private router: Router,
-    private authService: AuthService,
+    private userService: UserService,
   ) {}
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.authService.isLoggedIn()) {
+    let isLoggedIn = false;
+    this.userService.status.subscribe((status) => {
+      isLoggedIn = status;
+    });
+    if (isLoggedIn) {
       return true
     }
     this.router.navigate(['sign-in'])
     return false;
   }
-
 
 }
