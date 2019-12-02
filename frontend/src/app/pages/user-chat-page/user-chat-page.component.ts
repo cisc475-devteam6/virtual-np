@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import Chatkit from '@pusher/chatkit-client';
 import axios from 'axios';
 import { UserService } from '../../security/services/user.service';
+import { AuthService } from 'src/app/security/services/auth.service';
 
 
 @Component({
@@ -11,10 +12,11 @@ import { UserService } from '../../security/services/user.service';
 })
 export class UserChatPageComponent implements OnInit {
 
-  constructor(public _userSrc:UserService) { }
+  constructor(public _userSrc:UserService, public _authSrc:AuthService) { }
 
   ngOnInit() {
     // this.userId = this._userSrc.getUser.name;
+    console.log(this._userSrc.getUser.name);
     this.userId = "Steven";
     this.addUser();
   }
@@ -118,6 +120,8 @@ export class UserChatPageComponent implements OnInit {
   }
 
   sendMessage() {
+    // console.log("hey");
+    // console.log(this._userSrc.getUser);
     const { newMessage, currentUser, currentRoom } = this;
     
     if (newMessage.trim() === '') return;

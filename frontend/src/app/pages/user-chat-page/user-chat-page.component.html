@@ -2,9 +2,9 @@
         <aside class="sidebar left-sidebar">
           <section *ngIf="!currentUser.id" class="join-chat">
             <h4>Join Chat</h4>
-            <!-- <form (ngSubmit)="addUser()">
+            <form (ngSubmit)="addUser()">
               <input placeholder="Enter your username" type="text" name="userid" [(ngModel)]="userId" />
-            </form> -->
+            </form>
             <!-- <button class="add-user" onclick="addUser()">Add User</button> -->
           </section>
           <section *ngIf="currentUser.id" class="room-members">
@@ -76,7 +76,7 @@
                     </ul>
               </section>
           </section>
-          <section *ngIf="currentUser.id" class="create-room">
+          <!-- <section *ngIf="currentUser.id" class="create-room">
             <form (ngSubmit)="createRoom()">
               <input type="text" [(ngModel)]="newRoom.name" name="room-name" id="room-name" placeholder="Create a room">
               <label for="is-private">
@@ -84,6 +84,6 @@
                   <span>Is this room private?</span>
               </label>
             </form>
-          </section>
+          </section> -->
         </aside>
       </div>
