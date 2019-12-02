@@ -16,8 +16,14 @@ export class UserChatPageComponent implements OnInit {
 
   ngOnInit() {
     // this.userId = this._userSrc.getUser.name;
-    console.log(this._userSrc.getUser.name);
-    this.userId = "Steven";
+    //console.log(this._userSrc.getUser.firstname);
+    
+    var user = JSON.parse(localStorage.getItem('user'));
+    console.log(user.firstName);
+    this.userId = "Guest";
+    if(user != null){
+      this.userId = user.firstName;
+    }
     this.addUser();
   }
 

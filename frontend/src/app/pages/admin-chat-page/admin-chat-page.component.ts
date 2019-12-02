@@ -12,6 +12,8 @@ export class AdminChatPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.userId = "Admin";
+    this.addUser();
   }
 
   userId = '';
