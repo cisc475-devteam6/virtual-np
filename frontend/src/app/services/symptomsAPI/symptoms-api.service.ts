@@ -16,7 +16,7 @@ export class SymptomsAPIService {
 
   public getSymptoms() {
     let names: string[];
-    this.http.get<any>("https://priaid-symptom-checker-v1.p.rapidapi.com/symptoms/", {headers:this.headers}).toPromise().then(response => {
+    this.http.get<any>("https://priaid-symptom-checker-v1.p.rapidapi.com/symptoms", {headers:this.headers}).toPromise().then(response => {
       let data = response;
       console.log(data);
       names.push(data);
