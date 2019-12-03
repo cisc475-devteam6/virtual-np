@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 })
 export class SymptomsAPIService {
 
+  // required headers to make HTTP requests to the API
   private headers = new HttpHeaders({
     "x-rapidapi-host": "priaid-symptom-checker-v1.p.rapidapi.com",
 		"x-rapidapi-key": "39005a4e53mshd68d48c5674370dp12ad63jsnf044c0e1708d"
@@ -13,68 +14,26 @@ export class SymptomsAPIService {
 
   constructor(private http: HttpClient) { }
 
-  private bodyIDs: number[] = [];
-  private locations: string[] = [];
-  private symptoms: string[] = [];
-
+  // return the observable from the HTTP get for all body locations (we subscribe to the observable in the component)
   public getBodyLocations() {
-    this.http.get<any>("https://priaid-symptom-checker-v1.p.rapidapi.com/body/locations?language=en-gb", {headers:this.headers}).subscribe(data => {
-      for(let i = 0; i < data.length; i++) {
-        this.locations.push(data[i].Name);
-        this.bodyIDs.push(data[i].ID);
-      }
-    });
-    return this.locations;
+
+    return this.http.get<any>("https://priaid-symptom-checker-v1.p.rapidapi.com/body/locations?language=en-gb", {headers:this.headers});
+
   }
 
-  /*
-  public getSymptoms(bodyPart: string) {
-    let names: string[] = this.getBodySublocations(bodyPart);
-    let bodySublocations: any[] = this.getBodySublocations(bodyPart);
-    let id: number = 0;
-    id = bodySublocations[bodySublocations.length - 1];
-    for(let i = 0; i < bodySublocations.length; i++) {
-      console.log(bodySublocations[i]);
-    }
-    let url: string = "https://priaid-symptom-checker-v1.p.rapidapi.com/symptoms/" + id.toString() + "/man?language=en-gb";
-    this.http.get<any>(url, {headers:this.headers}).subscribe(data => {
-      for(let i = 0; i < data.length; i++) {
-        names.push(data[i].Name);
-      }
-    });
-    return [];
+  // return the observable from the HTTP get for all body sublocations given a body location (ID) (we subscribe in the component)
+  public getBodySublocations(id: number) {
+    let url: string = "https://priaid-symptom-checker-v1.p.rapidapi.com/body/locations/" + id.toString() + "?language=en-gb";
+    return this.http.get<any>(url, {headers:this.headers});
   }
-  */
 
-  /*
-  public getSymptoms(a: string) {
-    this.getBodySublocations('a');
-    return [];
-  }
-  */
 
-  public getSymptoms(bodyPart: string) {
-    console.log("getSymptoms called");
-    let sublocations: any[] = [];
-    let subIDs: any[] = [];
-    let id: number = 0;
-    for(let i = 0; i < this.locations.length; i++) {
-      if(this.locations[i] === bodyPart){
-        id = this.bodyIDs[i];
-      }
-    }
-    let idString: string = id.toString();
-    let url: string = "https://priaid-symptom-checker-v1.p.rapidapi.com/body/locations/"+idString+"?language=en-gb";
-    console.log("beginning get");
-    this.http.get<any>(url, {headers: this.headers}).subscribe(data => {
-      console.log("looping over result object");
-      for(let i = 0; i < data.length; i++) {
-        sublocations.push(data[i].Name);
-        subIDs.push(data[i].ID);
-      }
-      console.log("returning");
-      return sublocations;
-    });
+  // return the observable from the HTTP get for all symptoms given a body sublocation (ID) (we subscribe in the component)
+  public getSymptoms(sublocationID: number) {
+
+    let url: string = "https://priaid-symptom-checker.v1.p.rapidapi.com/symptoms/" + sublocationID.toString() + "/man?language=en-gb";
+    return this.http.get<any>(url, {headers: this.headers});
+
   }
   
 
