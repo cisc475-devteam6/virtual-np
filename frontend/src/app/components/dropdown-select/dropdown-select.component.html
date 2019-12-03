@@ -1,6 +1,6 @@
 <mat-form-field class="part-select">
     <mat-label id="label">Select Body Part</mat-label>
-    <select matNativeControl required>
+    <select matNativeControl required id="bodyPart" (change)="getBodyPart($event.target.value)">
         <option value="Default" id="default">Select Affected Body Part</option>
         <option *ngFor="let part of bodyParts">{{part}}</option>
     </select>

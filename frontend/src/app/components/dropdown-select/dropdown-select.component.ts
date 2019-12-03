@@ -13,18 +13,25 @@ export class DropdownSelectComponent implements OnInit {
   public addedSymptoms: string[] = [];
   public hiddenHeader: boolean = true;
   public tempSymptom: string;
+  public chosenBodyPart: string;
 
-  constructor(public myAPISvc: SymptomsAPIService) { }
+  constructor(public myAPISvc: SymptomsAPIService) { 
+    this.bodyParts = myAPISvc.getBodyLocations();
+  }
 
   ngOnInit() {
   }
 
   refreshOptions() {
-    this.symptoms = this.myAPISvc.getSymptoms();
+    this.symptoms = this.myAPISvc.getSymptoms(this.chosenBodyPart);
   }
 
   prepSymptom(sel: any) {
     this.tempSymptom = sel;
+  }
+
+  getBodyPart(sel: any) {
+    this.chosenBodyPart = sel;
   }
 
   addSymptom() {
