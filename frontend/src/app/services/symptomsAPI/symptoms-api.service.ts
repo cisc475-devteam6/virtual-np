@@ -31,7 +31,7 @@ export class SymptomsAPIService {
   // return the observable from the HTTP get for all symptoms given a body sublocation (ID) (we subscribe in the component)
   public getSymptoms(sublocationID: number) {
 
-    let url: string = "https://priaid-symptom-checker.v1.p.rapidapi.com/symptoms/" + sublocationID.toString() + "/man?language=en-gb";
+    let url: string = "https://priaid-symptom-checker-v1.p.rapidapi.com/symptoms/" + sublocationID.toString() + "/man?language=en-gb";
     return this.http.get<any>(url, {headers: this.headers});
 
   }

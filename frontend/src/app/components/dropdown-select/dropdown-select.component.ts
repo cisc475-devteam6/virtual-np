@@ -8,6 +8,9 @@ import { SymptomsAPIService } from '../../services/symptomsAPI/symptoms-api.serv
 })
 export class DropdownSelectComponent implements OnInit {
 
+  public disabledBody = true;
+  public disabledSymptoms = true;
+
   public bodyPartsObservable: any;
   public bodyParts: string[] = [];
   public bodyIDs: number[] = [];
@@ -32,6 +35,7 @@ export class DropdownSelectComponent implements OnInit {
         this.bodyParts.push(data[i].Name);
         this.bodyIDs.push(data[i].ID);
       }
+      this.disabledBody = false;
     });
   }
 
@@ -43,6 +47,12 @@ export class DropdownSelectComponent implements OnInit {
   }
 
   getSublocations() {
+
+    //First clear sublocations and sublocation IDs
+    this.sublocations = [];
+    this.subIDs = [];
+    this.disabledSymptoms = true;
+
     //Find id
     let chosenbodyPartID: number;
     for(let i = 0; i < this.bodyParts.length; i++) {
@@ -63,9 +73,14 @@ export class DropdownSelectComponent implements OnInit {
 
   getSymptoms() {
 
+    //First, clear our existing symptoms and observables
+    this.symptomsObservables = [];
+    this.symptoms = [];
+
     //get a symptoms observable for every sublocation
     for(let i = 0; i < this.subIDs.length; i++) {
-      this.symptomsObservables.push(this.myAPISvc.getSymptoms(this.subIDs[i]));
+      let thisObservable = this.myAPISvc.getSymptoms(this.subIDs[i]);
+      this.symptomsObservables.push(thisObservable);
     }
 
     //loop over every observable and gets its symptoms, pushing them into the symptoms list
@@ -74,6 +89,7 @@ export class DropdownSelectComponent implements OnInit {
         for(let j = 0; j < data.length; j++) {
           this.symptoms.push(data[j].Name);
         }
+        this.disabledSymptoms = false;
       });
     }
 
