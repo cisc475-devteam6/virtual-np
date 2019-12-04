@@ -6,7 +6,7 @@
   grid-column: 1 / -1;
 }
 
-.blue-container {
+.page-container {
   background-color: mat-color($virtual-np-primary);
 }
 
@@ -14,3 +14,14 @@
   background-color: mat-color($virtual-np-primary);
   color: white;
 }
+#card {
+  border-radius:0px;
+  box-shadow:none;
+  margin:1.5rem;
+}
+@media only screen and (max-width: 600px) {
+  .page-container {
+    justify-content:normal;
+    flex-flow: column nowrap;
+  }
+ }
