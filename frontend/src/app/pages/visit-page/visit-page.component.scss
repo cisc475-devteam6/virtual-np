@@ -11,13 +11,16 @@
 }
 
 #submit {
+  width:100%;
   background-color: mat-color($virtual-np-primary);
   color: white;
 }
 #card {
-  border-radius:0px;
+  // border-radius:0px;
   box-shadow:none;
   margin:1.5rem;
+  max-width: 600px;
+  width: 80%;
 }
 @media only screen and (max-width: 600px) {
   .page-container {
