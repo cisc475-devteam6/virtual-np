@@ -49,7 +49,7 @@
 }
 
 .icon {
-  background-color: mat-color($virtual-np-primary, 300);
+  background-color: mat-color($virtual-np-primary, 200);
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   font-size: 1.2rem;
@@ -63,18 +63,15 @@
 }
 .button-tile {
   cursor:pointer;
-  background-color: mat-color($virtual-np-primary, 700);
+  background-color: mat-color($virtual-np-primary, 300);
   display:flex;
   justify-content: center;
   align-items:center;
   border-bottom-right-radius:2rem;
-  border-width:1px;
-  border-style:solid;
-  border-color: mat-color($virtual-np-primary, 800);
   border-radius:4px;
 }
 .button-tile:hover {
-  background-color: mat-color($virtual-np-primary, 800);
+  background-color: mat-color($virtual-np-primary, 600);
 }
 .button-tile:hover .icon{
   background-color: mat-color($virtual-np-primary, 400);
