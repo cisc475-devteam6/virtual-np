@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service'
 import { AlertService } from '../../services/alert.service'
+import { NpService } from '../../services/np.service'
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,11 @@ export class LoginComponent implements OnInit {
   password: string ;
   public toggleVal: string = 'patient';
 
-  constructor(private _alertSvc: AlertService, private _authSvc: AuthService) { }
+  constructor(
+    private _alertSvc: AlertService,
+    private _authSvc: AuthService,
+    private _npSvc: NpService
+  ) { }
 
   loginClick() {
     if (this.toggleVal == 'np') {
