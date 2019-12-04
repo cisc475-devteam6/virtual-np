@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/cisc475-devteam6/virtual-np#readme",
   "dependencies": {
+    "@pusher/chatkit-server": "^1.0.4",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-validator": "^6.2.0",
@@ -30,7 +32,8 @@
     "ng": "0.0.0",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
-    "pug": "^2.0.4"
+    "pug": "^2.0.4",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "nodemon": "^1.19.4"
