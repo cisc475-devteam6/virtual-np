@@ -6,7 +6,8 @@ const bodyParser = require('body-parser');
 const logger = require('morgan');
 const app = express();
 const AuthenticationController = require('./controllers/authentication'),
-      passportService = require('./security/passport');
+      passportService = require('./security/passport'),
+      VisitController = require('./controllers/visit');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -31,7 +32,16 @@ app.use(function(req, res, next){
 const apiRoutes = express.Router(),
 authRoutes = express.Router(),
 otherRoutes = express.Router();
+const visitsRoutes = express.Router();
+const visitRouter = require('./routes/visit');
+// /api/visits
+//GET		api/visits/
+apiRoutes.get('/visits', passportService.requireAuth, VisitController.index);
+//POST 	api/visits/
+apiRoutes.post('/visits', passportService.requireAuth, VisitController.create);
+apiRoutes.use('/visits',visitRouter);
 
+// apiRoutes.use('/visits', passportService.requireAuth, VisitController.index);
 apiRoutes.use('/auth', authRoutes);
 // /api/auth/register
 authRoutes.post('/register', AuthenticationController.register);
