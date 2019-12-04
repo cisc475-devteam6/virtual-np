@@ -1,19 +1,22 @@
 <div  class="page-container">
   <div id="landing-grid">
     <mat-card id="landing-card">
-      <mat-card-header>
-        <mat-card-title>View My Data</mat-card-title>
-      </mat-card-header>
+      <div class="content">
+        <i class="material-icons icon">person</i>
+        <h2>View My Data</h2>
+      </div>
+    </mat-card>
+    <mat-card id="landing-card" routerLink='/visit-page'>
+      <div class="content">
+        <i class="material-icons icon">event_available</i>
+        <h2>Start a Visit</h2>
+      </div>
     </mat-card>
     <mat-card id="landing-card">
-      <mat-card-header>
-        <mat-card-title>Start a Visit</mat-card-title>
-      </mat-card-header>
-    </mat-card>
-    <mat-card id="landing-card">
-      <mat-card-header>
-        <mat-card-title>View my Calendar</mat-card-title>
-      </mat-card-header>
+      <div class="content">
+        <i class="material-icons icon">calendar_today</i>
+        <h2>View my Calendar</h2>
+      </div>
     </mat-card>
   </div>
 </div>

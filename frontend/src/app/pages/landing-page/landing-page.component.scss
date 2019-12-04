@@ -35,4 +35,35 @@
   height: 7rem;
   border-radius:0px;
   box-shadow:none;
+  cursor:pointer;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  // background-color: #E0E0E0;
+}
+#landing-card h2 {
+  text-align:center;
+  font-weight:400;
+  font-size: 1.2rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  color:white;
+}
+
+.icon {
+  background-color: mat-color($virtual-np-primary, 300);
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  font-size: 1.2rem;
+  height:4rem;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  color:white;
+}
+.content {
+  background-color: mat-color($virtual-np-primary);
+  display:flex;
+  justify-content: center;
+  align-items:center;
 }
