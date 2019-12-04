@@ -1,6 +1,7 @@
 const mongoose = require('mongoose'),
   Schema = mongoose.Schema,
   bcrypt = require('bcryptjs');
+const securityService = require('../security/security')
 
 const UserSchema = new Schema({
   email: {
@@ -17,6 +18,12 @@ const UserSchema = new Schema({
   profile: {
     firstName: {type: String},
     lastName: {type: String}
+  },
+  role:
+  {
+    type: String,
+    required: true,
+    default: securityService.roles.REQUIRE_CLIENT
   },
   resetPasswordToken: { type: String},
   resetPasswordExpires: {type: Date}
