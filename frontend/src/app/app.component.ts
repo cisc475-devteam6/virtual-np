@@ -1,4 +1,5 @@
 import { Component, OnInit  } from '@angular/core';
+import { Page } from './pages/models/page';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,58 @@ import { Component, OnInit  } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title: string;
+    pages: any;
+  newProperty: any;
 
 
-  constructor() { }
-
+  constructor() {
+    this.newProperty;
+    this.pages = [
+      {
+	name: 'Sign Up',
+	route: '/sign-up'
+      },
+      {
+	name: 'Sign in',
+	route: '/sign-in'
+      },
+      {
+  name: 'Landing Page',
+  route: '/landing-page'
+      },
+      {
+  name: 'User Chat Page',
+  route: '/user-chat'
+      },
+      {
+  name: 'Admin Chat Page',
+  route: '/admin-chat'
+      }
+    ];
+  }
   ngOnInit() {
     this.title = 'Melanie Hurst';
+    this.pages = [
+      {
+	name: 'Sign Up',
+	route: '/sign-up'
+      },
+      {
+	name: 'Sign in',
+	route: '/sign-in'
+      },
+      {
+  name: 'Landing Page',
+  route: '/landing-page'
+      },
+      {
+  name: 'User Chat Page',
+  route: '/user-chat'
+      },
+      {
+  name: 'Admin Chat Page',
+  route: '/admin-chat'
+      }
+    ];
   }
 }

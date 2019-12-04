@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const routes = require('./routes/index');
 const loginRoute = require('./routes/login');
+const chatRoutes = require('./routes/chat');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const app = express();
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use('/', routes);
 app.use('/login', loginRoute);
+app.use('/chat', chatRoutes);
 app.use(express.static('public'));
 
 
