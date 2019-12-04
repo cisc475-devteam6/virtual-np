@@ -1,7 +1,8 @@
 const jwt = require('jsonwebtoken'),
     crypto = require('crypto'),
     User = require('../models/User'),
-    config = require('../config/config');
+    config = require('../config/config'),
+    securityService = require('../security/security');
 
 function generateToken(user) {
     return jwt.sign(user, config.secret, {
@@ -56,20 +57,12 @@ console.log(req.body);
     User.findOne({ email: email }, function (err, existingUser) {
         if (err) { return next(err); }
         if (existingUser) {
-            existingUser.save(function (err, user) {
-                if (err) { return next(err); }
-                let userInfo = existingUser.toJson();
-                res.status(201).json({
-                    token: 'JWT ' + generateToken(userInfo),
-                    user: userInfo
-                });
-            });
+            return res.status(422).send({ error: 'That email address is already in use.'});
         } else {
             let user = new User({
                 email: email,
                 password: password,
-                // provider: 'local',
-                roles: ['User'],
+                role: securityService.roles.REQUIRE_CLIENT,
                 profile: { firstName: firstName, lastName: lastName }
             });
             user.save(function (err, user) {
