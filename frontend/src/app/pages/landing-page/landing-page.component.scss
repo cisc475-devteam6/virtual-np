@@ -24,9 +24,7 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
-  #landing-grid {
-    grid-template-columns: 1fr;
+@media only screen and (max-width: 600px) { #landing-grid { grid-template-columns: 1fr;
   }
 }
 
@@ -40,13 +38,14 @@
   align-items:center;
 }
 
-#landing-card h2 {
+.button-tile h2 {
   text-align:center;
   font-weight:400;
   font-size: 1.2rem;
   margin-left: 0.75rem;
   margin-right: 0.75rem;
   color:white;
+  width:100%;
 }
 
 .icon {
@@ -60,9 +59,20 @@
   align-items:center;
   color:white;
 }
-.content {
-  background-color: mat-color($virtual-np-primary);
+.button-tile {
+  cursor:pointer;
+  background-color: mat-color($virtual-np-primary, 700);
   display:flex;
   justify-content: center;
   align-items:center;
+  // border-bottom-right-radius:2rem;
+  border-width:1px;
+  border-style:solid;
+  border-color: mat-color($virtual-np-primary, 800);
+}
+.button-tile:hover {
+  background-color: mat-color($virtual-np-primary, 800);
+}
+.button-tile:hover .icon{
+  background-color: mat-color($virtual-np-primary, 400);
 }
