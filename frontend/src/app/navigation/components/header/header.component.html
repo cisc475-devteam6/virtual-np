@@ -5,11 +5,11 @@
       <div id="brand">{{ title }}</div>
     </button>
     <span id="spacer"></span>
-    <div id="page-links">
+    <div class="page-links">
       <ng-template ngFor let-page [ngForOf]="pages">
         <div *ngIf="page.name==='Sign in'; then thenBlock else elseBlock"></div>
         <ng-template #thenBlock>
-          <button mat-flat-button color=primary routerLink="{{ page.route }}" routerLinkActive="active">
+          <button id="special-button" mat-flat-button color=primary routerLink="{{ page.route }}" routerLinkActive="active">
             {{ page.name }}
           </button>
         </ng-template>
@@ -21,7 +21,7 @@
       </ng-template>
       <div *ngIf="isLoggedIn; then thenBlock else elseBlock"></div>
       <ng-template #thenBlock>
-        <button mat-flat-button color=primary (click)="logout()">
+        <button id="special-button" mat-flat-button color=primary (click)="logout()">
           Sign out
         </button>
       </ng-template>

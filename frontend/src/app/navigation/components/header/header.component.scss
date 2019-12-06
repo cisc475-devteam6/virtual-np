@@ -4,6 +4,10 @@
   grid-column: 1 / -1;
   height:fit-content;
 }
+
+#special-button {
+  margin-left:0.75rem;
+}
 #logo {
   height: 2.5rem;
   display:inline;
@@ -35,10 +39,15 @@
   #mobile-navigation {
     display:block;
   }
-  #page-links {
+  .page-links {
     display:none;
   }
 }
+
+.page-links >* {
+  margin-left:0.25rem;
+}
+
 
 .dropdown-link {
   width:100%;
