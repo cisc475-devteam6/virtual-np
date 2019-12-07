@@ -76,3 +76,10 @@
 .button-tile:hover .icon{
   background-color: mat-color($virtual-np-primary, 400);
 }
+
+.button-tile:active {
+  background-color: mat-color($virtual-np-primary, 800);
+}
+.button-tile:active .icon{
+  background-color: mat-color($virtual-np-primary, 400);
+}
