@@ -37,5 +37,7 @@ npVisitRouter.post('/:id/symptoms', passportService.requireAuth, VisitController
 npVisitRouter.post('/:id/diagnosis', passportService.requireAuth, VisitController.npUpdateDiagnosis);
 //POST 	api/visits/np/:userid/:id/notes
 npVisitRouter.post('/:id/notes', passportService.requireAuth, VisitController.npUpdateNotes);
+//POST 	api/visits/np/:userid/:id/priv_notes
+npVisitRouter.post('/:id/priv_notes', passportService.requireAuth, VisitController.npUpdatePrivateNotes);
 //================================================//
 module.exports = router;

@@ -11,7 +11,6 @@ mongoose.connection
     console.log(`Connection error: ${err.message}`);
   });
 
-require('./models/Registration');
 require('./models/User');
 const app = require('./app');
 
