@@ -1,4 +1,5 @@
 const express = require('express');
+const chatRoutes = require('./routes/chat');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const app = express();
@@ -9,6 +10,8 @@ const AuthenticationController = require('./controllers/authentication'),
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+
+app.use('/chat', chatRoutes);
 app.use(express.static('public'));
 
 

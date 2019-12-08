@@ -10,6 +10,10 @@ export class PagesService {
     {
       name: 'Landing Page',
       route: '/landing-page'
+    },
+    {
+      name: 'Chat',
+      route: '/user-chat'
     }
   ];
   private noAuthPages: Array<Page> = [

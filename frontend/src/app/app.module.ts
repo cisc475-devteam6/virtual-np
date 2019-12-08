@@ -13,6 +13,10 @@ import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component
 import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component';
 import { SecurityModule } from './security/security.module';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { UserChatPageComponent } from './pages/user-chat-page/user-chat-page.component';
+import { AdminChatPageComponent } from './pages/admin-chat-page/admin-chat-page.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { HeaderComponent } from './navigation/components/header/header.component'
 import { VisitPageComponent } from './pages/visit-page/visit-page.component';
@@ -26,6 +30,8 @@ import { DropdownSelectComponent } from './components/dropdown-select/dropdown-s
     SignUpPageComponent,
     SignInPageComponent,
     LandingPageComponent,
+    UserChatPageComponent,
+    AdminChatPageComponent,
     HeaderComponent,
     VisitPageComponent,
     DropdownSelectComponent,
@@ -36,6 +42,8 @@ import { DropdownSelectComponent } from './components/dropdown-select/dropdown-s
     BrowserAnimationsModule,
     MaterialModule,
     SecurityModule,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [
     {provide: DropdownSelectComponent, useClass: DropdownSelectComponent}
