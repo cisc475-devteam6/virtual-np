@@ -9,12 +9,12 @@ git clone https://github.com/cisc475-devteam6/virtual-np
 
 Install frontend dependencies:
 ```
-npm install client
+cd client && npm install
 ```
 
 Install backend dependencies:
 ```
-npm install server
+cd server && npm install
 ```
 
 ## Usage
