@@ -20,8 +20,8 @@ $virtual-np-warn: mat-palette($mat-red);
 // Create the theme object (a Sass map containing all of the palettes).
 $virtual-np-theme: mat-light-theme($virtual-np-primary, $virtual-np-accent, $virtual-np-warn);
 
-$virtual-np-background:map-get(map-get($virtual-np-theme, background), background);
-$virtual-np-foreground:map-get(map-get($virtual-np-theme, foreground), foreground);
+$virtual-np-background: #ffffff;
+$virtual-np-foreground:#272727;
 
 
 // Include theme styles for core and each component used in your app.
