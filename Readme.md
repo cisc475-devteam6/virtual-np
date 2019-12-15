@@ -1,7 +1,7 @@
 # Virtual NP
 A website for scheduling and hold virtual visits with a nurse practitioner
 
-![Virtual NP Screenshot](https://raw.githubusercontent.com/cisc475-devteam6/projectname/master/screenshots/virtual-np.jpg)
+![Virtual NP Screenshot](screenshots/virtual-np.jpg)
 
 ## Installation
 Clone the repository:
