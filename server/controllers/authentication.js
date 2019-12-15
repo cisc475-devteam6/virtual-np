@@ -16,7 +16,6 @@ exports.login = function(req, res, next) {
     User.findOne({email: req.body.email}, function (err, user) {
         if(err){ return res.status(400).json({error: "bad data"}); }
         if(!user){ return res.status(400).json({error:'Your login details could not be verified. Please try again.'}); }
-        console.log(user.toJson());
         user.comparePassword(req.body.password, function(err, isMatch){
             if(err){ console.log(err); return res.status(400).json({error: "bad data2"}); }
             if(!isMatch){ return res.status(400).json({error:'Your login details could not be verified. Please try again.'}); }
@@ -43,7 +42,6 @@ exports.register = function (req, res, next) {
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
     const password = req.body.password;
-console.log(req.body);
     if (!email) {
         return res.status(422).send({ error: 'You must enter an email address.' });
     }

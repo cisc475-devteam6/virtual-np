@@ -1,10 +1,10 @@
 User = require('../models/User'),
 
 exports.roles = {
-    REQUIRE_ADMIN : "Admin",
-    REQUIRE_OWNER : "Owner",
-    REQUIRE_CLIENT : "Client",
-    REQUIRE_MEMBER : "Member"};
+    REQUIRE_ADMIN : "Admin",    //Admin: NP, or others who are allowed to view all user data
+    REQUIRE_OWNER : "Owner",    //Currently unused
+    REQUIRE_CLIENT : "Client",  //Client: Visitor with an account. Allowed to edit their visit data
+    REQUIRE_MEMBER : "Member"}; //Currently unused
 
 //========================================
 // Authorization Middleware
@@ -28,6 +28,6 @@ exports.roleAuthorization = function (role) {
 
             res.status(401).json({ error: 'You are not authorized to view this content.' });
             return next('Unauthorized');
-        })
+        });
     }
 }

@@ -119,7 +119,6 @@ exports.updateNotes = function(req, res, next) {
         if(!existingVisit){ return res.status(400).json({error:'No visit attribute found for this user.'}); }
         let newNotes = req.body.notes;
         if (existingVisit) {
-            console.log(req.user.role);
             if (req.user.role == securityService.roles.REQUIRE_ADMIN){
                 existingVisit.notes = newNotes;
                 existingVisit.save(function (err, visit) {
@@ -148,7 +147,7 @@ exports.npIndex = function(req, res, next) {
             visitsInfo = [];
             count = 0;
             visits.forEach(visit => {
-                visitsInfo[count] = (visit.toJson());
+                visitsInfo[count] = (visit.toNPJson());
                 count += 1;
             });
             res.status(200).json({
@@ -165,7 +164,7 @@ exports.npShow = function(req, res, next) {
         Visit.findOne({user_id: req.params.userid, _id: req.params.id}, function(err, visit) {
             if(err){ return res.status(400).json({error: "bad data"}); }
             if(!visit){ return res.status(400).json({error:'No visit attribute found for this user.'}); }
-            visitsInfo = visit.toJson();
+            visitsInfo = visit.toNPJson();
             res.status(200).json({
                 visit: visitsInfo
             });
@@ -230,12 +229,40 @@ exports.npUpdateNotes = function(req, res, next) {
             if(!existingVisit){ return res.status(400).json({error:'No visit attribute found for this user.'}); }
             let newNotes = req.body.notes;
             if (existingVisit) {
-                console.log(req.user.role);
                 if (req.user.role == securityService.roles.REQUIRE_ADMIN){
                     existingVisit.notes = newNotes;
                     existingVisit.save(function (err, visit) {
                         if (err) { return next(err); }
                         let visitInfo = existingVisit.toJson();
+                        res.status(201).json({
+                            visit: visitInfo
+                        });
+                    });
+                }else{res.status(401).json({ error: 'You are not authorized to view this content.' });
+                return next('Unauthorized');
+            }
+                
+            }else{
+                return res.status(400).json({error: "No visit found with this ID."});
+            }
+        });
+    }else{
+        res.status(401).json({error: "Unauthorized."});
+    }
+}
+//POST 	api/visits/np/:userid/:id/priv_notes         npUpdatePrivateNotes
+exports.npUpdatePrivateNotes = function(req, res, next) {
+    if (req.user.role == securityService.roles.REQUIRE_ADMIN){
+        Visit.findOne({user_id: req.params.userid, _id: req.params.id}, function(err, existingVisit) {
+            if(err){ return res.status(400).json({error: "bad data"}); }
+            if(!existingVisit){ return res.status(400).json({error:'No visit attribute found for this user.'}); }
+            let newPrivNotes = req.body.priv_notes;
+            if (existingVisit) {
+                if (req.user.role == securityService.roles.REQUIRE_ADMIN){
+                    existingVisit.priv_notes = newPrivNotes;
+                    existingVisit.save(function (err, visit) {
+                        if (err) { return next(err); }
+                        let visitInfo = existingVisit.toNPJson();
                         res.status(201).json({
                             visit: visitInfo
                         });
