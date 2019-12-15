@@ -1,5 +1,5 @@
 # Virtual NP
-A website for scheduling and hold virtual visits with a nurse practitioner
+A website for scheduling and holding virtual visits with a nurse practitioner
 
 ![Virtual NP Screenshot](screenshots/virtual-np.jpg)
 
