@@ -9,7 +9,7 @@ export class SymptomsAPIService {
   // required headers to make HTTP requests to the API
   private headers = new HttpHeaders({
     "x-rapidapi-host": "priaid-symptom-checker-v1.p.rapidapi.com",
-		"x-rapidapi-key": "39005a4e53mshd68d48c5674370dp12ad63jsnf044c0e1708d"
+		"x-rapidapi-key": "e4f032e638msh1a30519fb3ac91cp1710dbjsna5beebc7c02b"
   });
 
   constructor(private http: HttpClient) { }
