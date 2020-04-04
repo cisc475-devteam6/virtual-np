@@ -29,7 +29,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/virtual-np-theme.scss"
+              "src/virtual-np-theme.scss",
+              "./node_modules/fullcalendar/dist/fullcalendar.min.css"
             ],
             "scripts": []
           },

@@ -15,7 +15,8 @@ import {
   LandingPageComponent,
   UserChatPageComponent,
   AdminChatPageComponent,
-  VisitPageComponent
+  VisitPageComponent,
+  CalendarPageComponent
 } from './pages';
 
 
@@ -35,6 +36,7 @@ import { DropdownSelectComponent } from './components/dropdown-select/dropdown-s
     HeaderComponent,
     VisitPageComponent,
     DropdownSelectComponent,
+    CalendarPageComponent,
   ],
   imports: [
     AppRoutingModule,
