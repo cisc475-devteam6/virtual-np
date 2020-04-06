@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { environment as env } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class SymptomsAPIService {
   // required headers to make HTTP requests to the API
   private headers = new HttpHeaders({
     'x-rapidapi-host': 'priaid-symptom-checker-v1.p.rapidapi.com',
-    'x-rapidapi-key': 'b7c1575907mshe6d3bf813ac52d0p1c00e8jsnc92bc1b70f91'
+    'x-rapidapi-key': env.symptomApiKey
   });
 
   constructor(private http: HttpClient) {}
