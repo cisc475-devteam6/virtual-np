@@ -5,36 +5,44 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
   providedIn: 'root'
 })
 export class SymptomsAPIService {
-
   // required headers to make HTTP requests to the API
   private headers = new HttpHeaders({
-    "x-rapidapi-host": "priaid-symptom-checker-v1.p.rapidapi.com",
-		"x-rapidapi-key": "e4f032e638msh1a30519fb3ac91cp1710dbjsna5beebc7c02b"
+    'x-rapidapi-host': 'priaid-symptom-checker-v1.p.rapidapi.com',
+    'x-rapidapi-key': 'b7c1575907mshe6d3bf813ac52d0p1c00e8jsnc92bc1b70f91'
   });
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   // return the observable from the HTTP get for all body locations (we subscribe to the observable in the component)
   public getBodyLocations() {
-
-    return this.http.get<any>("https://priaid-symptom-checker-v1.p.rapidapi.com/body/locations?language=en-gb", {headers:this.headers});
-
+    const params = new HttpParams()
+      .set('language', 'en-gb');
+    const url = 'https://priaid-symptom-checker-v1.p.rapidapi.com/body/locations';
+    return this.http.get<any>(
+      url,
+      {
+        headers: this.headers,
+        params
+      }
+    );
   }
 
   // return the observable from the HTTP get for all body sublocations given a body location (ID) (we subscribe in the component)
   public getBodySublocations(id: number) {
-    let url: string = "https://priaid-symptom-checker-v1.p.rapidapi.com/body/locations/" + id.toString() + "?language=en-gb";
-    return this.http.get<any>(url, {headers:this.headers});
+    const params = new HttpParams()
+      .set('language', 'en-gb')
+      .set('locationid', id.toString());
+    const url = 'https://priaid-symptom-checker-v1.p.rapidapi.com/body/locations';
+    return this.http.get<any>(url, { headers: this.headers, params });
   }
-
 
   // return the observable from the HTTP get for all symptoms given a body sublocation (ID) (we subscribe in the component)
   public getSymptoms(sublocationID: number) {
-
-    let url: string = "https://priaid-symptom-checker-v1.p.rapidapi.com/symptoms/" + sublocationID.toString() + "/man?language=en-gb";
-    return this.http.get<any>(url, {headers: this.headers});
-
+    const params = new HttpParams()
+      .set('language', 'en-gb')
+      .set('locationid', sublocationID.toString())
+      .set('selectorstatus', 'man');
+    const url = 'https://priaid-symptom-checker-v1.p.rapidapi.com/symptoms';
+    return this.http.get<any>(url, { headers: this.headers, params });
   }
-  
-
 }
