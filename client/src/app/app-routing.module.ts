@@ -8,6 +8,7 @@ import { AdminChatPageComponent } from './pages/admin-chat-page/admin-chat-page.
 import { UserChatPageComponent } from './pages/user-chat-page/user-chat-page.component';
 import { AuthGuard } from './security/auth.guard';
 import { VisitPageComponent } from './pages/visit-page/visit-page.component';
+import { CalendarPageComponent } from './pages/calendar-page/calendar-page.component'; 
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
     component: LandingPageComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'visit-page', component: VisitPageComponent} //, canActivate: [AuthGuard] }
+  { path: 'visit-page', component: VisitPageComponent}, //, canActivate: [AuthGuard] }
+  { path: 'calendar-page', component: CalendarPageComponent}
 ];
 
 @NgModule({
