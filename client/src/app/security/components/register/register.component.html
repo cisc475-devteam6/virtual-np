@@ -20,6 +20,20 @@
         <mat-label>Password</mat-label>
         <input matInput [(ngModel)]="password" placeholder="Password" type="password" required>
       </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Gender</mat-label>
+        <mat-select [(ngModel)]="gender" placeholder="Gender" type="text" required>
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let gender of genders" [value]="gender">{{gender}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Age</mat-label>
+        <mat-select [(ngModel)]="age" placeholder="Age" type="text" required>
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let age of ages" [value]="age">{{age}}</mat-option>
+        </mat-select>
+      </mat-form-field>
       <button mat-flat-button color=primary (click)="registerClick()" type="submit">
         Sign In
       </button>
