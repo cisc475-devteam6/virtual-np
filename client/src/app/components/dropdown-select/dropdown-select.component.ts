@@ -16,7 +16,7 @@ export class DropdownSelectComponent implements OnInit {
   public bodyIDs: number[] = [];
 
   public chosenBodyLocation: string;
-  
+
   public subLocationsObservable: any;
   public sublocations: string[] = [];
   public subIDs: number[] = [];
@@ -26,12 +26,12 @@ export class DropdownSelectComponent implements OnInit {
 
   public tempSymptom: string;
   public addedSymptoms: string[] = [];
-  public hiddenHeader: boolean = true;
+  public hiddenHeader = true;
 
-  constructor(public myAPISvc: SymptomsAPIService) { 
+  constructor(public myAPISvc: SymptomsAPIService) {
     this.bodyPartsObservable = myAPISvc.getBodyLocations();
     this.bodyPartsObservable.subscribe(data => {
-      for(let i = 0; i < data.length; i++) {
+      for (let i = 0; i < data.length; i++) {
         this.bodyParts.push(data[i].Name);
         this.bodyIDs.push(data[i].ID);
       }
@@ -48,50 +48,47 @@ export class DropdownSelectComponent implements OnInit {
 
   getSublocations() {
 
-    //First clear sublocations and sublocation IDs
+    // First clear sublocations and sublocation IDs
     this.sublocations = [];
     this.subIDs = [];
     this.disabledSymptoms = true;
 
-    //Find id
+    // Find id
     let chosenbodyPartID: number;
-    for(let i = 0; i < this.bodyParts.length; i++) {
+    for (let i = 0; i < this.bodyParts.length; i++) {
       if (this.chosenBodyLocation === this.bodyParts[i]) {
-        chosenbodyPartID = this.bodyIDs[i];
+        chosenbodyPartID = i;
+        break;
       }
     }
-    //get the observable for sublocations from the chosen body location
-    this.subLocationsObservable = this.myAPISvc.getBodySublocations(chosenbodyPartID);
+    // get the observable for sublocations from the chosen body location
+    this.subLocationsObservable = this.myAPISvc.getBodySublocations(this.bodyIDs[chosenbodyPartID]);
     this.subLocationsObservable.subscribe(data => {
-      for(let i = 0; i < data.length; i++) {
+      for (let i = 0; i < data.length; i++) {
         this.sublocations.push(data[i].Name);
         this.subIDs.push(data[i].ID);
       }
-      this.getSymptoms();
+      this.getSymptoms(chosenbodyPartID);
     });
   }
 
-  getSymptoms() {
+  getSymptoms(chosenbodyPartID: number) {
 
-    //First, clear our existing symptoms and observables
+    // First, clear our existing symptoms and observables
     this.symptomsObservables = [];
     this.symptoms = [];
 
-    //get a symptoms observable for every sublocation
-    for(let i = 0; i < this.subIDs.length; i++) {
-      let thisObservable = this.myAPISvc.getSymptoms(this.subIDs[i]);
-      this.symptomsObservables.push(thisObservable);
-    }
+    // get a symptoms observable for every sublocation
+    let thisObservable = this.myAPISvc.getSymptoms(this.subIDs[chosenbodyPartID]);
+    this.symptomsObservables.push(thisObservable);
 
-    //loop over every observable and gets its symptoms, pushing them into the symptoms list
-    for(let i = 0; i < this.symptomsObservables.length; i++) {
-      this.symptomsObservables[i].subscribe(data => {
-        for(let j = 0; j < data.length; j++) {
+    // loop over every observable and gets its symptoms, pushing them into the symptoms list
+    thisObservable.subscribe(data => {
+        for (let j = 0; j < data.length; j++) {
           this.symptoms.push(data[j].Name);
         }
         this.disabledSymptoms = false;
-      });
-    }
+    });
 
   }
 
