@@ -21,7 +21,7 @@
         <input matInput [(ngModel)]="password" placeholder="Password" type="password" required>
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Gender</mat-label>
+        <mat-label>Sex</mat-label>
         <mat-select [(ngModel)]="gender" placeholder="Gender" type="text" required>
           <mat-option>None</mat-option>
           <mat-option *ngFor="let gender of genders" [value]="gender">{{gender}}</mat-option>
