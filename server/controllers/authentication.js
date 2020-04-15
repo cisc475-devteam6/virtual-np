@@ -26,6 +26,8 @@ exports.login = function(req, res, next) {
             });
         });
     });
+    
+    
 }
 
 exports.authorize = function(req, res, next){
@@ -42,6 +44,8 @@ exports.register = function (req, res, next) {
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
     const password = req.body.password;
+    const gender = req.body.gender;
+    const age = req.body.age;
     if (!email) {
         return res.status(422).send({ error: 'You must enter an email address.' });
     }
@@ -50,6 +54,12 @@ exports.register = function (req, res, next) {
     }
     if (!password) {
         return res.status(422).send({ error: 'You must enter a password.' });
+    }
+    if (!gender) {
+        return res.status(422).send({ error: 'you must enter a gender' });
+    }
+    if (!age) {
+        return res.status(422).send({ error: 'you must enter a age' });
     }
 
     User.findOne({ email: email }, function (err, existingUser) {
@@ -61,7 +71,7 @@ exports.register = function (req, res, next) {
                 email: email,
                 password: password,
                 role: securityService.roles.REQUIRE_CLIENT,
-                profile: { firstName: firstName, lastName: lastName }
+                profile: { firstName: firstName, lastName: lastName , gender: gender, age:age}
             });
             user.save(function (err, user) {
                 if (err) { return next(err); }
