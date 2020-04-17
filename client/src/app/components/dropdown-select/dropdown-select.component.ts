@@ -8,27 +8,29 @@ import { SymptomsAPIService } from '../../services/symptomsAPI/symptoms-api.serv
 })
 export class DropdownSelectComponent implements OnInit {
 
-  public disabledBody = true;
-  public disabledSymptoms = true;
+  private disabledBody = true;
+  private disabledSubBody = true;
+  private disabledSymptoms = true;
 
-  public bodyPartsObservable: any;
-  public bodyParts: string[] = [];
-  public bodyIDs: number[] = [];
+  private bodyPartsObservable: any;
+  private bodyParts: string[] = [];
+  private bodyIDs: number[] = [];
 
-  public chosenBodyLocation: string;
+  private chosenBodyLocation: string;
+  private chosenSubBodyLocation: string;
 
-  public subLocationsObservable: any;
-  public sublocations: string[] = [];
-  public subIDs: number[] = [];
+  private subLocationsObservable: any;
+  private sublocations: string[] = [];
+  private subIDs: number[] = [];
 
-  public symptomsObservables: any[] = [];
-  public symptoms: string[] = [];
+  private symptomsObservables: any[] = [];
+  private symptoms: string[] = [];
 
-  public tempSymptom: string;
-  public addedSymptoms: string[] = [];
-  public hiddenHeader = true;
+  private tempSymptom: string;
+  private addedSymptoms: string[] = [];
+  private hiddenHeader = true;
 
-  constructor(public myAPISvc: SymptomsAPIService) {
+  constructor(private myAPISvc: SymptomsAPIService) {
     this.bodyPartsObservable = myAPISvc.getBodyLocations();
     this.bodyPartsObservable.subscribe(data => {
       for (let i = 0; i < data.length; i++) {
@@ -37,13 +39,25 @@ export class DropdownSelectComponent implements OnInit {
       }
       this.disabledBody = false;
     });
+    //console.log(this.bodyParts);
+    //console.log("DropdownSelectComponent -> constructor -> bodyParts", this.bodyIDs);
   }
 
   ngOnInit() {
   }
 
-  getBodyPart(sel: any) {
-    this.chosenBodyLocation = sel;
+
+  getSublocationSymptoms() {
+    // Find id
+    let chosenSubBodyPartID: number;
+    for (let i = 0; i < this.sublocations.length; i++) {
+      if (this.chosenSubBodyLocation === this.sublocations[i]) {
+        chosenSubBodyPartID = i;
+        break;
+      }
+    }
+    //console.log("sublocation id: " + chosenbodyPartID);
+    this.getSymptoms(chosenSubBodyPartID);
   }
 
   getSublocations() {
@@ -51,7 +65,7 @@ export class DropdownSelectComponent implements OnInit {
     // First clear sublocations and sublocation IDs
     this.sublocations = [];
     this.subIDs = [];
-    this.disabledSymptoms = true;
+    this.disabledSubBody = false;
 
     // Find id
     let chosenbodyPartID: number;
@@ -63,16 +77,18 @@ export class DropdownSelectComponent implements OnInit {
     }
     // get the observable for sublocations from the chosen body location
     this.subLocationsObservable = this.myAPISvc.getBodySublocations(this.bodyIDs[chosenbodyPartID]);
+    //console.log(this.bodyIDs[chosenbodyPartID]);
     this.subLocationsObservable.subscribe(data => {
       for (let i = 0; i < data.length; i++) {
         this.sublocations.push(data[i].Name);
         this.subIDs.push(data[i].ID);
       }
-      this.getSymptoms(chosenbodyPartID);
     });
   }
 
   getSymptoms(chosenbodyPartID: number) {
+
+    this.disabledSymptoms = false;
 
     // First, clear our existing symptoms and observables
     this.symptomsObservables = [];
@@ -87,9 +103,16 @@ export class DropdownSelectComponent implements OnInit {
         for (let j = 0; j < data.length; j++) {
           this.symptoms.push(data[j].Name);
         }
-        this.disabledSymptoms = false;
     });
 
+  }
+
+  getBodyPart(sel: any) {
+    this.chosenBodyLocation = sel;
+  }
+
+  getSubBodyPart(sel: any) {
+    this.chosenSubBodyLocation = sel;
   }
 
   prepSymptom(sel: any) {

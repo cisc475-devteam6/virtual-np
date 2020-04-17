@@ -6,6 +6,16 @@
   </select>
 </mat-form-field>
 <br/><button mat-flat-button color="accent" id="next" (click)="getSublocations()">Apply Filter</button>
+
+<mat-form-field class="part-select">
+  <mat-label id="label">Select SubBody Part</mat-label>
+  <select matNativeControl required id="subbodyPart" (change)="getSubBodyPart($event.target.value)" [disabled]="disabledSubBody">
+    <option value="Default" id="default">Select Affected SubBody Part</option>
+    <option *ngFor="let part of sublocations">{{part}}</option>
+  </select>
+</mat-form-field>
+<br/><button mat-flat-button color="accent" id="subnext" (click)="getSublocationSymptoms()">Apply Filter</button>
+
 <br/><br/><mat-form-field class="symptom-select">
   <mat-label>Select Symptom</mat-label>
   <select matNativeControl required id="select" (change)="prepSymptom($event.target.value)" [disabled]="disabledSymptoms">
