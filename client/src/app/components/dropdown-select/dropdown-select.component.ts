@@ -45,6 +45,9 @@ export class DropdownSelectComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * gets sublocations of chosen body location
+   */
   getSublocations() {
 
     // First clear sublocations and sublocation IDs
@@ -70,6 +73,9 @@ export class DropdownSelectComponent implements OnInit {
     });
   }
 
+  /**
+   * gets sublocations symptoms depending on chosen sublocation
+   */
   getSublocationSymptoms() {
     // Find id
     let chosenSubBodyPartID: number;
@@ -82,6 +88,10 @@ export class DropdownSelectComponent implements OnInit {
     this.getSymptoms(chosenSubBodyPartID);
   }
 
+  /**
+   * gets symptoms of given sublocation
+   * @param chosenbodyPartID index of sublocation
+   */
   getSymptoms(chosenbodyPartID: number) {
 
     this.disabledSymptoms = false;

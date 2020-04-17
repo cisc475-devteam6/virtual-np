@@ -45,6 +45,7 @@ export class SymptomsAPIService {
     return this.http.get<any>(url, { headers: this.headers, params });
   }
 
+  // gets selector status for getting proper symptoms from api using patient age and gender
   private getSymptomSelectorStatus(): string {
     const isAdult = JSON.parse(localStorage.getItem('user')).age > 11 ? true : false;
     const isMale = JSON.parse(localStorage.getItem('user')).gender === 'Male' ? true : false;
