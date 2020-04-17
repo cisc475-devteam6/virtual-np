@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SymptomsAPIService } from '../../services/symptomsAPI/symptoms-api.service';
+import { Symptom } from './symptom.model';
 
 @Component({
   selector: 'app-dropdown-select',
@@ -24,10 +25,10 @@ export class DropdownSelectComponent implements OnInit {
   private subIDs: number[] = [];
 
   private symptomsObservables: any[] = [];
-  private symptoms: string[] = [];
+  private symptoms: Symptom[] = [];
 
-  private tempSymptom: string;
-  private addedSymptoms: string[] = [];
+  private tempSymptom: Symptom;
+  private addedSymptoms: Symptom[] = [];
   private hiddenHeader = true;
 
   constructor(private myAPISvc: SymptomsAPIService) {
@@ -39,25 +40,9 @@ export class DropdownSelectComponent implements OnInit {
       }
       this.disabledBody = false;
     });
-    //console.log(this.bodyParts);
-    //console.log("DropdownSelectComponent -> constructor -> bodyParts", this.bodyIDs);
   }
 
   ngOnInit() {
-  }
-
-
-  getSublocationSymptoms() {
-    // Find id
-    let chosenSubBodyPartID: number;
-    for (let i = 0; i < this.sublocations.length; i++) {
-      if (this.chosenSubBodyLocation === this.sublocations[i]) {
-        chosenSubBodyPartID = i;
-        break;
-      }
-    }
-    //console.log("sublocation id: " + chosenbodyPartID);
-    this.getSymptoms(chosenSubBodyPartID);
   }
 
   getSublocations() {
@@ -77,13 +62,24 @@ export class DropdownSelectComponent implements OnInit {
     }
     // get the observable for sublocations from the chosen body location
     this.subLocationsObservable = this.myAPISvc.getBodySublocations(this.bodyIDs[chosenbodyPartID]);
-    //console.log(this.bodyIDs[chosenbodyPartID]);
     this.subLocationsObservable.subscribe(data => {
       for (let i = 0; i < data.length; i++) {
         this.sublocations.push(data[i].Name);
         this.subIDs.push(data[i].ID);
       }
     });
+  }
+
+  getSublocationSymptoms() {
+    // Find id
+    let chosenSubBodyPartID: number;
+    for (let i = 0; i < this.sublocations.length; i++) {
+      if (this.chosenSubBodyLocation === this.sublocations[i]) {
+        chosenSubBodyPartID = i;
+        break;
+      }
+    }
+    this.getSymptoms(chosenSubBodyPartID);
   }
 
   getSymptoms(chosenbodyPartID: number) {
@@ -101,7 +97,7 @@ export class DropdownSelectComponent implements OnInit {
     // loop over every observable and gets its symptoms, pushing them into the symptoms list
     thisObservable.subscribe(data => {
         for (let j = 0; j < data.length; j++) {
-          this.symptoms.push(data[j].Name);
+          this.symptoms.push(new Symptom(data[j].Name, this.chosenSubBodyLocation));
         }
     });
 
@@ -115,13 +111,15 @@ export class DropdownSelectComponent implements OnInit {
     this.chosenSubBodyLocation = sel;
   }
 
-  prepSymptom(sel: any) {
-    this.tempSymptom = sel;
+  prepSymptom(sel: string) {
+    this.tempSymptom = new Symptom(sel, this.chosenSubBodyLocation);
   }
 
   addSymptom() {
     this.addedSymptoms.push(this.tempSymptom);
     this.hiddenHeader = false;
+    this.disabledSubBody = true;
+    this.disabledSymptoms = true;
   }
 
 }

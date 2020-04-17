@@ -40,10 +40,6 @@ export class SymptomsAPIService {
   public getSymptoms(sublocationID: number) {
     const params = new HttpParams()
       .set('language', 'en-gb');
-
-    console.log(sublocationID);
-    console.log(sublocationID.toString());
-
     const url = 'https://priaid-symptom-checker-v1.p.rapidapi.com/symptoms/' +
       sublocationID.toString() + '/' + this.getSymptomSelectorStatus();
     return this.http.get<any>(url, { headers: this.headers, params });
