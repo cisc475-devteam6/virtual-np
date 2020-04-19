@@ -3,11 +3,11 @@ import { DropdownSelectComponent } from 'src/app/components/dropdown-select/drop
 import { SymptomsAPIService } from '../../services/symptomsAPI/symptoms-api.service';
 
 @Component({
-  selector: 'app-visit-page',
-  templateUrl: './visit-page.component.html',
-  styleUrls: ['./visit-page.component.scss']
+  selector: 'app-user-data-page',
+  templateUrl: './user-data-page.component.html',
+  styleUrls: ['./user-data-page.component.scss']
 })
-export class VisitPageComponent implements OnInit {
+export class UserDataPageComponent implements OnInit {
 
   constructor() {
     window.onclick = function(event: any) {
