@@ -6,3 +6,4 @@ export * from './user-chat-page/user-chat-page.component';
 export * from './sign-up-page/sign-up-page.component';
 export * from './admin-chat-page/admin-chat-page.component';
 export * from './calendar-page/calendar-page.component';
+export * from './user-data-page/user-data-page.component';
