@@ -10,19 +10,8 @@ import { SymptomsAPIService } from '../../services/symptomsAPI/symptoms-api.serv
 export class UserDataPageComponent implements OnInit {
 
   constructor() {
-    window.onclick = function(event: any) {
-      if (!event.target.matches('.dropbtn')) {
-        let dropdowns = document.getElementsByClassName("dropdown-content");
-        let i: number;
-        for(i = 0; i < dropdowns.length; i++) {
-          let openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-          }
-        }
-      }
-    }
-   }
+    
+  }
 
   ngOnInit() {
   }
