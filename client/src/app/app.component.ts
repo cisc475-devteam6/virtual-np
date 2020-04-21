@@ -42,6 +42,10 @@ export class AppComponent implements OnInit {
       {
   name: 'Np Landing Page',
   route: '/np-landing-page'
+      },
+      {
+        name: 'Np Visit Page',
+        route: '/np-visit-page'
       }
     ];
   }
@@ -75,6 +79,10 @@ export class AppComponent implements OnInit {
       {
   name: 'Np Landing Page',
   route: '/np-landing-page'
+      },
+      {
+        name: 'Np Visit Page',
+        route: '/np-visit-page'
       }
     ];
   }

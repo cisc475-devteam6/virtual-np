@@ -11,6 +11,7 @@ import { VisitPageComponent } from './pages/visit-page/visit-page.component';
 import { CalendarPageComponent } from './pages/calendar-page/calendar-page.component';
 import { UserDataPageComponent } from './pages/user-data-page/user-data-page.component';
 import { NpLandingPageComponent } from './pages/np-landing-page/np-landing-page.component';
+import { NpVisitPageComponent } from './pages/np-visit-page/np-visit-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'visit-page', component: VisitPageComponent}, //, canActivate: [AuthGuard] }
   { path: 'calendar-page', component: CalendarPageComponent},
   { path: 'user-data-page', component: UserDataPageComponent},
-  { path: 'np-landing-page', component: NpLandingPageComponent, canActivate: [AuthGuard]}
+  { path: 'np-landing-page', component: NpLandingPageComponent, canActivate: [AuthGuard]},
+  { path: 'np-visit-page', component: NpVisitPageComponent}
 ];
 
 @NgModule({

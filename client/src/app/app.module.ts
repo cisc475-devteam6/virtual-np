@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { SecurityModule } from './security/security.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import {
@@ -24,6 +25,7 @@ import {
 import { HeaderComponent } from './components/navigation/header/header.component'
 import { DropdownSelectComponent } from './components/dropdown-select/dropdown-select.component';
 import { NpLandingPageComponent } from './pages/np-landing-page/np-landing-page.component';
+import { NpVisitPageComponent } from './pages/np-visit-page/np-visit-page.component';
 
 
 @NgModule({
@@ -41,6 +43,7 @@ import { NpLandingPageComponent } from './pages/np-landing-page/np-landing-page.
     CalendarPageComponent,
     UserDataPageComponent,
     NpLandingPageComponent,
+    NpVisitPageComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -50,6 +53,7 @@ import { NpLandingPageComponent } from './pages/np-landing-page/np-landing-page.
     SecurityModule,
     HttpClientModule,
     FormsModule,
+    NgbModule,
   ],
   providers: [
     {provide: DropdownSelectComponent, useClass: DropdownSelectComponent}
