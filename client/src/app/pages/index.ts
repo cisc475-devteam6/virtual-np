@@ -7,3 +7,4 @@ export * from './sign-up-page/sign-up-page.component';
 export * from './admin-chat-page/admin-chat-page.component';
 export * from './calendar-page/calendar-page.component';
 export * from './user-data-page/user-data-page.component';
+export * from './np-landing-page/np-landing-page.component';
