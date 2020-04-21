@@ -33,7 +33,19 @@ export class AuthService {
   }
 
   public np_login(email: string, password: string) {
-    alert('Not yet implemented');
+    return this._http
+    .post(
+      "http://localhost:3000/api/auth/login",
+      { email: email, password: password },
+      { headers: this.headers }
+    )
+    .pipe(
+      map((user: any) => {
+        this._userSvc.setUser(user);
+        this.router.navigate(['np-landing-page']);
+        return user;
+      })
+    );
   }
 
   public login(email: string, password: string) {

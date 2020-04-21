@@ -38,6 +38,10 @@ export class AppComponent implements OnInit {
       {
   name: 'User Data Page',
   route: '/user-data-page'
+      },
+      {
+  name: 'Np Landing Page',
+  route: '/np-landing-page'
       }
     ];
   }
@@ -67,6 +71,10 @@ export class AppComponent implements OnInit {
       {
   name:'User Data Page',
   route: '/user-data-page'
+      },
+      {
+  name: 'Np Landing Page',
+  route: '/np-landing-page'
       }
     ];
   }
