@@ -10,10 +10,12 @@ export class RegisterComponent implements OnInit {
 
   email: string;
   password: string;
+  passwordC: string; 
   firstName: string;
   lastName: string;
   gender: string;
   age: number;
+  matched: boolean;
 
   constructor(private _authSvc: AuthService) { }
 
@@ -41,6 +43,11 @@ export class RegisterComponent implements OnInit {
     for (var i = 18;  i < 100; i++){
       this.ages.push(i);
     }
+  }
+
+  passwordMatch() {
+    this.matched =  this.password !== this.passwordC;
+
   }
 
 }
