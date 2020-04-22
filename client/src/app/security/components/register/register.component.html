@@ -21,6 +21,10 @@
         <input matInput [(ngModel)]="password" placeholder="Password" type="password" required>
       </mat-form-field>
       <mat-form-field appearance="outline">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput [(ngModel)]="rePassword" placeholder="Confirm Password" type="password" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
         <mat-label>Sex</mat-label>
         <mat-select [(ngModel)]="gender" placeholder="Gender" type="text" required>
           <mat-option>None</mat-option>
@@ -34,10 +38,14 @@
           <mat-option *ngFor="let age of ages" [value]="age">{{age}}</mat-option>
         </mat-select>
       </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input matInput [matDatepicker]="myDatepicker" placeholder="birth date">
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker></mat-datepicker>
+      </mat-form-field>
       <button mat-flat-button color=primary (click)="registerClick()" type="submit">
         Sign In
       </button>
     </div>
   </mat-card-content>
 </mat-card>
- 

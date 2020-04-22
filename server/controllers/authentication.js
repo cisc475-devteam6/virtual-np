@@ -9,6 +9,13 @@ function generateToken(user) {
         expiresIn: 10080 //in seconds
     });
 }
+function validatedBirthdate(birthdate) {
+    var current = new Date();
+    var age = current.getFullYear() - birthdate.getFullYear();
+    var m = current.getMonth() - birthdate.getMonth();
+    var d = current.getDay() - birthdate.getDay();
+    return age >=0 && m >= 0 && d >=0;
+}
 //========================================
 // Login Route
 //========================================
@@ -46,6 +53,7 @@ exports.register = function (req, res, next) {
     const password = req.body.password;
     const gender = req.body.gender;
     const age = req.body.age;
+    const birthdate = req.body.birthdate;
     if (!email) {
         return res.status(422).send({ error: 'You must enter an email address.' });
     }
@@ -60,6 +68,12 @@ exports.register = function (req, res, next) {
     }
     if (!age) {
         return res.status(422).send({ error: 'you must enter a age' });
+    }
+    if (!birthdate){
+        return res.status(422).send({ error: 'you must enter a birthdate' });
+    }
+    if (!validatedBirthdate(birthdate)){
+        return res.status(422).send({ error: 'you must be 18 years old or older'})
     }
 
     User.findOne({ email: email }, function (err, existingUser) {
