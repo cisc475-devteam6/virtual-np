@@ -27,6 +27,7 @@ export class RegisterComponent implements OnInit {
     this._authSvc.register(
       this.email,
       this.password,
+      this.passwordC,
       this.firstName,
       this.lastName,
       this.gender,
@@ -38,7 +39,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.email = this.password = this.firstName = this.lastName = this.gender ='';
+    this.email = this.password = this.firstName = this.lastName = this.gender = this.passwordC = '';
     this.age = 0;
     for (var i = 18;  i < 100; i++){
       this.ages.push(i);
@@ -49,6 +50,8 @@ export class RegisterComponent implements OnInit {
     this.matched =  this.password !== this.passwordC;
 
   }
+
+  
 
 }
 
