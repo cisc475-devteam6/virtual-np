@@ -72,11 +72,13 @@ export class AuthService {
   public register(
     email: string,
     password: string,
+    passwordC: string,
     firstName: string,
     lastName: string,
     gender: String,
     age: number,
     birthdate: string
+
   ) {
     return this._http
     .post(
@@ -86,6 +88,7 @@ export class AuthService {
         firstName: firstName,
         lastName: lastName,
         password: password,
+        passwordC: passwordC,
         gender: gender,
         age: age,
         birthdate: birthdate

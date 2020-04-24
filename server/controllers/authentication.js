@@ -51,6 +51,7 @@ exports.register = function (req, res, next) {
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
     const password = req.body.password;
+    const passwordC = req.body.passwordC;
     const gender = req.body.gender;
     const age = req.body.age;
     const birthdate = req.body.birthdate;
@@ -63,11 +64,17 @@ exports.register = function (req, res, next) {
     if (!password) {
         return res.status(422).send({ error: 'You must enter a password.' });
     }
+    if (!passwordC) {
+        return res.status(422).send({ error: 'You must enter a confirm password.' });
+    }
+    if (passwordC !== password) {
+        return res.status(422).send({ error: 'Password does not match.' });
+    }
     if (!gender) {
-        return res.status(422).send({ error: 'you must enter a gender' });
+        return res.status(422).send({ error: 'You must enter a gender' });
     }
     if (!age) {
-        return res.status(422).send({ error: 'you must enter a age' });
+        return res.status(422).send({ error: 'You must enter a age' });
     }
     if (!birthdate){
         return res.status(422).send({ error: 'you must enter a birthdate' });

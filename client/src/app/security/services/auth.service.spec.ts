@@ -67,6 +67,7 @@ describe('AuthService', () => {
             const firstName ='John';
             const lastName ='Doe';
             const password ='testpassword';
+            const passwordC ='testpassword';
             const gender = 'male';
             const age = 20;
             let response = null;
@@ -74,6 +75,7 @@ describe('AuthService', () => {
             service.register(
               userName,
               password,
+              passwordC,
               firstName,
               lastName,
               gender,

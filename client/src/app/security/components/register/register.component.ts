@@ -11,11 +11,13 @@ export class RegisterComponent implements OnInit {
 
   email: string;
   password: string;
+  passwordC: string; 
   firstName: string;
   lastName: string;
   gender: string;
   age: number;
   birthdate: string;
+  matched: boolean;
 
   constructor(private _authSvc: AuthService) { }
 
@@ -32,6 +34,7 @@ export class RegisterComponent implements OnInit {
     this._authSvc.register(
       this.email,
       this.password,
+      this.passwordC,
       this.firstName,
       this.lastName,
       this.gender,
@@ -44,11 +47,19 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.email = this.password = this.firstName = this.lastName = this.gender = '';
+    this.email = this.password = this.firstName = this.lastName = this.gender = this.passwordC = '';
     this.age = 0;
     for (var i = 18; i < 100; i++) {
       this.ages.push(i);
     }
   }
+
+  passwordMatch() {
+    this.matched =  this.password !== this.passwordC;
+
+  }
+
+  
+
 }
 
