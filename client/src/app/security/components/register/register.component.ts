@@ -27,7 +27,8 @@ export class RegisterComponent implements OnInit {
   ages: number[] = [];
   
   addEvent(event: MatDatepickerInputEvent<Date>) {
-    this.birthdate = `${event.value}`
+    var date = new Date(`${event.value}`);
+    this.birthdate = date.getFullYear() + "/" + date.getMonth() + "/" + date.getDay();
   }
   registerClick() {
     console.log(this.birthdate);
@@ -38,25 +39,18 @@ export class RegisterComponent implements OnInit {
       this.firstName,
       this.lastName,
       this.gender,
-      this.age,
       this.birthdate
     ).subscribe(
       data => console.log('Data:' + data),
       err => console.log(err)
     );
   }
-
   ngOnInit() {
-    this.email = this.password = this.firstName = this.lastName = this.gender = this.passwordC = '';
-    this.age = 0;
-    for (var i = 18; i < 100; i++) {
-      this.ages.push(i);
-    }
+    this.email = this.password = this.firstName = this.lastName = this.gender = this.passwordC = this.birthdate = '';
   }
 
   passwordMatch() {
     this.matched =  this.password !== this.passwordC;
-
   }
 
   

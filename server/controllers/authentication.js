@@ -11,21 +11,31 @@ function generateToken(user) {
 }
 function validatedBirthdate(birthdate) {
     var current = new Date();
-    var age = current.getFullYear() - birthdate.getFullYear();
-    var m = current.getMonth() - birthdate.getMonth();
-    var d = current.getDay() - birthdate.getDay();
-    return age >=0 && m >= 0 && d >=0;
+    var date = birthdate.split("/");
+    var age = current.getFullYear() - parseInt(date[0]);
+    if (age > 18)
+        return true;
+    else if (age == 18){
+        var m = current.getMonth() - parseInt(date[1]);
+        if (m > 0){
+            return true;
+        }
+        else {
+            var d = current.getDay() - parseInt(date[2]);
+            return d >= 0;
+        }
+    }
 }
 //========================================
 // Login Route
 //========================================
-exports.login = function(req, res, next) {
-    User.findOne({email: req.body.email}, function (err, user) {
-        if(err){ return res.status(400).json({error: "bad data"}); }
-        if(!user){ return res.status(400).json({error:'Your login details could not be verified. Please try again.'}); }
-        user.comparePassword(req.body.password, function(err, isMatch){
-            if(err){ console.log(err); return res.status(400).json({error: "bad data2"}); }
-            if(!isMatch){ return res.status(400).json({error:'Your login details could not be verified. Please try again.'}); }
+exports.login = function (req, res, next) {
+    User.findOne({ email: req.body.email }, function (err, user) {
+        if (err) { return res.status(400).json({ error: "bad data" }); }
+        if (!user) { return res.status(400).json({ error: 'Your login details could not be verified. Please try again.' }); }
+        user.comparePassword(req.body.password, function (err, isMatch) {
+            if (err) { console.log(err); return res.status(400).json({ error: "bad data2" }); }
+            if (!isMatch) { return res.status(400).json({ error: 'Your login details could not be verified. Please try again.' }); }
             let userInfo = user.toJson();
             res.status(200).json({
                 token: 'Bearer ' + generateToken(userInfo),
@@ -33,11 +43,11 @@ exports.login = function(req, res, next) {
             });
         });
     });
-    
-    
+
+
 }
 
-exports.authorize = function(req, res, next){
+exports.authorize = function (req, res, next) {
     return res.status(200).json({
         validated: true
     })
@@ -53,8 +63,8 @@ exports.register = function (req, res, next) {
     const password = req.body.password;
     const passwordC = req.body.passwordC;
     const gender = req.body.gender;
-    const age = req.body.age;
     const birthdate = req.body.birthdate;
+    console.log(birthdate);
     if (!email) {
         return res.status(422).send({ error: 'You must enter an email address.' });
     }
@@ -73,26 +83,24 @@ exports.register = function (req, res, next) {
     if (!gender) {
         return res.status(422).send({ error: 'You must enter a gender' });
     }
-    if (!age) {
-        return res.status(422).send({ error: 'You must enter a age' });
+    if (!birthdate) {
+        return res.status(422).send({ error: 'You must enter a birthdate' });
     }
-    if (!birthdate){
-        return res.status(422).send({ error: 'you must enter a birthdate' });
-    }
-    if (!validatedBirthdate(birthdate)){
-        return res.status(422).send({ error: 'you must be 18 years old or older'})
+    if (!validatedBirthdate(birthdate)) {
+        return res.status(422).send({ error: 'you must be 18 years old or older' })
     }
 
     User.findOne({ email: email }, function (err, existingUser) {
         if (err) { return next(err); }
         if (existingUser) {
-            return res.status(422).send({ error: 'That email address is already in use.'});
+            return res.status(422).send({ error: 'That email address is already in use.' });
         } else {
+            console.log(birthdate);
             let user = new User({
                 email: email,
                 password: password,
                 role: securityService.roles.REQUIRE_CLIENT,
-                profile: { firstName: firstName, lastName: lastName , gender: gender, age:age}
+                profile: { firstName: firstName, lastName: lastName, gender: gender, birthdate: birthdate}
             });
             user.save(function (err, user) {
                 if (err) { return next(err); }
