@@ -39,6 +39,10 @@
           <mat-option *ngFor="let age of ages" [value]="age">{{age}}</mat-option>
         </mat-select>
       </mat-form-field>
+      <mat-checkbox>
+        I agree to the Terms and Conditions
+        <button class="link">Clicky</button>
+      </mat-checkbox>
       <button mat-flat-button color=primary (click)="registerClick()" type="submit">
         Sign In
       </button>

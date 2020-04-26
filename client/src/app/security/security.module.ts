@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MaterialModule } from '../material.module';
 import { RegisterComponent } from './components/register/register.component';
 import { AlertComponent } from './components/alert/alert.component';
+import { MatCheckboxModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { AlertComponent } from './components/alert/alert.component';
     FormsModule,
     HttpClientModule,
     MaterialModule,
+    MatCheckboxModule,
   ],
   providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
