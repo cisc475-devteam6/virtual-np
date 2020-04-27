@@ -8,7 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MaterialModule } from '../material.module';
 import { RegisterComponent } from './components/register/register.component';
 import { AlertComponent } from './components/alert/alert.component';
-import { MatCheckboxModule } from '@angular/material';
+import { MatCheckboxModule} from '@angular/material';
 
 @NgModule({
   imports: [

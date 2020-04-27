@@ -18,7 +18,16 @@
   color: red;
 }
 
-button.link {
+.link {
   background: none;
   border: none;
+  color: blue;
+  text-align: left;
+ 
+}
+.link:hover {
+  cursor: pointer;
+}
+.item {
+  display: inline;
 }

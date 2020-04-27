@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service'
+import { TermsComponent} from'../../../components/terms/terms.component'
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-register',
@@ -16,8 +18,10 @@ export class RegisterComponent implements OnInit {
   gender: string;
   age: number;
   matched: boolean;
+  checked: boolean;
 
-  constructor(private _authSvc: AuthService) { }
+  constructor(private _authSvc: AuthService, public dialog: MatDialog) { }
+
 
   genders: string[] = [
     'Male', 'Female'
@@ -38,9 +42,20 @@ export class RegisterComponent implements OnInit {
     );
   }
 
+  isChecked() {
+    this.checked = !this.checked;
+    console.log(this.checked);
+  }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(TermsComponent, {
+      width: '70%',
+      data: { name: "termsCondition", color: "black" }
+    });
+  }
   ngOnInit() {
     this.email = this.password = this.firstName = this.lastName = this.gender = this.passwordC = '';
     this.age = 0;
+    this.checked = false;
     for (var i = 18;  i < 100; i++){
       this.ages.push(i);
     }

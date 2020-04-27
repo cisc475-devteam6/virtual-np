@@ -1,12 +1,9 @@
-.dark-modal .modal-content {
-  background-color: #292b2c;
-  color: white;
+.center {
+  display: flex;
+  justify-content: center;
 }
 
-.dark-modal .close {
-  color: white;
-}
-
-.light-blue-backdrop {
-  background-color: #5cb3fd;
+#close {
+  left: 90%;
+  bottom: 5%;
 }

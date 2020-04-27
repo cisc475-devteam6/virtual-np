@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit , Inject} from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { ModalData } from './modal-data';
 
 @Component({
   selector: 'app-terms',
@@ -8,12 +9,15 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class TermsComponent implements OnInit {
 
-  constructor(private modalService: NgbModal) {}  
+  constructor(
+    public dialogRef: MatDialogRef<TermsComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: ModalData) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    throw new Error("Method not implemented.");
   }
 
-  openScrollableContent(longContent) {
-    this.modalService.open(longContent, { scrollable: true });
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 }

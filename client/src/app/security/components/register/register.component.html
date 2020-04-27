@@ -18,11 +18,13 @@
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
-        <input matInput [(ngModel)]="password" placeholder="Password" type="password" (change) = "passwordMatch()"required>
+        <input matInput [(ngModel)]="password" placeholder="Password" type="password" (change)="passwordMatch()"
+          required>
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Confirm Password</mat-label>
-        <input matInput [(ngModel)]="passwordC" placeholder="Confirm Password" type="password" (change) = "passwordMatch()" required>
+        <input matInput [(ngModel)]="passwordC" placeholder="Confirm Password" type="password"
+          (change)="passwordMatch()" required>
         <span class="error" *ngIf="matched"> password dose not match </span>
       </mat-form-field>
       <mat-form-field appearance="outline">
@@ -39,14 +41,18 @@
           <mat-option *ngFor="let age of ages" [value]="age">{{age}}</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-checkbox>
-        I agree to the Terms and Conditions
-        <button class="link">Clicky</button>
-      </mat-checkbox>
+      <div class="item">
+        <mat-checkbox (click)="isChecked()">
+          I agree to the Terms and Conditions
+        </mat-checkbox>
+        <button class="link" (click)="openDialog()">
+          <b>virtual-np-terms</b>
+        </button>
+        <p></p>
+      </div>
       <button mat-flat-button color=primary (click)="registerClick()" type="submit">
         Sign In
       </button>
     </div>
   </mat-card-content>
 </mat-card>
- 
