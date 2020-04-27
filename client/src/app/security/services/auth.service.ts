@@ -76,7 +76,7 @@ export class AuthService {
     firstName: string,
     lastName: string,
     gender: String,
-    age: number,
+    birthdate: String
 
   ) {
     return this._http
@@ -89,7 +89,7 @@ export class AuthService {
         password: password,
         passwordC: passwordC,
         gender: gender,
-        age: age
+        birthdate: birthdate
       },
       { headers: this.headers }
     )
