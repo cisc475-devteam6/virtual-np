@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
   
   addEvent(event: MatDatepickerInputEvent<Date>) {
     var date = new Date(`${event.value}`);
-    this.birthdate = date.getFullYear() + "/" + date.getMonth() + "/" + date.getDay();
+    this.birthdate = date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate();
   }
   registerClick() {
     console.log(this.birthdate);
