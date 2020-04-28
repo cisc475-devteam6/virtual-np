@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service'
 import { TermsComponent} from'../../../components/terms/terms.component'
 import { MatDialog } from '@angular/material';
-
+import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
+
 export class RegisterComponent implements OnInit {
 
   email: string;
@@ -17,6 +18,7 @@ export class RegisterComponent implements OnInit {
   lastName: string;
   gender: string;
   age: number;
+  birthdate: string;
   matched: boolean;
   checked: boolean;
 
@@ -26,8 +28,14 @@ export class RegisterComponent implements OnInit {
   genders: string[] = [
     'Male', 'Female'
   ];
-  ages: number[]= [];
+  ages: number[] = [];
+  
+  addEvent(event: MatDatepickerInputEvent<Date>) {
+    var date = new Date(`${event.value}`);
+    this.birthdate = date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate();
+  }
   registerClick() {
+    console.log(this.birthdate);
     this._authSvc.register(
       this.email,
       this.password,
@@ -35,7 +43,8 @@ export class RegisterComponent implements OnInit {
       this.firstName,
       this.lastName,
       this.gender,
-      this.age
+      this.birthdate,
+      this.checked,
     ).subscribe(
       data => console.log('Data:' + data),
       err => console.log(err)
@@ -54,19 +63,15 @@ export class RegisterComponent implements OnInit {
   }
   ngOnInit() {
     this.email = this.password = this.firstName = this.lastName = this.gender = this.passwordC = '';
-    this.age = 0;
     this.checked = false;
     for (var i = 18;  i < 100; i++){
       this.ages.push(i);
     }
   }
-
   passwordMatch() {
     this.matched =  this.password !== this.passwordC;
-
   }
 
-  
 
 }
 
