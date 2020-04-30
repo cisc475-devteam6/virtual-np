@@ -40,13 +40,14 @@
         <mat-datepicker #myDatepicker></mat-datepicker>
       </mat-form-field>
       <div class="item">
-        <mat-checkbox (click)="isChecked()">
+        <mat-checkbox (click)="isChecked()" required>
           I agree to the Terms and Conditions
         </mat-checkbox>
         <button class="link" (click)="openDialog()">
           <b>virtual-np-terms</b>
         </button>
         <p></p>
+        <span class="error" id="termsE" *ngIf="!checked"></span>
       </div>
       <button mat-flat-button color=primary (click)="registerClick()" type="submit">
         Sign In

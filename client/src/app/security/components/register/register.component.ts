@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth.service'
 import { TermsComponent} from'../../../components/terms/terms.component'
 import { MatDialog } from '@angular/material';
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
+import * as $ from 'jquery'
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -13,7 +14,7 @@ export class RegisterComponent implements OnInit {
 
   email: string;
   password: string;
-  passwordC: string; 
+  passwordC: string;
   firstName: string;
   lastName: string;
   gender: string;
@@ -35,7 +36,9 @@ export class RegisterComponent implements OnInit {
     this.birthdate = date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate();
   }
   registerClick() {
-    console.log(this.birthdate);
+    $(".item span").append(
+      'You must agree terms and conditions'
+    );
     this._authSvc.register(
       this.email,
       this.password,
