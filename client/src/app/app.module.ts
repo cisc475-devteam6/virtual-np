@@ -24,6 +24,8 @@ import {
 import { HeaderComponent } from './components/navigation/header/header.component'
 import { DropdownSelectComponent } from './components/dropdown-select/dropdown-select.component';
 import { NpLandingPageComponent } from './pages/np-landing-page/np-landing-page.component';
+import { TermsComponent} from './components/terms/terms.component'
+import { MatDialogModule } from '@angular/material';
 
 
 @NgModule({
@@ -41,6 +43,7 @@ import { NpLandingPageComponent } from './pages/np-landing-page/np-landing-page.
     CalendarPageComponent,
     UserDataPageComponent,
     NpLandingPageComponent,
+    TermsComponent
   ],
   imports: [
     AppRoutingModule,
@@ -50,10 +53,14 @@ import { NpLandingPageComponent } from './pages/np-landing-page/np-landing-page.
     SecurityModule,
     HttpClientModule,
     FormsModule,
+    MatDialogModule
   ],
   providers: [
-    {provide: DropdownSelectComponent, useClass: DropdownSelectComponent}
+    { provide: DropdownSelectComponent, useClass: DropdownSelectComponent }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent,
+  ],
+  entryComponents: [TermsComponent]
 })
 export class AppModule { }
