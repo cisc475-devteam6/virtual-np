@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
     this.birthdate = date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate();
   }
   registerClick() {
-    $(".item span").append(
+    $('#termsE').text(
       'You must agree terms and conditions'
     );
     this._authSvc.register(
