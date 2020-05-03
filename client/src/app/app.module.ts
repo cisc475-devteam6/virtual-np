@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { SecurityModule } from './security/security.module';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppComponent } from './app.component';
 import {
@@ -50,6 +51,7 @@ import { NpLandingPageComponent } from './pages/np-landing-page/np-landing-page.
     SecurityModule,
     HttpClientModule,
     FormsModule,
+    NgxSpinnerModule
   ],
   providers: [
     {provide: DropdownSelectComponent, useClass: DropdownSelectComponent}

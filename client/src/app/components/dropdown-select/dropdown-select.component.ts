@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SymptomsAPIService } from '../../services/symptomsAPI/symptoms-api.service';
 import { Symptom } from './symptom.model';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-dropdown-select',
@@ -31,7 +32,8 @@ export class DropdownSelectComponent implements OnInit {
   private addedSymptoms: Symptom[] = [];
   private hiddenHeader = true;
 
-  constructor(private myAPISvc: SymptomsAPIService) {
+  constructor(private myAPISvc: SymptomsAPIService, private spinner: NgxSpinnerService) {
+    this.spinner.show();
     this.bodyPartsObservable = myAPISvc.getBodyLocations();
     this.bodyPartsObservable.subscribe(data => {
       for (let i = 0; i < data.length; i++) {
@@ -39,6 +41,7 @@ export class DropdownSelectComponent implements OnInit {
         this.bodyIDs.push(data[i].ID);
       }
       this.disabledBody = false;
+      this.spinner.hide();
     });
   }
 
