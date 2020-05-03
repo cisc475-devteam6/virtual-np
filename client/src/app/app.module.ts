@@ -17,7 +17,8 @@ import {
   AdminChatPageComponent,
   VisitPageComponent,
   CalendarPageComponent,
-  UserDataPageComponent
+  UserDataPageComponent,
+  UserDataEditPageComponent
 } from './pages';
 
 
@@ -40,6 +41,7 @@ import { NpLandingPageComponent } from './pages/np-landing-page/np-landing-page.
     DropdownSelectComponent,
     CalendarPageComponent,
     UserDataPageComponent,
+    UserDataEditPageComponent,
     NpLandingPageComponent,
   ],
   imports: [

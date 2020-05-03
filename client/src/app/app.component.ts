@@ -42,6 +42,10 @@ export class AppComponent implements OnInit {
       {
   name: 'Np Landing Page',
   route: '/np-landing-page'
+      },
+      {
+  name: 'User Data Edit Page',
+  route: '/user-data-edit-page'
       }
     ];
   }
