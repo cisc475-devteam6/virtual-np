@@ -47,7 +47,14 @@ export class SymptomsAPIService {
 
   // gets selector status for getting proper symptoms from api using patient age and gender
   private getSymptomSelectorStatus(): string {
-    const isAdult = JSON.parse(localStorage.getItem('user')).age > 11 ? true : false;
+
+    // calculates age of user
+    const birthdate = new Date(JSON.parse(localStorage.getItem('user')).birth);
+    const ageDate = new Date(Date.now() - birthdate.getTime());
+    const age = Math.abs(ageDate.getUTCFullYear() - 1970);
+
+    // handles whether user is adult/child and whether user is male/female
+    const isAdult = age > 11 ? true : false;
     const isMale = JSON.parse(localStorage.getItem('user')).gender === 'Male' ? true : false;
 
     if (isAdult) {
