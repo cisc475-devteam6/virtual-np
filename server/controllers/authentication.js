@@ -87,7 +87,7 @@ exports.register = function (req, res, next) {
   const passwordC = req.body.passwordC;
   const gender = req.body.gender;
   const birthdate = req.body.birthdate;
-  console.log(birthdate);
+  const checked = req.body.checked;
   if (!email) {
     return res.status(422).send({
       error: 'You must enter an email address.'
@@ -128,6 +128,12 @@ exports.register = function (req, res, next) {
       error: 'you must be 18 years old or older'
     })
   }
+  if (!checked){
+    return res.status(422).send({
+      error: 'You must agree the terms and conditions'
+    })
+  }
+
 
   User.findOne({
     email: email

@@ -25,6 +25,8 @@ import { HeaderComponent } from './components/navigation/header/header.component
 import { DropdownSelectComponent } from './components/dropdown-select/dropdown-select.component';
 import { NpLandingPageComponent } from './pages/np-landing-page/np-landing-page.component';
 import { PaypalPageComponent } from './pages/paypal-page/paypal-page.component';
+import { TermsComponent} from './components/terms/terms.component'
+import { MatDialogModule } from '@angular/material';
 
 
 @NgModule({
@@ -43,6 +45,7 @@ import { PaypalPageComponent } from './pages/paypal-page/paypal-page.component';
     UserDataPageComponent,
     NpLandingPageComponent,
     PaypalPageComponent,
+    TermsComponent
   ],
   imports: [
     AppRoutingModule,
@@ -52,10 +55,14 @@ import { PaypalPageComponent } from './pages/paypal-page/paypal-page.component';
     SecurityModule,
     HttpClientModule,
     FormsModule,
+    MatDialogModule
   ],
   providers: [
-    {provide: DropdownSelectComponent, useClass: DropdownSelectComponent}
+    { provide: DropdownSelectComponent, useClass: DropdownSelectComponent }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent,
+  ],
+  entryComponents: [TermsComponent]
 })
 export class AppModule { }

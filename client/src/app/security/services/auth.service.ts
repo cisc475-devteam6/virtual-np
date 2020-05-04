@@ -76,8 +76,8 @@ export class AuthService {
     firstName: string,
     lastName: string,
     gender: String,
-    birthdate: String
-
+    birthdate: String,
+    checked: boolean
   ) {
     return this._http
     .post(
@@ -89,7 +89,8 @@ export class AuthService {
         password: password,
         passwordC: passwordC,
         gender: gender,
-        birthdate: birthdate
+        birthdate: birthdate,
+        checked: checked
       },
       { headers: this.headers }
     )
