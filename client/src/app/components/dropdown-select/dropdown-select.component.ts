@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SymptomsAPIService } from '../../services/symptomsAPI/symptoms-api.service';
-import { Symptom } from './symptom.model';
+import { Symptom } from '../../models/symptom.model';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { VisitService } from 'src/app/services/visit.service';
 
 @Component({
   selector: 'app-dropdown-select',
@@ -32,7 +33,7 @@ export class DropdownSelectComponent implements OnInit {
   private addedSymptoms: Symptom[] = [];
   private hiddenHeader = true;
 
-  constructor(private myAPISvc: SymptomsAPIService, private spinner: NgxSpinnerService) {
+  constructor(private myAPISvc: SymptomsAPIService, private spinner: NgxSpinnerService, private visitService: VisitService) {
     this.spinner.show();
     this.bodyPartsObservable = myAPISvc.getBodyLocations();
     this.bodyPartsObservable.subscribe(data => {
