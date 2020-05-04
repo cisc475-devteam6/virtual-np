@@ -24,6 +24,7 @@ import {
 import { HeaderComponent } from './components/navigation/header/header.component'
 import { DropdownSelectComponent } from './components/dropdown-select/dropdown-select.component';
 import { NpLandingPageComponent } from './pages/np-landing-page/np-landing-page.component';
+import { PaypalPageComponent } from './pages/paypal-page/paypal-page.component';
 import { TermsComponent} from './components/terms/terms.component'
 import { MatDialogModule } from '@angular/material';
 
@@ -43,6 +44,7 @@ import { MatDialogModule } from '@angular/material';
     CalendarPageComponent,
     UserDataPageComponent,
     NpLandingPageComponent,
+    PaypalPageComponent,
     TermsComponent
   ],
   imports: [
