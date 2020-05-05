@@ -26,7 +26,7 @@ import { DropdownSelectComponent } from './components/dropdown-select/dropdown-s
 import { NpLandingPageComponent } from './pages/np-landing-page/np-landing-page.component';
 import { TermsComponent} from './components/terms/terms.component'
 import { MatDialogModule } from '@angular/material';
-
+import { NPmailService } from './services/npmail.service'; 
 
 @NgModule({
   declarations: [
@@ -56,7 +56,8 @@ import { MatDialogModule } from '@angular/material';
     MatDialogModule
   ],
   providers: [
-    { provide: DropdownSelectComponent, useClass: DropdownSelectComponent }
+    { provide: DropdownSelectComponent, useClass: DropdownSelectComponent },
+    NPmailService
   ],
   bootstrap: [
     AppComponent,
