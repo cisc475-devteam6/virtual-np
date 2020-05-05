@@ -2,13 +2,32 @@
   flex-direction: column;
 }
 
-.form-container > * {
+.form-container>* {
   width: 100%;
 }
+
 #sign-up-card {
   max-width: 600px;
   // border-radius:0px;
-  box-shadow:none;
-  margin:1.5rem;
+  box-shadow: none;
+  margin: 1.5rem;
 }
 
+.error{
+  font-size: 10px;
+  color: red;
+}
+
+.link {
+  background: none;
+  border: none;
+  color: blue;
+  text-align: left;
+ 
+}
+.link:hover {
+  cursor: pointer;
+}
+.item {
+  display: inline;
+}

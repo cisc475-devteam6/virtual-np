@@ -19,7 +19,7 @@ const UserSchema = new Schema({
     firstName: {type: String},
     lastName: {type: String},
     gender:{type: String},
-    age: {type: Number}
+    birthdate: {type: String}
   },
   role:
   {
@@ -63,9 +63,10 @@ UserSchema.methods.toJson = function(){
     lastName: this.profile.lastName,
     gender: this.profile.gender,
     age: this.profile.age,
+    birth: this.profile.birthdate,
     email: this.email,
     role: this.role,
-    password: this.password
+    password: this.password,
     // provider: this.provider
   }
 }

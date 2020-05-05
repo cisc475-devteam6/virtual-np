@@ -67,17 +67,21 @@ describe('AuthService', () => {
             const firstName ='John';
             const lastName ='Doe';
             const password ='testpassword';
+            const passwordC ='testpassword';
             const gender = 'male';
-            const age = 20;
+            const age = "1999/3/22";
+            const checked = true;
             let response = null;
 
             service.register(
               userName,
               password,
+              passwordC,
               firstName,
               lastName,
               gender,
-              age
+              age,
+              checked
             ).subscribe(
               (receivedResponse: any) => {
                 response = receivedResponse;
