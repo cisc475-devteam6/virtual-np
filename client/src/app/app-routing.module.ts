@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'calendar-page', component: CalendarPageComponent},
   { path: 'user-data-page', component: UserDataPageComponent},
   { path: 'np-landing-page', component: NpLandingPageComponent, canActivate: [AuthGuard]},
-  { path: 'np-visit-page', component: NpVisitPageComponent}
+  { path: 'np-visit-page', component: NpVisitPageComponent},
   { path: 'paypal-page', component: PaypalPageComponent },
   
 ];

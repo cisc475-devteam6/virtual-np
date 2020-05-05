@@ -21,7 +21,7 @@
     "@angular/platform-browser": "~8.2.5",
     "@angular/platform-browser-dynamic": "~8.2.5",
     "@angular/router": "~8.2.5",
-    "@ng-bootstrap/ng-bootstrap": "^6.0.3",
+    "@ng-bootstrap/ng-bootstrap": "^5.3.0",
     "@pusher/chatkit-client": "^1.13.2",
     "@pusher/chatkit-server": "^1.0.4",
     "axios": "^0.19.0",
