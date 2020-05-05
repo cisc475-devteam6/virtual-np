@@ -44,9 +44,13 @@ export class AppComponent implements OnInit {
   route: '/np-landing-page'
       },
       {
+  name: 'User Data Edit Page',
+  route: '/user-data-edit-page'
+      },
+      {
   name: 'PayPal Page',
   route: '/paypal-page'
-            },
+      }
     ];
   }
   ngOnInit() {
@@ -83,7 +87,7 @@ export class AppComponent implements OnInit {
       {
   name: 'PayPal Page',
   route: '/paypal-page'
-            },
+            }
     ];
   }
 }

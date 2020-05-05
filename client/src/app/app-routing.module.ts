@@ -11,6 +11,7 @@ import { VisitPageComponent } from './pages/visit-page/visit-page.component';
 import { CalendarPageComponent } from './pages/calendar-page/calendar-page.component';
 import { UserDataPageComponent } from './pages/user-data-page/user-data-page.component';
 import { NpLandingPageComponent } from './pages/np-landing-page/np-landing-page.component';
+import { UserDataEditPageComponent } from './pages/user-data-edit-page/user-data-edit-page.component';
 import { PaypalPageComponent } from './pages/paypal-page/paypal-page.component';
 
 const routes: Routes = [
@@ -23,9 +24,10 @@ const routes: Routes = [
   { path: 'visit-page', component: VisitPageComponent}, //, canActivate: [AuthGuard] }
   { path: 'calendar-page', component: CalendarPageComponent},
   { path: 'user-data-page', component: UserDataPageComponent},
+  { path: 'user-data-edit-page', component: UserDataEditPageComponent},
   { path: 'np-landing-page', component: NpLandingPageComponent, canActivate: [AuthGuard]},
   { path: 'paypal-page', component: PaypalPageComponent },
-  
+ 
 ];
 
 @NgModule({
