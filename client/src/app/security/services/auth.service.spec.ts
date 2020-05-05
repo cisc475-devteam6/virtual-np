@@ -69,7 +69,8 @@ describe('AuthService', () => {
             const password ='testpassword';
             const passwordC ='testpassword';
             const gender = 'male';
-            const age = 20;
+            const age = "1999/3/22";
+            const checked = true;
             let response = null;
 
             service.register(
@@ -79,7 +80,8 @@ describe('AuthService', () => {
               firstName,
               lastName,
               gender,
-              age
+              age,
+              checked
             ).subscribe(
               (receivedResponse: any) => {
                 response = receivedResponse;

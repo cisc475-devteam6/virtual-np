@@ -46,6 +46,10 @@ export class AppComponent implements OnInit {
       {
   name: 'User Data Edit Page',
   route: '/user-data-edit-page'
+      },
+      {
+  name: 'PayPal Page',
+  route: '/paypal-page'
       }
     ];
   }
@@ -79,7 +83,11 @@ export class AppComponent implements OnInit {
       {
   name: 'Np Landing Page',
   route: '/np-landing-page'
-      }
+      },
+      {
+  name: 'PayPal Page',
+  route: '/paypal-page'
+            }
     ];
   }
 }
