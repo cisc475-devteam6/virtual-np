@@ -56,8 +56,7 @@ import { NPmailService } from './services/npmail.service';
     MatDialogModule
   ],
   providers: [
-    { provide: DropdownSelectComponent, useClass: DropdownSelectComponent },
-    NPmailService
+    { provide: DropdownSelectComponent, useClass: DropdownSelectComponent }
   ],
   bootstrap: [
     AppComponent,
