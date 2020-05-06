@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { SecurityModule } from './security/security.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppComponent } from './app.component';
 import {
@@ -61,7 +62,8 @@ import { NPmailService } from './services/npmail.service';
     HttpClientModule,
     FormsModule,
     NgbModule,
-    MatDialogModule
+    MatDialogModule,
+    NgxSpinnerModule
   ],
   providers: [
     { provide: DropdownSelectComponent, useClass: DropdownSelectComponent }
