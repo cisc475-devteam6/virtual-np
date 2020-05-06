@@ -9,3 +9,4 @@ export * from './calendar-page/calendar-page.component';
 export * from './user-data-page/user-data-page.component';
 export * from './np-landing-page/np-landing-page.component';
 export * from './np-visit-page/np-visit-page.component';
+export * from './user-data-edit-page/user-data-edit-page.component';

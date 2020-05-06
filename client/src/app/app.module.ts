@@ -18,7 +18,8 @@ import {
   AdminChatPageComponent,
   VisitPageComponent,
   CalendarPageComponent,
-  UserDataPageComponent
+  UserDataPageComponent,
+  UserDataEditPageComponent
 } from './pages';
 
 
@@ -45,6 +46,7 @@ import { MatDialogModule } from '@angular/material';
     DropdownSelectComponent,
     CalendarPageComponent,
     UserDataPageComponent,
+    UserDataEditPageComponent,
     NpLandingPageComponent,
     NpVisitPageComponent,
     PaypalPageComponent,
