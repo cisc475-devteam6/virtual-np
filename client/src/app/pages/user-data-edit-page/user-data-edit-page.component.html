@@ -1,0 +1,103 @@
+<div class="page-container">
+    <mat-card id="card">
+        <mat-card-title>Edit Your Personal Data</mat-card-title>
+        
+        <mat-card-content>
+            Gender Identity:
+        </mat-card-content>
+        <mat-card-content>
+            <div class="form-container" (keyup.enter)="registerClick()">
+                <mat-form-field appearance="outline">
+                    <mat-label>Gender Identity</mat-label>
+                    <input matInput [(ngModel)]="gender" placeholder="Gender Identity" type="Gender">
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+
+        <mat-card-content>
+            Street Address:
+        </mat-card-content>
+        <mat-card-content>
+            <div class="form-container" (keyup.enter)="registerClick()">
+                <mat-form-field appearance="outline">
+                    <mat-label>Street Address</mat-label>
+                    <input matInput [(ngModel)]="address" placeholder="Street Address" type="Address">
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+
+        <mat-card-content>
+            City:
+        </mat-card-content>
+        <mat-card-content>
+            <div class="form-container" (keyup.enter)="registerClick()">
+                <mat-form-field appearance="outline">
+                    <mat-label>City</mat-label>
+                    <input matInput [(ngModel)]="city" placeholder="City" type="City">
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+
+        <mat-card-content>
+            Zip Code:
+        </mat-card-content>
+        <mat-card-content>
+            <div class="form-container" (keyup.enter)="registerClick()">
+                <mat-form-field appearance="outline">
+                    <mat-label>Zip Code</mat-label>
+                    <input matInput [(ngModel)]="zip" placeholder="Zip Code" type="Zip">
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+
+        <mat-card-content>
+            Country:
+        </mat-card-content>
+        <mat-card-content>
+            <div class="form-container" (keyup.enter)="registerClick()">
+                <mat-form-field appearance="outline">
+                    <mat-label>Country</mat-label>
+                    <input matInput [(ngModel)]="country" placeholder="Country" type="Country">
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+
+        <mat-card-content>
+            State:
+        </mat-card-content>
+        <mat-card-content>
+            <div class="form-container" (keyup.enter)="registerClick()">
+                <mat-form-field appearance="outline">
+                    <mat-label>State</mat-label>
+                    <input matInput [(ngModel)]="state" placeholder="State" type="State">
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+
+        <mat-card-content>
+            Email:
+        </mat-card-content>
+        <mat-card-content>
+            <div class="form-container" (keyup.enter)="registerClick()">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput [(ngModel)]="email" placeholder="Email" type="Email">
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+
+        <mat-card-content>
+            Phone Number:
+        </mat-card-content>
+        <mat-card-content>
+            <div class="form-container" (keyup.enter)="registerClick()">
+                <mat-form-field appearance="outline">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput [(ngModel)]="phone" placeholder="Phone Number" type="Phone">
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+
+        <button mat-flat-button id="Submit" routerLink="/user-data-page">Submit Changes</button>
+    </mat-card>
+</div>

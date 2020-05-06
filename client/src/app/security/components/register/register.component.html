@@ -18,7 +18,8 @@
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
-        <input matInput [(ngModel)]="password" placeholder="Password" type="password" (change) = "passwordMatch()"required>
+        <input matInput [(ngModel)]="password" placeholder="Password" type="password" (change)="passwordMatch()"
+          required>
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Confirm Password</mat-label>
@@ -38,6 +39,16 @@
         <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
         <mat-datepicker #myDatepicker></mat-datepicker>
       </mat-form-field>
+      <div class="item">
+        <mat-checkbox (click)="isChecked()" required>
+          I agree to the Terms and Conditions
+        </mat-checkbox>
+        <button class="link" (click)="openDialog()">
+          <b>virtual-np-terms</b>
+        </button>
+        <p></p>
+        <span class="error" id="termsE"></span>
+      </div>
       <button mat-flat-button color=primary (click)="registerClick()" type="submit">
         Sign In
       </button>
