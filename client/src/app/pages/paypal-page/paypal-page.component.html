@@ -1,4 +1,30 @@
-<div id = "center" *ngIf="!paidFor">
-    <h1> Pay for Appointment here - ${{product.price }} </h1>
+<div class="banner">
+    <form>
+        <div id="center" *ngIf="!paidFor">
+            <h1 class="banner-header">Pay for Appointment here - ${{product.price }} </h1>
+        </div>
+        <div class="hello" #paypal></div>
+    </form>
 </div>
-<div class = "center" #paypal></div>
+
+<div class="pay_info">
+    <h3>
+        <a href="https://www.paypal.com/us/home">PayPal</a>
+    </h3>
+    <a href="https://www.paypal.com/us/home">
+        <img src="/assets/paypalimage.svg" alt="logo" width="550" height="356"></a>
+
+</div>
+
+<div class="footer">
+    <p>PayPal is the world’s most widely used payment acquirer, processing over $4 billion in payments in 2011. PayPal
+        payments are made using a user’s existing account or with a credit card. Money can be sent directly to an email
+        address, thus prompting the users to sign up for a new PayPal account. In addition to taking payments, PayPal
+        also allows its users to send money through the service, which is a feature that only a few payment solutions
+        provide.
+    </p>
+    <p><strong>Pricing:</strong> PayPal takes 2.9% + $0.30 per transaction and has no setup or monthly fees.</p>
+     <p><strong>Source:</strong>
+        PayPal merchant fees</p>
+
+</div>

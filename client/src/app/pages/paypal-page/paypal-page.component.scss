@@ -1,8 +1,29 @@
-html,
+@import 'src/virtual-np-theme.scss';
+:host {
+  grid-row: 2;
+  grid-column: 1 / -1;
+}
 body {
   height: 100%;
 }
+form {
+  width: 100%;
+  margin: 30px auto;
+  padding: 30px 30px;
+  border-radius: 10px;
+  background-color:mat-color($virtual-np-primary);
+  color: #f7fff7;
+  overflow:hidden;
+  place-items:center;
+  display:grid;
+  
+  // height:15rem;
+  height:1%;
 
+
+ 
+  font-family: "Montserrat", sans-serif;
+}
 body {
   display: flex;
   align-content: center;
@@ -10,16 +31,48 @@ body {
   align-items: center;
 }
 
-#center {
-  margin: auto;
-  width: 100%;
-
-  padding: 10px;
+a {
+  color: #466DB2;
+  font-family: "Roboto", sans-serif;
+  font-size: 22px;
 }
 
-#center h1{
+p {
+  
+  padding: 2px;
+}
+
+#center h1 {
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding:20px 100px;
+  left: 50%;
+  text-align: center;
+}
+
+.hello {
+  text-align: center; 
+}
+
+.pay_info {
+  text-align: center;
+  position: relative;
+}
+
+.pay_info p {
+  margin:0;
+  padding:20px;
+  position:absolute;
+  bottom:0;
+}
+
+.footer {
+  padding: 50px;
+}
+
+.banner-header {
+  grid-column: 1;
+}
+@media only screen and (max-width: 800px) {
+  .banner-header {
+    grid-column: 1 / -1;
+  }
 }
