@@ -7,7 +7,7 @@ import { Page } from './pages/models/page';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title: string;
+  
     pages: any;
   newProperty: any;
 
@@ -34,11 +34,23 @@ export class AppComponent implements OnInit {
       {
   name: 'Admin Chat Page',
   route: '/admin-chat'
-      }
+      },
+      {
+  name: 'User Data Page',
+  route: '/user-data-page'
+      },
+      {
+  name: 'Np Landing Page',
+  route: '/np-landing-page'
+      },
+      {
+  name: 'PayPal Page',
+  route: '/paypal-page'
+            },
     ];
   }
   ngOnInit() {
-    this.title = 'Melanie Hurst';
+    
     this.pages = [
       {
 	name: 'Sign Up',
@@ -59,7 +71,19 @@ export class AppComponent implements OnInit {
       {
   name: 'Admin Chat Page',
   route: '/admin-chat'
-      }
+      },
+      {
+  name:'User Data Page',
+  route: '/user-data-page'
+      },
+      {
+  name: 'Np Landing Page',
+  route: '/np-landing-page'
+      },
+      {
+  name: 'PayPal Page',
+  route: '/paypal-page'
+            },
     ];
   }
 }

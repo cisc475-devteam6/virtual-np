@@ -8,7 +8,10 @@ import { AdminChatPageComponent } from './pages/admin-chat-page/admin-chat-page.
 import { UserChatPageComponent } from './pages/user-chat-page/user-chat-page.component';
 import { AuthGuard } from './security/auth.guard';
 import { VisitPageComponent } from './pages/visit-page/visit-page.component';
-
+import { CalendarPageComponent } from './pages/calendar-page/calendar-page.component';
+import { UserDataPageComponent } from './pages/user-data-page/user-data-page.component';
+import { NpLandingPageComponent } from './pages/np-landing-page/np-landing-page.component';
+import { PaypalPageComponent } from './pages/paypal-page/paypal-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -16,12 +19,13 @@ const routes: Routes = [
   { path: 'sign-in', component: SignInPageComponent },
   { path: 'user-chat', component: UserChatPageComponent},
   { path: 'admin-chat', component: AdminChatPageComponent},
-  {
-    path: 'landing-page',
-    component: LandingPageComponent,
-    canActivate: [AuthGuard],
-  },
-  { path: 'visit-page', component: VisitPageComponent} //, canActivate: [AuthGuard] }
+  {path: 'landing-page',component: LandingPageComponent,canActivate: [AuthGuard],},
+  { path: 'visit-page', component: VisitPageComponent}, //, canActivate: [AuthGuard] }
+  { path: 'calendar-page', component: CalendarPageComponent},
+  { path: 'user-data-page', component: UserDataPageComponent},
+  { path: 'np-landing-page', component: NpLandingPageComponent, canActivate: [AuthGuard]},
+  { path: 'paypal-page', component: PaypalPageComponent },
+  
 ];
 
 @NgModule({

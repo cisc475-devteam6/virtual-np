@@ -14,7 +14,11 @@ export class PagesService {
     {
       name: 'Chat',
       route: '/user-chat'
-    }
+    },
+    {
+      name: 'NP Landing Page',
+      route: '/np-landing-page'
+    },
   ];
   private noAuthPages: Array<Page> = [
       {
