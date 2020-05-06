@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth.service'
 import { TermsComponent} from'../../../components/terms/terms.component'
 import { MatDialog } from '@angular/material';
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
+import { NPmailService } from '../../../services/npmail.service';
 import * as $ from 'jquery'
 @Component({
   selector: 'app-register',
@@ -23,7 +24,7 @@ export class RegisterComponent implements OnInit {
   matched: boolean;
   checked: boolean;
 
-  constructor(private _authSvc: AuthService, public dialog: MatDialog) { }
+  constructor(private _authSvc: AuthService, private _mailSvc: NPmailService, public dialog: MatDialog) { }
 
 
   genders: string[] = [
@@ -48,6 +49,12 @@ export class RegisterComponent implements OnInit {
       this.gender,
       this.birthdate,
       this.checked,
+    ).subscribe(
+      data => console.log('Data:' + data),
+      err => console.log(err)
+    );
+    this._mailSvc.sendSignUpMessage(
+	this.email
     ).subscribe(
       data => console.log('Data:' + data),
       err => console.log(err)
