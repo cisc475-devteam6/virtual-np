@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { SecurityModule } from './security/security.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppComponent } from './app.component';
 import {
@@ -15,13 +17,21 @@ import {
   LandingPageComponent,
   UserChatPageComponent,
   AdminChatPageComponent,
-  VisitPageComponent
+  VisitPageComponent,
+  CalendarPageComponent,
+  UserDataPageComponent,
+  UserDataEditPageComponent
 } from './pages';
 
 
 import { HeaderComponent } from './components/navigation/header/header.component'
 import { DropdownSelectComponent } from './components/dropdown-select/dropdown-select.component';
-
+import { NpLandingPageComponent } from './pages/np-landing-page/np-landing-page.component';
+import { NpVisitPageComponent } from './pages/np-visit-page/np-visit-page.component';
+import { PaypalPageComponent } from './pages/paypal-page/paypal-page.component';
+import { TermsComponent} from './components/terms/terms.component'
+import { MatDialogModule } from '@angular/material';
+import { NPmailService } from './services/npmail.service'; 
 
 @NgModule({
   declarations: [
@@ -35,6 +45,13 @@ import { DropdownSelectComponent } from './components/dropdown-select/dropdown-s
     HeaderComponent,
     VisitPageComponent,
     DropdownSelectComponent,
+    CalendarPageComponent,
+    UserDataPageComponent,
+    UserDataEditPageComponent,
+    NpLandingPageComponent,
+    NpVisitPageComponent,
+    PaypalPageComponent,
+    TermsComponent
   ],
   imports: [
     AppRoutingModule,
@@ -44,10 +61,16 @@ import { DropdownSelectComponent } from './components/dropdown-select/dropdown-s
     SecurityModule,
     HttpClientModule,
     FormsModule,
+    NgbModule,
+    MatDialogModule,
+    NgxSpinnerModule
   ],
   providers: [
-    {provide: DropdownSelectComponent, useClass: DropdownSelectComponent}
+    { provide: DropdownSelectComponent, useClass: DropdownSelectComponent }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent,
+  ],
+  entryComponents: [TermsComponent]
 })
 export class AppModule { }

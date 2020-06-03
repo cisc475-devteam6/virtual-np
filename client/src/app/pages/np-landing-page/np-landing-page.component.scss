@@ -1,0 +1,85 @@
+@import '../pages.scss';
+@import 'src/virtual-np-theme.scss';
+:host {
+  grid-row: 2;
+  grid-column: 1 / -1;
+}
+
+.page-container {
+  background-color: mat-color($virtual-np-primary);
+}
+
+#landing-grid {
+  width:75%;
+  height:100%;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 3rem;
+  align-items:center;
+}
+
+@media only screen and (max-width: 1000px) {
+  #landing-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 600px) { #landing-grid { grid-template-columns: 1fr;
+  }
+}
+
+#landing-card {
+  height: 7rem;
+  border-radius:0px;
+  box-shadow:none;
+  cursor:pointer;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+
+.button-tile h2 {
+  text-align:center;
+  font-weight:400;
+  font-size: 1.2rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  color:white;
+  width:100%;
+}
+
+.icon {
+  background-color: mat-color($virtual-np-primary, 200);
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  font-size: 1.2rem;
+  height:6rem;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  color:white;
+  border-top-left-radius:4px;
+  border-bottom-left-radius:4px;
+}
+.button-tile {
+  cursor:pointer;
+  background-color: mat-color($virtual-np-primary, 300);
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  border-bottom-right-radius:2rem;
+  border-radius:4px;
+}
+.button-tile:hover {
+  background-color: mat-color($virtual-np-primary, 600);
+}
+.button-tile:hover .icon{
+  background-color: mat-color($virtual-np-primary, 400);
+}
+
+.button-tile:active {
+  background-color: mat-color($virtual-np-primary, 800);
+}
+.button-tile:active .icon{
+  background-color: mat-color($virtual-np-primary, 400);
+}

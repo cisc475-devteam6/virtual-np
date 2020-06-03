@@ -1,3 +1,4 @@
+<ngx-spinner></ngx-spinner>
 <mat-form-field class="part-select">
   <mat-label id="label">Select Body Part</mat-label>
   <select matNativeControl required id="bodyPart" (change)="getBodyPart($event.target.value)" [disabled]="disabledBody">
@@ -6,13 +7,23 @@
   </select>
 </mat-form-field>
 <br/><button mat-flat-button color="accent" id="next" (click)="getSublocations()">Apply Filter</button>
+
+<mat-form-field class="part-select">
+  <mat-label id="label">Select SubBody Part</mat-label>
+  <select matNativeControl required id="subbodyPart" (change)="getSubBodyPart($event.target.value)" [disabled]="disabledSubBody">
+    <option value="Default" id="default">Select Affected SubBody Part</option>
+    <option *ngFor="let part of sublocations">{{part}}</option>
+  </select>
+</mat-form-field>
+<br/><button mat-flat-button color="accent" id="subnext" (click)="getSublocationSymptoms()" [disabled]="disabledSubBody">Apply Filter</button>
+
 <br/><br/><mat-form-field class="symptom-select">
   <mat-label>Select Symptom</mat-label>
   <select matNativeControl required id="select" (change)="prepSymptom($event.target.value)" [disabled]="disabledSymptoms">
     <option value="Default">Select Symptom</option>
-    <option *ngFor="let symptom of symptoms">{{symptom}}</option>
+    <option *ngFor="let symptom of symptoms">{{symptom.name}}</option>
   </select>
 </mat-form-field>
-<br/><button mat-flat-button color="accent" id="add" (click)="addSymptom()">Add Symptom</button>
+<br/><button mat-flat-button color="accent" id="add" (click)="addSymptom()" [disabled]="disabledSymptoms">Add Symptom</button>
 <br/><h4 [hidden]='hiddenHeader'>Your Symptoms:</h4>
-<br/><div *ngFor="let symptom of addedSymptoms">{{symptom}}</div>
+<br/><div *ngFor="let symptom of addedSymptoms">{{symptom.sublocation}} - {{symptom.name}}</div>
